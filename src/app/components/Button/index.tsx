@@ -1,9 +1,18 @@
 import clsx from 'clsx';
 import { colors } from './constants';
+// import Icon from '../Nav/Icon'
 
-const Button = (props) => {
+type ButtonProps = {
+  children: React.ReactNode;
+  className?: string;
+  icon?: string;
+  color?: keyof typeof colors;
+  onClick: () => {};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+const Button = (props: ButtonProps) => {
   const {
-    children, className, outline, icon, color, ...rest
+    children, className, icon, color, onClick, ...rest
   } = props;
   const classes = colors[color ?? 'primary'];
     return (
@@ -13,8 +22,9 @@ const Button = (props) => {
           className,
           classes
         )}
-        {...rest}
-      >
+        onClick={onClick}
+        {...rest}>
+        {/* {icon && <Icon iconName={icon} />} */}
         {children}
       </button>
   )

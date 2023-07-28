@@ -1,9 +1,11 @@
+import Button from '../Button'
+
 const Search = () => {
   return (
     <div className="relative">
-      {/* TODO: BaseButton  */}
-      <span className="icon-search text-lg me-2 search-button"></span>
-      <h6 className="search-button">搜尋</h6>
+      <Button color="gray-text">
+        搜尋
+      </Button>
       {/* TODO: SearchModal  */}
     </div>
   );

@@ -3,7 +3,7 @@ import Button from '../Button'
 const Message = () => {
   return (
     <div className="relative">
-    <Button>
+    <Button color="gray-text">
       訊息
     </Button>
     {/* TODO: Message Modal  */}

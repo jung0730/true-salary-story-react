@@ -1,4 +1,5 @@
 import './globals.css'
+import DesktopNav from '../components/Nav/DesktopNav';
 import Provider from './provider';
 import { Inter } from 'next/font/google'
 
@@ -16,10 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <header>
-          header
-        </header>
+      <body>
+        <DesktopNav />
         <Provider>{children}</Provider>
         <footer>
           footer

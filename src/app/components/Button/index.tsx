@@ -7,7 +7,7 @@ type ButtonProps = {
   className?: string;
   icon?: string;
   color?: keyof typeof colors;
-  onClick: () => {};
+  onClick: () => void;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = (props: ButtonProps) => {

@@ -1,13 +1,10 @@
+import ModalContainer from './ModalContainer'
+import Button from '../Button'
+
 const SearchModal = () => {
+  const title = '搜尋'
   return (
-    <div className="absolute shadow-xl bg-white top-[90px] w-[400px] p-5 rounded"
-    style={{ right: '-100%' }}>
-      <div className="flex justify-between pb-3 border-b border-b-black-5">
-        <div className="text-xl">搜尋</div>
-          <button className="bg-black-1 px-2 py-1 mr-2 text-sm tracking-widest">
-            <i className="icomoon icon-cross"></i>
-          </button>
-      </div>
+    <ModalContainer title={title}>
       <div className="flex flex-col pt-2 pb-2">
         <div className="w-full flex mb-2">
           <div className="py-3 pe-6">
@@ -67,9 +64,12 @@ const SearchModal = () => {
             />
           </div>
         </div>
-        {/* TODO: BaseButton 搜尋  */}
+        <Button color="secondary"
+                className="w-full">
+            搜尋
+        </Button>
       </div>
-    </div>
+  </ModalContainer>
   );
 };
 

@@ -5,5 +5,6 @@ export const colors = {
   gray: 'text-black-6 fill-black-6 bg-dark hover:bg-gray-light',
   'gray-text': 'text-black-6 fill-black-6 hover:text-black-10 hover:fill-black-10',
   'blue-text': 'text-blue fill-blue hover:text-black-10 hover:fill-black-10',
-  'yellow-text': 'text-yellow fill-yellow hover:text-blue hover:fill-blue'
+  'yellow-text': 'text-yellow fill-yellow hover:text-blue hover:fill-blue',
+  'black-text': 'hover:border-b-2 hover:text-blue hover:border-b-blue'
 }

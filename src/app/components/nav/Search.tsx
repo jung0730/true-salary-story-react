@@ -1,21 +1,18 @@
 'use client'
 
-import { useState } from 'react';
+import { useModalStore } from '../../stores/modal';
 import Button from '../Button'
 import SearchModal from './SearchModal';
 
 const Search = () => {
-  const [open, setOpen] = useState(false)
-  const handleClick = () => {
-    setOpen(true)
-  }
+  const { isOpen, setIsOpen } = useModalStore()
   return (
     <div className="relative">
       <Button color="gray-text"
-              onClick={handleClick}>
+              onClick={() => setIsOpen(!isOpen)}>
         搜尋
       </Button>
-      { open && <SearchModal /> }
+      { isOpen && <SearchModal /> }
     </div>
   );
 };

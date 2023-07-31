@@ -6,14 +6,16 @@ type InputProps = {
   onChange: (value: string) => void;
   className?: string;
   placeholder?: string;
+  value?: string;
 };
 
 const Button = (props: InputProps) => {
   const {
-    placeholder, className, isDisabled, onChange, ...rest
+    placeholder, className, isDisabled, onChange, value
   } = props;
   return (
     <input type="text"
+           value={value}
            disabled={isDisabled}
            placeholder={placeholder}
            onChange={(e) => onChange(e.target.value)}

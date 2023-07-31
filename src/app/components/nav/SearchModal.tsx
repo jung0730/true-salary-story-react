@@ -22,27 +22,18 @@ const SearchModal = () => {
           <div
             className="flex items-center w-full border border-black-1 rounded mb-2"
           >
-            <div
-              className="icon-search text-black-5 pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 z-10"
-            ></div>
             <Input placeholder={'搜尋公司'}
                    onChange={(value) => console.log(value)} />
           </div>
           <div
             className="flex items-center w-full border border-black-1 rounded mb-2"
           >
-            <div
-              className="icon-search text-black-5 pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 z-10"
-            ></div>
             <Input placeholder={'搜尋職位'}
                    onChange={(value) => console.log(value)} />
           </div>
           <div
             className="flex items-center w-full border border-black-1 rounded mb-2"
           >
-            <div
-              className="icon-search text-black-5 pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 z-10"
-            ></div>
             <Input placeholder={'搜尋產業'}
                    onChange={(value) => console.log(value)} />
           </div>

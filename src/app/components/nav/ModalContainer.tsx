@@ -1,4 +1,5 @@
 import { useModalStore } from '../../stores/modal';
+import { useClickOutside } from '../../hooks/useClickOutside';
 
 type ModalContainerProps = {
   children: React.ReactNode;
@@ -9,9 +10,10 @@ const ModalContainer = (props: ModalContainerProps) => {
   const {
     children, title
   } = props;
-  const { setIsOpen } = useModalStore()
+  const { setIsOpen } = useModalStore();
+  const ref = useClickOutside(() => setIsOpen(false));
   return (
-    <div className="absolute shadow-xl bg-white top-[90px] w-[400px] p-5 rounded">
+    <div className="absolute shadow-xl bg-white top-[90px] w-[400px] p-5 rounded" ref={ref}>
       <div className="flex justify-between pb-3 border-b border-b-black-5">
         <div className="text-xl">
           { title }

@@ -7,13 +7,12 @@ type ButtonProps = {
   className?: string;
   icon?: string;
   color?: keyof typeof colors;
-  isRounded?: boolean;
   onClick: () => void;
 };
 
 const Button = (props: ButtonProps) => {
   const {
-    children, className, icon, color, onClick, isRounded, ...rest
+    children, className, icon, color, onClick, ...rest
   } = props;
   const classes = colors[color ?? 'primary'];
     return (
@@ -22,7 +21,7 @@ const Button = (props: ButtonProps) => {
           'duration-300 ease-in-out py-3 px-5 transition',
           className,
           classes,
-          isRounded && 'rounded'
+          color !== 'black-text' && 'rounded'
         )}
         onClick={onClick}
         {...rest}>

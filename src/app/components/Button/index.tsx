@@ -18,10 +18,9 @@ const Button = (props: ButtonProps) => {
     return (
       <button
         className={clsx(
-          'duration-300 ease-in-out py-3 px-5 transition',
+          'duration-300 ease-in-out transition',
           className,
           classes,
-          color !== 'black-text' && 'rounded'
         )}
         onClick={onClick}
         {...rest}>

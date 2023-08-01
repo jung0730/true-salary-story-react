@@ -2,6 +2,7 @@ import Button from '../Button'
 import Search from './Search'
 import Message from './Message'
 import Point from './Point'
+import User from './User'
 
 const NavList = () => {
   return (
@@ -17,6 +18,7 @@ const NavList = () => {
       <Button color="secondary">
         登入
       </Button>
+      <User />
       <Button>
         加薪計畫
       </Button>

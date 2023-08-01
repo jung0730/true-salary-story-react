@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useState } from 'react'
-import ModalContainer from './ModalContainer'
 import Button from '../Button'
 import Input from '../Input'
 
@@ -11,7 +10,6 @@ enum SearchType {
 }
 
 const SearchModal = () => {
-  const title = '搜尋'
   const [tab, setTab] = useState(SearchType.COMPANY)
   const [searchTerm, setSearchTerm] = useState({
     company: '',
@@ -28,7 +26,6 @@ const SearchModal = () => {
     }))
   }
   return (
-    <ModalContainer title={title}>
       <div className="flex flex-col pt-2 pb-2">
         <div className="w-full flex mb-2">
           <Button color="black-text" isRounded={false} onClick={() => setTab(SearchType.COMPANY)} className={clsx('border-b-2', toggleTabClass(SearchType.COMPANY))}>
@@ -61,7 +58,6 @@ const SearchModal = () => {
             搜尋
         </Button>
       </div>
-  </ModalContainer>
   );
 };
 

@@ -1,12 +1,20 @@
+'use client'
+import { useState } from 'react'
 import Button from '../Button'
+import ModalContainer from './ModalContainer'
+import PointModal from '../Nav/PointModal'
 
 const Point = () => {
+  const [isOpen, setIsOpen ] = useState(false)
   return (
     <div className="relative">
-    <Button color="yellow-text">
+    <Button color="yellow-text"
+            onClick={() => setIsOpen(!isOpen)}>
       積分
     </Button>
-    {/* TODO: Point Modal  */}
+    { isOpen && <ModalContainer setIsOpen={setIsOpen} title={'積分'}>
+                  <PointModal />
+                </ModalContainer> }
   </div>
   );
 };

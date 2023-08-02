@@ -37,7 +37,7 @@ export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
     'Content-Type': 'application/x-www-form-urlencoded',
   };
   const checkPathParameter = path.indexOf('?') > 0 ? '&' : '?';
-  const request = new Request(`${BASE_API_URL}{path}${checkPathParameter}`, args);
+  const request = new Request(`${BASE_API_URL}${path}${checkPathParameter}`, args);
   return http<T>(request);
 }
 

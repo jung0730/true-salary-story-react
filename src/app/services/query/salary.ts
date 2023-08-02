@@ -1,8 +1,9 @@
-import { get } from "http"
+import { get } from '../../utils/fetch'
 
 export const getStatistics = async () => {
   const res = await get('/api/public/statistics')
   const { registeredUsers, publishedPosts } = res
+  return res
 }
 
 export const getTopPost = async () => {

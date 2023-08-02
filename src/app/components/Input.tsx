@@ -9,7 +9,7 @@ type InputProps = {
   value?: string;
 };
 
-const Button = (props: InputProps) => {
+const Input = (props: InputProps) => {
   const {
     placeholder, className, isDisabled, onChange, value
   } = props;
@@ -26,4 +26,4 @@ const Button = (props: InputProps) => {
   )
 }
 
-export default Button;
+export default Input;

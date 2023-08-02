@@ -28,6 +28,8 @@ export function http<T>(request: RequestInfo): Promise<T> {
     // });
 }
 
+const BASE_API_URL = 'https://client-api-dev.up.railway.app'
+
 export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
   args.method = 'get';
   args.credentials = 'include';
@@ -35,7 +37,7 @@ export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
     'Content-Type': 'application/x-www-form-urlencoded',
   };
   const checkPathParameter = path.indexOf('?') > 0 ? '&' : '?';
-  const request = new Request(`${path}${checkPathParameter}`, args);
+  const request = new Request(`${BASE_API_URL}{path}${checkPathParameter}`, args);
   return http<T>(request);
 }
 
@@ -43,6 +45,6 @@ export function post<T>(path: string, body: FormData, args: RequestInit = {}): P
   args.method = 'post';
   args.body = body;
   args.credentials = 'include';
-  const request = new Request(path, args);
+  const request = new Request(`${BASE_API_URL}${path}`, args);
   return http<T>(request);
 }

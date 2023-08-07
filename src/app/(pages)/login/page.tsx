@@ -1,6 +1,28 @@
+'use client'
+import { useEffect } from 'react'
+import { useCookies } from 'react-cookie';
+import { useSearchParams, useRouter } from 'next/navigation'
 import LoginAction from '../../components/Login/LoginAction'
 
 export default function Page() {
+  const [, setToken] = useCookies(['token']);
+  const [, setRefreshToken] = useCookies(['refreshToken']);
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      const encodedTokens = searchParams.get('tokens')
+      if (encodedTokens) {
+        const tokens = JSON.parse(window.atob(encodedTokens))
+        setToken('token', tokens.token, { maxAge: 60 * 60 })
+        setRefreshToken('refreshToken', tokens.refreshToken, { maxAge: 60 * 60 * 24 * 30 })
+        // 存到zustand
+        // 回到登入前的畫面
+      }
+    }
+    checkLoginStatus()
+  }, [])
+
   return (
     <div className="login h-screen w-screen flex justify-center items-center">
       <div className="login-box bg-white border-2 p-10 w-10/12 md:w-[400px]">

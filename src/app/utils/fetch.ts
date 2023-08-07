@@ -28,7 +28,7 @@ export function http<T>(request: RequestInfo): Promise<T> {
     // });
 }
 
-const BASE_API_URL = 'https://client-api-dev.up.railway.app'
+const BASE_API_URL = 'http://localhost:3000'
 
 export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
   args.method = 'get';

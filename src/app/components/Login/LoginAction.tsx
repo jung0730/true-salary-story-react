@@ -1,5 +1,3 @@
-'use client'
-
 import { useLogin } from '../../services/mutation'
 import Image from 'next/image'
 import Button from '../Button';

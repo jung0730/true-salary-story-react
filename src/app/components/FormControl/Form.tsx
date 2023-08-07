@@ -9,7 +9,7 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm();
+  } = useForm<{ [x: string]: string }>();
   const onSubmit = (data) => {
     console.log(data)
   }

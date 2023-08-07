@@ -1,26 +1,24 @@
-// import clsx from 'clsx';
-import Input from '../Input'
+import { forwardRef, ForwardedRef } from 'react';
 
-type InputProps = {
-  isDisabled?: boolean;
-  onChange: (value: string) => void;
-  className?: string;
+type FormInputProps = {
+  label: string;
   placeholder?: string;
-  value?: string;
-  label: string
+  error?: string
 };
 
-// label, required, error...
-const FormInput = (props: InputProps) => {
-  const {
-    label, ...rest
-  } = props;
+const FormInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLInputElement>) => {
+  const { label, placeholder, error, ...rest } = props;
   return (
-    <>
+    <div className="mb-10">
       <label className="text-black-10">{label}</label>
-      <Input {...rest} />
-    </>
+      <input type="text"
+             placeholder={placeholder}
+             ref={ref}
+             {...rest}
+             className='w-full border border-black-1 rounded py-2 px-4 mt-2' />
+      <p className="min-h-[24px]">{ error}</p>
+    </div>
   )
-}
+})
 
 export default FormInput;

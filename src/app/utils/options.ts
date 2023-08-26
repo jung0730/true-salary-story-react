@@ -255,7 +255,7 @@ export const workingHoursOptions = [
   },
 ];
 
-export const isServerOptions = [
+export const isInServiceOptions = [
   {
     text: '仍在職',
     value: true,

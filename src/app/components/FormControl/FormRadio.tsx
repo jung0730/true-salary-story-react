@@ -4,7 +4,8 @@ import { forwardRef, ForwardedRef } from 'react';
 type FormRadioProps = {
   options: [];
   value?: string;
-  title: string
+  title: string;
+  error?: string;
 };
 
 // label, required, error...

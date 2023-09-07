@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { forwardRef, ForwardedRef } from 'react';
 import { useState } from 'react';
 
-type FormRadioProps = {
+type FormRadioButtonStyleProps = {
   options: [];
   title: string,
   onChange: (value: string) => void;
@@ -10,7 +10,7 @@ type FormRadioProps = {
 };
 
 // label, required, error...
-const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInputElement>) => {
+const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: ForwardedRef<HTMLInputElement>) => {
   const {
     title, options, onChange, error, ...rest
   } = props;
@@ -50,4 +50,4 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
   )
 })
 
-export default FormRadio;
+export default FormRadioButtonStyle;

@@ -258,11 +258,11 @@ export const workingHoursOptions = [
 export const isInServiceOptions = [
   {
     text: '仍在職',
-    value: true,
+    value: 'Y',
   },
   {
     text: '已離職',
-    value: false,
+    value: 'N',
   },
 ];
 

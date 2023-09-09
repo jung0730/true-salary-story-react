@@ -8,7 +8,6 @@ type FormRadioProps = {
   error?: string;
 };
 
-// label, required, error...
 const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInputElement>) => {
   const {
     title, options, error, ...rest
@@ -21,8 +20,7 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
            ref={ref}
            value={item.value}
            className={clsx(
-            'appearance-none w-[20px] h-[20px] relative after:content-[""] after:absolute after:top-1/2 after:translate-y-[-50%] after:right-0 after:w-[15px] after:h-[15px] after:border after:border-black-6 after:border-solid after:rounded-full checked:after:border-[6px] checked:after:border-blue',
-           { ...rest}
+            'appearance-none w-[20px] h-[20px] relative after:content-[""] after:absolute after:top-1/2 after:translate-y-[-50%] after:right-0 after:w-[15px] after:h-[15px] after:border after:border-black-6 after:border-solid after:rounded-full checked:after:border-[6px] checked:after:border-blue'
           )} />
       <span className="ml-2">{item.text}</span>
     </label>
@@ -33,7 +31,7 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
       <div className="md:flex items-center justify-between">
         {optionsList}
       </div>
-      <p className="min-h-[24px]">{ error}</p>
+      <p className="min-h-[24px]">{ error }</p>
     </div>
   )
 })

@@ -5,7 +5,7 @@ import { useState } from 'react';
 type FormRadioButtonStyleProps = {
   options: [];
   title: string,
-  onChange: (value: string) => void;
+  onChange: () => void;
   error?: string
 };
 
@@ -28,8 +28,7 @@ const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: 
             id={item.value}
             onChange={handleChange}
             className={clsx(
-              'h-0 left-0 opacity-0 pointer-events-none absolute top-0 invisible width-0 appearance-none',
-            { ...rest}
+              'h-0 left-0 opacity-0 pointer-events-none absolute top-0 invisible width-0 appearance-none'
             )} />
         <span className={clsx(
           'text-black-5 releative items-center flex justify-center py-3 w-full border border-dark',

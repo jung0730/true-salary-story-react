@@ -3,16 +3,18 @@ import { forwardRef, ForwardedRef } from 'react';
 type FormInputProps = {
   label: string;
   placeholder?: string;
-  error?: string
+  error?: string;
+  defaultValue?: string;
 };
 
 
 const NumberInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLInputElement>) => {
-  const { label, placeholder, error, ...rest } = props;
+  const { label, placeholder, error, defaultValue, ...rest } = props;
   return (
     <>
       <input type="text"
              placeholder={placeholder}
+             defaultValue={defaultValue}
              inputMode="numeric"
              pattern="\d*" 
              ref={ref}

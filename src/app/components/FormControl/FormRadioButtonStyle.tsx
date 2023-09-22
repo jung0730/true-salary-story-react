@@ -6,15 +6,16 @@ type FormRadioButtonStyleProps = {
   options: [];
   title: string,
   onChange: () => void;
+  defaultValue: string;
   error?: string
 };
 
 // label, required, error...
 const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: ForwardedRef<HTMLInputElement>) => {
   const {
-    title, options, onChange, error, ...rest
+    title, options, onChange, error, defaultValue, ...rest
   } = props;
-  const [select, setSelect] = useState('');
+  const [select, setSelect] = useState(defaultValue);
   const handleChange = (e) => {
     setSelect(e.target.value);
     onChange(e);

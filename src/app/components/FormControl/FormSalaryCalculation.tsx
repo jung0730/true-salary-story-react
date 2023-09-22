@@ -4,26 +4,18 @@ import NumberInput from './NumberInput';
 import FormRadioButtonStyle from './FormRadioButtonStyle';
 import Select from './Select';
 import {
-  cityOptions,
-  yearsOfServiceOptions,
-  workingHoursOptions,
-  isInServiceOptions,
-  employmentTypesOptions,
   salaryTypesOpions,
   monthOptions,
-  overtimeOptions,
-  feelingOptions,
-  tagsOptions,
 } from '../../utils/options';
 
 const FormSalaryCalculation = ({ register, errors }) => {
-  const [select, setSelect] = useState('');
+  const [select, setSelect] = useState('monthly');
   const handleChange = (e) => {
     setSelect(e.target.value)
   }
   return (
     <>
-    <FormRadioButtonStyle options={salaryTypesOpions} title="薪資狀況(新台幣)" error={errors?.salaryTypes?.message} {...register('salaryTypes', { required: "This is required." })} onChange={handleChange} />
+    <FormRadioButtonStyle defaultValue={select} options={salaryTypesOpions} title="薪資狀況(新台幣)" error={errors?.salaryTypes?.message} {...register('salaryTypes', { required: "This is required." })} onChange={handleChange} />
     <div className="mt-4">
     <div className="">
       <div className="flex flex-wrap md:flex-nowrap">

@@ -6,9 +6,10 @@ import Select from './Select';
 import {
   salaryTypesOpions,
   monthOptions,
+  workingHoursOptions
 } from '../../utils/options';
 
-const FormSalaryCalculation = ({ register, errors, getValues, setValue, reset }) => {
+const FormSalaryCalculation = ({ register, errors, getValues, setValue }) => {
   const [select, setSelect] = useState('monthly');
   let yearEndBonus;
   let holidayBonus;
@@ -18,6 +19,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, reset })
   let dailySalary;
   let hourlySalary;
   let avgWorkingDaysPerMonth;
+  let avgHoursPerDay;
   const calculateTotal = () => {
     yearEndBonus = getValues('yearEndBonus')
     holidayBonus = getValues('holidayBonus');
@@ -26,35 +28,38 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, reset })
     monthlySalary = getValues('monthlySalary');
     avgWorkingDaysPerMonth = getValues('avgWorkingDaysPerMonth');
     hourlySalary = getValues('hourlySalary');
+    avgHoursPerDay = getValues('avgHoursPerDay');
+    dailySalary = getValues('dailySalary');
     let total;
+    let salary;
     const bonus = Number(yearEndBonus) + Number(holidayBonus) + Number(profitSharingBonus) + Number(otherBonus);
     if (select === 'monthly') {
-      monthlySalary = Number(getValues('monthlySalary')) * 12;
-      total = monthlySalary + bonus;
+      salary = Number(monthlySalary) * 12;
+      total = salary + bonus;
     }
     if (select === 'hourly') {
-      hourlySalary = Number(getValues('hourlySalary')) * Number(avgWorkingDaysPerMonth);
-      total = hourlySalary + bonus;
+      salary = Number(hourlySalary) * Number(avgHoursPerDay) * Number(avgWorkingDaysPerMonth);
+      total = salary + bonus;
     }
     if (select === 'daily') {
-      dailySalary = Number(getValues('dailySalary')) * Number(avgWorkingDaysPerMonth);
-      total = dailySalary + bonus;
+      salary = Number(dailySalary) * Number(avgWorkingDaysPerMonth);
+      total = salary + bonus;
     }
     setValue('total', total)
   }
   const handleSalaryTypeChange = (e) => {
     setSelect(e.target.value);
-    reset({
-      monthlySalary: '',
-      dailySalary: '',
-      hourlySalary: '',
-      avgWorkingDaysPerMonth: '',
-      holidayBonus: '',
-      otherBonus: '',
-      profitSharingBonus: '',
-      yearEndBonus: '',
-      total: 0
-    })
+    setValue('total', 0)
+    setValue('monthlySalary', '');
+    setValue('dailySalary', '')
+    setValue('hourlySalary', '');
+    setValue('dailySalary', '')
+    setValue('avgWorkingDaysPerMonth', '');
+    setValue('holidayBonus', '')
+    setValue('otherBonus', '');
+    setValue('profitSharingBonus', '')
+    setValue('yearEndBonus', '');
+    setValue('avgHoursPerDay', '')
   }
   return (
     <>
@@ -76,10 +81,17 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, reset })
             select === 'hourly' && <NumberInput placeholder={'時薪 EX:176'} {...register('hourlySalary', {onBlur: () => {calculateTotal()}})}/>
           }
         </div>
+        { select === 'hourly' && 
+        <div className="md:shrink grow md:w-full flex">
+          <div className="w-full">
+            <Select options={workingHoursOptions} {...register('avgHoursPerDay', {onChange: () => {calculateTotal()}})} />
+          </div>
+        </div>
+        }
         { select !== 'monthly' && 
         <div className="md:shrink grow md:w-full flex">
           <div className="w-full">
-            <Select options={monthOptions} {...register('avgWorkingDaysPerMonth', {onChange: (e) => {calculateTotal()}})} />
+            <Select options={monthOptions} {...register('avgWorkingDaysPerMonth', {onChange: () => {calculateTotal()}})} />
           </div>
         </div>
         }

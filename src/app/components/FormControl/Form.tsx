@@ -22,7 +22,6 @@ const Form = () => {
     handleSubmit,
     getValues,
     setValue,
-    reset,
     formState: { errors }
   } = useForm<{ [x: string]: string }>({
     defaultValues: {
@@ -52,7 +51,7 @@ const Form = () => {
       <FormSelect options={yearsOfServiceOptions} title="總年資" error={errors?.totalYearsOfService?.message} {...register('totalYearsOfService', { required: "This is required." })} />
       <FormRadioButtonStyle defaultValue="全職" options={employmentTypesOptions} title="職務類別"  error={errors?.employmentType?.message} {...register('employmentType',  { required: "This is required." })}/>
       <FormRadioButtonStyle defaultValue="Y" options={isInServiceOptions} title="在職狀況" error={errors?.isInService?.message} {...register('isInService', { required: "This is required." })} />
-      <FormSalaryCalculation setValue={setValue} register={register} errors={errors} getValues={getValues} reset={reset} />
+      <FormSalaryCalculation setValue={setValue} register={register} errors={errors} getValues={getValues} />
       <FormRadio options={overtimeOptions} title="上班頻率" error={errors?.overtime?.message} {...register('overtime', { required: "This is required." })} />
       <FormRadio options={feelingOptions} title="上班狀況" error={errors?.feeling?.message} {...register('feeling', { required: "This is required." })} />
       <button type="submit" className="w-full">

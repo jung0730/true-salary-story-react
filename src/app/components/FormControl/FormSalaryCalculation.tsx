@@ -70,36 +70,42 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue }) => {
         <div className="w-full">
           { select === 'monthly' &&
           <>
-            <NumberInput placeholder={'月薪 EX:35000'} {...register('monthlySalary', { pattern: {
+            <NumberInput placeholder={'月薪 EX:35000'} error={errors?.monthlySalary?.message} {...register('monthlySalary', { pattern: {
                                                                                       value: /^(0|[1-9]\d*)(\.\d+)?$/
-                                                                                    }, onBlur: () => {calculateTotal()}})}/>
+                                                                                    },
+                                                                                    required: "This is required.",
+                                                                                    onBlur: () => {calculateTotal()}})}/>
             <span className="absolute top-2 right-4 flex items-center pt-2 text-black-6 text-sm">x12月</span>
           </>
           }
           {
-            select === 'daily' && <NumberInput placeholder={'日薪 EX:1000'} {...register('dailySalary', {
+            select === 'daily' && <NumberInput placeholder={'日薪 EX:1000'} error={errors?.dailySalary?.message} {...register('dailySalary', {
               pattern:{
                 value: /^(0|[1-9]\d*)(\.\d+)?$/
-              }, onBlur: () => {calculateTotal()}})}/>
+              }, 
+              required: "This is required.",
+              onBlur: () => {calculateTotal()}})}/>
           }
           {
-            select === 'hourly' && <NumberInput placeholder={'時薪 EX:176'} {...register('hourlySalary', {
+            select === 'hourly' && <NumberInput placeholder={'時薪 EX:176'} error={errors?.hourlySalary?.message} {...register('hourlySalary', {
               pattern:{
                 value: /^(0|[1-9]\d*)(\.\d+)?$/
-              }, onBlur: () => {calculateTotal()}})}/>
+              },
+              required: "This is required.",
+              onBlur: () => {calculateTotal()}})}/>
           }
         </div>
         { select === 'hourly' && 
         <div className="md:shrink grow md:w-full flex">
           <div className="w-full">
-            <Select options={workingHoursOptions} {...register('avgHoursPerDay', {onChange: () => {calculateTotal()}})} />
+            <Select options={workingHoursOptions} error={errors?.avgHoursPerDay?.message} {...register('avgHoursPerDay', {required: "This is required.", onChange: () => {calculateTotal()}})} />
           </div>
         </div>
         }
         { select !== 'monthly' && 
         <div className="md:shrink grow md:w-full flex">
           <div className="w-full">
-            <Select options={monthOptions} {...register('avgWorkingDaysPerMonth', {onChange: () => {calculateTotal()}})} />
+            <Select options={monthOptions} error={errors?.avgWorkingDaysPerMonth?.message} {...register('avgWorkingDaysPerMonth', {required: "This is required.", onChange: () => {calculateTotal()}})} />
           </div>
         </div>
         }

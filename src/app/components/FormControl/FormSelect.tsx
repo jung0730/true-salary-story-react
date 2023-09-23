@@ -15,9 +15,7 @@ const FormSelect = forwardRef((props: FormSelectProps, ref: ForwardedRef<HTMLSel
   return (
     <div className="mb-10">
       <div className="text-black-10 mb-2">{title}</div>
-      <div className="md:flex items-center justify-between">
-        <Select {...props} ref={ref} />
-      </div>
+      <Select {...props} ref={ref} />
     </div>
   )
 })

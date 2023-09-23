@@ -70,15 +70,23 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue }) => {
         <div className="w-full">
           { select === 'monthly' &&
           <>
-            <NumberInput placeholder={'月薪 EX:35000'} {...register('monthlySalary', {onBlur: () => {calculateTotal()}})}/>
+            <NumberInput placeholder={'月薪 EX:35000'} {...register('monthlySalary', { pattern: {
+                                                                                      value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                                    }, onBlur: () => {calculateTotal()}})}/>
             <span className="absolute top-2 right-4 flex items-center pt-2 text-black-6 text-sm">x12月</span>
           </>
           }
           {
-            select === 'daily' && <NumberInput placeholder={'日薪 EX:1000'} {...register('dailySalary', {onBlur: () => {calculateTotal()}})}/>
+            select === 'daily' && <NumberInput placeholder={'日薪 EX:1000'} {...register('dailySalary', {
+              pattern:{
+                value: /^(0|[1-9]\d*)(\.\d+)?$/
+              }, onBlur: () => {calculateTotal()}})}/>
           }
           {
-            select === 'hourly' && <NumberInput placeholder={'時薪 EX:176'} {...register('hourlySalary', {onBlur: () => {calculateTotal()}})}/>
+            select === 'hourly' && <NumberInput placeholder={'時薪 EX:176'} {...register('hourlySalary', {
+              pattern:{
+                value: /^(0|[1-9]\d*)(\.\d+)?$/
+              }, onBlur: () => {calculateTotal()}})}/>
           }
         </div>
         { select === 'hourly' && 
@@ -97,10 +105,18 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue }) => {
         }
       </div>
     </div>
-    <FormNumberInput placeholder={'年終 EX:12000'} {...register('yearEndBonus', {onBlur: () => {calculateTotal()}})} />
-    <FormNumberInput placeholder={'三節'} {...register('holidayBonus', {onBlur: () => {calculateTotal()}})}/>
-    <FormNumberInput placeholder={'獎金'} {...register('profitSharingBonus', {onBlur: () => {calculateTotal()}})}/>
-    <FormNumberInput placeholder={'其他'} {...register('otherBonus', {onBlur: () => {calculateTotal()}})}/>
+    <FormNumberInput placeholder={'年終 EX:12000'} {...register('yearEndBonus', { pattern:{
+                                                                                  value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                                }, onBlur: () => {calculateTotal()}})} />
+    <FormNumberInput placeholder={'三節'} {...register('holidayBonus', { pattern:{
+                                                                        value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                      }, onBlur: () => {calculateTotal()}})}/>
+    <FormNumberInput placeholder={'獎金'} {...register('profitSharingBonus',{ pattern:{
+                                                                              value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                            }, onBlur: () => {calculateTotal()}})}/>
+    <FormNumberInput placeholder={'其他'} {...register('otherBonus', { pattern:{
+                                                                       value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                     }, onBlur: () => {calculateTotal()}})}/>
     <FormNumberInput defaultValue="0" readOnly="readonly" {...register('total')}/>
     <span className="text-sm text-black-6">若結果數字跟實際有落差，可以點擊數字編輯，但不能低於前項的總和。</span>
   </div>

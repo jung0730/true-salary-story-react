@@ -1,18 +1,5 @@
 import { useForm } from "react-hook-form";
 import useFormStore from "@/app/stores/form";
-import {
-  cityOptions,
-  yearsOfServiceOptions,
-  isInServiceOptions,
-  employmentTypesOptions,
-  overtimeOptions,
-  feelingOptions,
-} from '../../utils/options';
-import FormInput from "./FormInput";
-import FormRadio from './FormRadio';
-import FormSelect from "./FormSelect";
-import FormRadioButtonStyle from './FormRadioButtonStyle';
-import FormSalaryCalculation from "./FormSalaryCalculation";
 import FormTextarea from "./Textarea";
 
 // label, required, error...
@@ -24,8 +11,8 @@ const Form = () => {
     formState: { errors }
   } = useForm<{ [x: string]: string }>({});
   const onSubmit = (data) => {
-    setStep(2);
-    setFormData({...formData, data});
+    setStep(3);
+    setFormData({...formData, ...data});
   }
   return (
     <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>

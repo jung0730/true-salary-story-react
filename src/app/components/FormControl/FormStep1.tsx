@@ -51,7 +51,6 @@ const Form = () => {
   const onSubmit = (data) => {
     setStep(2);
     setFormData(data);
-    console.log(data)
   }
   return (
     <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>

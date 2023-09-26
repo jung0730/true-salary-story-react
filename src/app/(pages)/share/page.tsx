@@ -5,7 +5,7 @@ import FormStep2 from '../../components/FormControl/FormStep2'
 import useFormStore from '@/app/stores/form'
 
 export default function Page() {
-  const { step } = useFormStore()
+  const { step, formData } = useFormStore()
   return (
     <section className="bg-gray md:py-10 lg:py-20 max-[1920px]:overflow-x-hidden">
       <div className="mx-auto md:px-14 md:max-w-full lg:max-w-7xl mt-15 lg:mt-10">

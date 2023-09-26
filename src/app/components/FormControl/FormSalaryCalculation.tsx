@@ -9,7 +9,7 @@ import {
   workingHoursOptions
 } from '../../utils/options';
 
-const FormSalaryCalculation = ({ register, errors, getValues, setValue }) => {
+const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetField }) => {
   const [select, setSelect] = useState('monthly');
   let yearEndBonus;
   let holidayBonus;
@@ -50,16 +50,15 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue }) => {
   const handleSalaryTypeChange = (e) => {
     setSelect(e.target.value);
     setValue('total', 0)
-    setValue('monthlySalary', '');
-    setValue('dailySalary', '')
-    setValue('hourlySalary', '');
-    setValue('dailySalary', '')
-    setValue('avgWorkingDaysPerMonth', '');
-    setValue('holidayBonus', '')
-    setValue('otherBonus', '');
-    setValue('profitSharingBonus', '')
-    setValue('yearEndBonus', '');
-    setValue('avgHoursPerDay', '')
+    resetField('otherBonus')
+    resetField('profitSharingBonus')
+    resetField('yearEndBonus')
+    resetField('avgHoursPerDay')
+    resetField('holidayBonus')
+    resetField('avgWorkingDaysPerMonth')
+    resetField('dailySalary')
+    resetField('hourlySalary')
+    resetField('monthlySalary')
   }
   return (
     <>

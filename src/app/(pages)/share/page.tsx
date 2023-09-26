@@ -1,6 +1,11 @@
-import Form from '../../components/FormControl/Form'
+'use client'
+
+import FormStep1 from '../../components/FormControl/FormStep1'
+import FormStep2 from '../../components/FormControl/FormStep2'
+import useFormStore from '@/app/stores/form'
 
 export default function Page() {
+  const { step } = useFormStore()
   return (
     <section className="bg-gray md:py-10 lg:py-20 max-[1920px]:overflow-x-hidden">
       <div className="mx-auto md:px-14 md:max-w-full lg:max-w-7xl mt-15 lg:mt-10">
@@ -11,7 +16,7 @@ export default function Page() {
               <h4 className="fs-xl">Rebecca，讓我們開始這趟奇妙旅程吧！</h4>
               <p className="opacity-70 mt-2">在真薪話站上提供的資訊完全不會揭露你的任何個資，請安心分享。</p>
             </div>
-            <Form />
+            { step === 1 ? <FormStep1 /> : <FormStep2 />}
           </div>
         </div>
       </div>

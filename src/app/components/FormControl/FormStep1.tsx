@@ -1,6 +1,5 @@
-'use client'
-
 import { useForm } from "react-hook-form";
+import useFormStore from "@/app/stores/form";
 import {
   cityOptions,
   yearsOfServiceOptions,
@@ -17,6 +16,7 @@ import FormSalaryCalculation from "./FormSalaryCalculation";
 
 // label, required, error...
 const Form = () => {
+  const { setStep, setFormData } = useFormStore();
   const {
     register,
     handleSubmit,
@@ -49,6 +49,8 @@ const Form = () => {
     },
   });
   const onSubmit = (data) => {
+    setStep(2);
+    setFormData(data);
     console.log(data)
   }
   return (

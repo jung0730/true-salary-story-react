@@ -48,7 +48,6 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
     setValue('total', total)
   }
   const handleSalaryTypeChange = () => {
-    salaryTypes = getValues('salaryTypes')
     setValue('total', 0)
     resetField('otherBonus')
     resetField('profitSharingBonus')
@@ -62,7 +61,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
   }
   return (
     <>
-    <FormRadioButtonStyle defaultValue="monthly" options={salaryTypesOpions} title="薪資狀況(新台幣)" error={errors?.salaryTypes?.message} {...register('salaryTypes', { required: "This is required.", onChange: (e) => {handleSalaryTypeChange(e)} })} />
+    <FormRadioButtonStyle defaultValue={salaryTypes} options={salaryTypesOpions} title="薪資狀況(新台幣)" error={errors?.salaryTypes?.message} {...register('salaryTypes', { required: "This is required.", onChange: (e) => {handleSalaryTypeChange(e)} })} />
     <div className="mt-4">
     <div className="">
       <div className="flex flex-wrap md:flex-nowrap">

@@ -29,7 +29,7 @@ const Form = () => {
       overtime: '3',
       feeling: '3',
       employmentType: '全職',
-      isInService: 'Y',
+      isInService: 'N',
       taxId: '123456',
       companyName: 'test',
       title: 'title',
@@ -59,8 +59,8 @@ const Form = () => {
       <FormSelect options={cityOptions} title="工作城市" error={errors?.city?.message} {...register('city', { required: "This is required." })} />
       <FormSelect options={yearsOfServiceOptions} title="在職年資" error={errors?.yearsOfService?.message} {...register('yearsOfService', { required: "This is required." })} />
       <FormSelect options={yearsOfServiceOptions} title="總年資" error={errors?.totalYearsOfService?.message} {...register('totalYearsOfService', { required: "This is required." })} />
-      <FormRadioButtonStyle defaultValue="全職" options={employmentTypesOptions} title="職務類別"  error={errors?.employmentType?.message} {...register('employmentType',  { required: "This is required." })}/>
-      <FormRadioButtonStyle defaultValue="Y" options={isInServiceOptions} title="在職狀況" error={errors?.isInService?.message} {...register('isInService', { required: "This is required." })} />
+      <FormRadioButtonStyle defaultValue={getValues('employmentType')} options={employmentTypesOptions} title="職務類別"  error={errors?.employmentType?.message} {...register('employmentType',  { required: "This is required." })}/>
+      <FormRadioButtonStyle defaultValue={getValues('isInService')} options={isInServiceOptions} title="在職狀況" error={errors?.isInService?.message} {...register('isInService', { required: "This is required." })} />
       <FormSalaryCalculation resetField={resetField} setValue={setValue} register={register} errors={errors} getValues={getValues} />
       <FormRadio options={overtimeOptions} title="上班頻率" error={errors?.overtime?.message} {...register('overtime', { required: "This is required." })} />
       <FormRadio options={feelingOptions} title="上班狀況" error={errors?.feeling?.message} {...register('feeling', { required: "This is required." })} />

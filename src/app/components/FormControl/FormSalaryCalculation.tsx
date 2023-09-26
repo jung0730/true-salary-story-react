@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import FormNumberInput from './FormNumberInput'
 import NumberInput from './NumberInput';
 import FormRadioButtonStyle from './FormRadioButtonStyle';
@@ -10,7 +9,6 @@ import {
 } from '../../utils/options';
 
 const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetField }) => {
-  const [select, setSelect] = useState('monthly');
   let yearEndBonus;
   let holidayBonus;
   let profitSharingBonus;
@@ -20,6 +18,8 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
   let hourlySalary;
   let avgWorkingDaysPerMonth;
   let avgHoursPerDay;
+  let salaryTypes;
+  salaryTypes = getValues('salaryTypes')
   const calculateTotal = () => {
     yearEndBonus = getValues('yearEndBonus')
     holidayBonus = getValues('holidayBonus');
@@ -33,22 +33,22 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
     let total;
     let salary;
     const bonus = Number(yearEndBonus) + Number(holidayBonus) + Number(profitSharingBonus) + Number(otherBonus);
-    if (select === 'monthly') {
+    if (salaryTypes === 'monthly') {
       salary = Number(monthlySalary) * 12;
       total = salary + bonus;
     }
-    if (select === 'hourly') {
+    if (salaryTypes === 'hourly') {
       salary = Number(hourlySalary) * Number(avgHoursPerDay) * Number(avgWorkingDaysPerMonth);
       total = salary + bonus;
     }
-    if (select === 'daily') {
+    if (salaryTypes === 'daily') {
       salary = Number(dailySalary) * Number(avgWorkingDaysPerMonth);
       total = salary + bonus;
     }
     setValue('total', total)
   }
-  const handleSalaryTypeChange = (e) => {
-    setSelect(e.target.value);
+  const handleSalaryTypeChange = () => {
+    salaryTypes = getValues('salaryTypes')
     setValue('total', 0)
     resetField('otherBonus')
     resetField('profitSharingBonus')
@@ -67,7 +67,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
     <div className="">
       <div className="flex flex-wrap md:flex-nowrap">
         <div className="w-full">
-          { select === 'monthly' &&
+          { salaryTypes === 'monthly' &&
           <>
             <NumberInput placeholder={'月薪 EX:35000'} error={errors?.monthlySalary?.message} {...register('monthlySalary', { pattern: {
                                                                                       value: /^(0|[1-9]\d*)(\.\d+)?$/
@@ -78,7 +78,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
           </>
           }
           {
-            select === 'daily' && <NumberInput placeholder={'日薪 EX:1000'} error={errors?.dailySalary?.message} {...register('dailySalary', {
+            salaryTypes === 'daily' && <NumberInput placeholder={'日薪 EX:1000'} error={errors?.dailySalary?.message} {...register('dailySalary', {
               pattern:{
                 value: /^(0|[1-9]\d*)(\.\d+)?$/
               }, 
@@ -86,7 +86,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
               onBlur: () => {calculateTotal()}})}/>
           }
           {
-            select === 'hourly' && <NumberInput placeholder={'時薪 EX:176'} error={errors?.hourlySalary?.message} {...register('hourlySalary', {
+            salaryTypes === 'hourly' && <NumberInput placeholder={'時薪 EX:176'} error={errors?.hourlySalary?.message} {...register('hourlySalary', {
               pattern:{
                 value: /^(0|[1-9]\d*)(\.\d+)?$/
               },
@@ -94,14 +94,14 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
               onBlur: () => {calculateTotal()}})}/>
           }
         </div>
-        { select === 'hourly' && 
+        { salaryTypes === 'hourly' && 
         <div className="md:shrink grow md:w-full flex">
           <div className="w-full">
             <Select options={workingHoursOptions} error={errors?.avgHoursPerDay?.message} {...register('avgHoursPerDay', {required: "This is required.", onChange: () => {calculateTotal()}})} />
           </div>
         </div>
         }
-        { select !== 'monthly' && 
+        { salaryTypes !== 'monthly' && 
         <div className="md:shrink grow md:w-full flex">
           <div className="w-full">
             <Select options={monthOptions} error={errors?.avgWorkingDaysPerMonth?.message} {...register('avgWorkingDaysPerMonth', {required: "This is required.", onChange: () => {calculateTotal()}})} />

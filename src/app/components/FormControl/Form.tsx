@@ -43,10 +43,9 @@ const Form = () => {
       avgHoursPerDay: '',
       holidayBonus: '',
       avgWorkingDaysPerMonth: '',
-      total: '',
       dailySalary: '',
       monthlySalary: '',
-      hourlySalary: ''
+      hourlySalary: '',
     },
   });
   const onSubmit = (data) => {

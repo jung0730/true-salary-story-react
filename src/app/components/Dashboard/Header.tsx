@@ -9,14 +9,7 @@ import Image from 'next/image'
 
 
 const Header = async () => {
-  const data = await getStatistics()
-  console.log(data)
-  // const { data } = useStatistics()
-  // useEffect(() => {
-  //   if (data) {
-  //     console.log(data)
-  //   }
-  // }, [data])
+  const { registeredUsers, publishedPosts} = await getStatistics()
   return (
     <header className="bg-gray h-auto max-[1920px]:overflow-x-hidden">
     <div className="w-full h-full bg-white sm:rounded-b-[60px] lg:rounded-b-[200px]">
@@ -40,7 +33,7 @@ const Header = async () => {
                   </div>
                   <div className="border-2 border-black-10 py-2 px-4 flex justify-end">
                     <h3>
-                      <span className="text-blue">20</span> 則
+                      <span className="text-blue">{ publishedPosts }</span> 則
                     </h3>
                   </div>
                 </div>
@@ -50,7 +43,7 @@ const Header = async () => {
                   </div>
                   <div className="border-2 border-black-10 py-2 px-4 flex justify-end">
                     <h3>
-                      <span className="text-blue">19</span> 位
+                      <span className="text-blue">{ registeredUsers }</span> 位
                     </h3>
                   </div>
                 </div>

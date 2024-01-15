@@ -1,3 +1,5 @@
+import { getCookie } from 'cookies-next';
+
 const handleResponse = (response: Response) => {
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -31,10 +33,12 @@ export function http<T>(request: RequestInfo): Promise<T> {
 const BASE_API_URL = 'http://localhost:3000'
 
 export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
+  const token = getCookie('token');
   args.method = 'get';
   args.credentials = 'include';
   args.headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
+    'Authorization': `Bearer ${token}`
   };
   const checkPathParameter = path.indexOf('?') > 0 ? '&' : '?';
   const request = new Request(`${BASE_API_URL}${path}${checkPathParameter}`, args);
@@ -42,9 +46,13 @@ export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
 }
 
 export function post<T>(path: string, body: FormData, args: RequestInit = {}): Promise<T> {
+  const token = getCookie('token');
   args.method = 'post';
   args.body = body;
   args.credentials = 'include';
+  args.headers = {
+    'Authorization': `Bearer ${token}`
+  };
   const request = new Request(`${BASE_API_URL}${path}`, args);
   return http<T>(request);
 }

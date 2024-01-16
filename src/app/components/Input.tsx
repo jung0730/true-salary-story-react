@@ -23,7 +23,7 @@ const Input = (props: InputProps) => {
             'w-full ps-10 py-3 pe-5',
            className,
           )} />
-  )
-}
+  );
+};
 
 export default Input;

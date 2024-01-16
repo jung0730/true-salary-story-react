@@ -1,4 +1,4 @@
-import FormNumberInput from './FormNumberInput'
+import FormNumberInput from './FormNumberInput';
 import NumberInput from './NumberInput';
 import FormRadioButtonStyle from './FormRadioButtonStyle';
 import Select from './Select';
@@ -19,9 +19,9 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
   let avgWorkingDaysPerMonth;
   let avgHoursPerDay;
   let salaryTypes;
-  salaryTypes = getValues('salaryTypes')
+  salaryTypes = getValues('salaryTypes');
   const calculateTotal = () => {
-    yearEndBonus = getValues('yearEndBonus')
+    yearEndBonus = getValues('yearEndBonus');
     holidayBonus = getValues('holidayBonus');
     profitSharingBonus = getValues('profitSharingBonus');
     otherBonus = getValues('otherBonus');
@@ -45,23 +45,23 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
       salary = Number(dailySalary) * Number(avgWorkingDaysPerMonth);
       total = salary + bonus;
     }
-    setValue('total', total)
-  }
+    setValue('total', total);
+  };
   const handleSalaryTypeChange = () => {
-    setValue('total', 0)
-    resetField('otherBonus')
-    resetField('profitSharingBonus')
-    resetField('yearEndBonus')
-    resetField('avgHoursPerDay')
-    resetField('holidayBonus')
-    resetField('avgWorkingDaysPerMonth')
-    resetField('dailySalary')
-    resetField('hourlySalary')
-    resetField('monthlySalary')
-  }
+    setValue('total', 0);
+    resetField('otherBonus');
+    resetField('profitSharingBonus');
+    resetField('yearEndBonus');
+    resetField('avgHoursPerDay');
+    resetField('holidayBonus');
+    resetField('avgWorkingDaysPerMonth');
+    resetField('dailySalary');
+    resetField('hourlySalary');
+    resetField('monthlySalary');
+  };
   return (
     <>
-    <FormRadioButtonStyle defaultValue={salaryTypes} options={salaryTypesOpions} title="薪資狀況(新台幣)" error={errors?.salaryTypes?.message} {...register('salaryTypes', { required: "This is required.", onChange: (e) => {handleSalaryTypeChange(e)} })} />
+    <FormRadioButtonStyle defaultValue={salaryTypes} options={salaryTypesOpions} title="薪資狀況(新台幣)" error={errors?.salaryTypes?.message} {...register('salaryTypes', { required: "This is required.", onChange: (e) => {handleSalaryTypeChange(e);} })} />
     <div className="mt-4">
     <div className="">
       <div className="flex flex-wrap md:flex-nowrap">
@@ -72,7 +72,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
                                                                                       value: /^(0|[1-9]\d*)(\.\d+)?$/
                                                                                     },
                                                                                     required: "This is required.",
-                                                                                    onBlur: () => {calculateTotal()}})}/>
+                                                                                    onBlur: () => {calculateTotal();}})}/>
             <span className="absolute top-2 right-4 flex items-center pt-2 text-black-6 text-sm">x12月</span>
           </>
           }
@@ -82,7 +82,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
                 value: /^(0|[1-9]\d*)(\.\d+)?$/
               }, 
               required: "This is required.",
-              onBlur: () => {calculateTotal()}})}/>
+              onBlur: () => {calculateTotal();}})}/>
           }
           {
             salaryTypes === 'hourly' && <NumberInput placeholder={'時薪 EX:176'} error={errors?.hourlySalary?.message} {...register('hourlySalary', {
@@ -90,20 +90,20 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
                 value: /^(0|[1-9]\d*)(\.\d+)?$/
               },
               required: "This is required.",
-              onBlur: () => {calculateTotal()}})}/>
+              onBlur: () => {calculateTotal();}})}/>
           }
         </div>
         { salaryTypes === 'hourly' && 
         <div className="md:shrink grow md:w-full flex">
           <div className="w-full">
-            <Select options={workingHoursOptions} error={errors?.avgHoursPerDay?.message} {...register('avgHoursPerDay', {required: "This is required.", onChange: () => {calculateTotal()}})} />
+            <Select options={workingHoursOptions} error={errors?.avgHoursPerDay?.message} {...register('avgHoursPerDay', {required: "This is required.", onChange: () => {calculateTotal();}})} />
           </div>
         </div>
         }
         { salaryTypes !== 'monthly' && 
         <div className="md:shrink grow md:w-full flex">
           <div className="w-full">
-            <Select options={monthOptions} error={errors?.avgWorkingDaysPerMonth?.message} {...register('avgWorkingDaysPerMonth', {required: "This is required.", onChange: () => {calculateTotal()}})} />
+            <Select options={monthOptions} error={errors?.avgWorkingDaysPerMonth?.message} {...register('avgWorkingDaysPerMonth', {required: "This is required.", onChange: () => {calculateTotal();}})} />
           </div>
         </div>
         }
@@ -111,21 +111,21 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
     </div>
     <FormNumberInput placeholder={'年終 EX:12000'} {...register('yearEndBonus', { pattern:{
                                                                                   value: /^(0|[1-9]\d*)(\.\d+)?$/
-                                                                                }, onBlur: () => {calculateTotal()}})} />
+                                                                                }, onBlur: () => {calculateTotal();}})} />
     <FormNumberInput placeholder={'三節'} {...register('holidayBonus', { pattern:{
                                                                         value: /^(0|[1-9]\d*)(\.\d+)?$/
-                                                                      }, onBlur: () => {calculateTotal()}})}/>
+                                                                      }, onBlur: () => {calculateTotal();}})}/>
     <FormNumberInput placeholder={'獎金'} {...register('profitSharingBonus',{ pattern:{
                                                                               value: /^(0|[1-9]\d*)(\.\d+)?$/
-                                                                            }, onBlur: () => {calculateTotal()}})}/>
+                                                                            }, onBlur: () => {calculateTotal();}})}/>
     <FormNumberInput placeholder={'其他'} {...register('otherBonus', { pattern:{
                                                                        value: /^(0|[1-9]\d*)(\.\d+)?$/
-                                                                     }, onBlur: () => {calculateTotal()}})}/>
+                                                                     }, onBlur: () => {calculateTotal();}})}/>
     <FormNumberInput defaultValue="0" readOnly="readonly" {...register('total')}/>
     <span className="text-sm text-black-6">若結果數字跟實際有落差，可以點擊數字編輯，但不能低於前項的總和。</span>
   </div>
   </>
-  )
-}
+  );
+};
 
 export default FormSalaryCalculation;

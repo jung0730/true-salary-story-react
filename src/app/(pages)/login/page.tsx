@@ -1,5 +1,5 @@
-'use client'
-import { useEffect } from 'react'
+'use client';
+import { useEffect } from 'react';
 import { setCookie } from 'cookies-next';
 import { useSearchParams, useRouter} from 'next/navigation';
 import LoginAction from '../../components/Login/LoginAction';
@@ -15,23 +15,23 @@ export default function Page() {
     const checkLoginStatus = () => {
       const encodedTokens = searchParams.get('tokens');
       if (encodedTokens) {
-        const tokens = JSON.parse(window.atob(encodedTokens))
-        setCookie('token', tokens.token, { maxAge: 60 * 60 })
-        setCookie('refreshToken', tokens.refreshToken, { maxAge: 60 * 60 * 24 * 30 })
+        const tokens = JSON.parse(window.atob(encodedTokens));
+        setCookie('token', tokens.token, { maxAge: 60 * 60 });
+        setCookie('refreshToken', tokens.refreshToken, { maxAge: 60 * 60 * 24 * 30 });
         // todo: 動態redirect
         // router.push('/');
       }
-    }
-    checkLoginStatus()
-  }, [])
+    };
+    checkLoginStatus();
+  }, []);
 
   useEffect(() => {
     if (data) {
       setUser({
         name: data.displayName
-      })
+      });
     }
-  }, [data])
+  }, [data]);
 
   return (
     <div className="login h-screen w-screen flex justify-center items-center">
@@ -45,5 +45,5 @@ export default function Page() {
         </div>
       </div>
     </div>
-  )
+  );
 }

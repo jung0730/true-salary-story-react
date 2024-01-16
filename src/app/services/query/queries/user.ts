@@ -5,4 +5,4 @@ export const schema = {
     queryKey: ['profile'],
     queryFn: api.getProfile
   },
-}
+};

@@ -24,13 +24,13 @@ export function http<T>(request: RequestInfo): Promise<T> {
     })
     .catch((error) => {
       return handleError(error);
-    })
+    });
     // .finally(() => {
     //   hideLoading();
     // });
 }
 
-const BASE_API_URL = 'http://localhost:3000'
+const BASE_API_URL = 'http://localhost:3000';
 
 export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
   const token = getCookie('token');

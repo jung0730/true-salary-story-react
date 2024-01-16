@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import Button from '../Button'
-import ModalContainer from './ModalContainer'
-import UserModal from '../Nav/UserModal'
+import { useState } from 'react';
+import Button from '../Button';
+import ModalContainer from './ModalContainer';
+import UserModal from '../Nav/UserModal';
 
 const User = () => {
-  const [isOpen, setIsOpen ] = useState(false)
+  const [isOpen, setIsOpen ] = useState(false);
   return (
     <div className="relative">
     <Button color="avatar"

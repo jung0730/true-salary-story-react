@@ -19,7 +19,7 @@ const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: 
   const handleChange = (e) => {
     setSelect(e.target.value);
     onChange(e);
-  }
+  };
   const optionsList = options.map((item, index) =>
     <label key={item.text} htmlFor={item.value} className="flex-1 releative cursor-pointer items-center inline-flex justify-start">
       <input type="radio"
@@ -38,7 +38,7 @@ const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: 
           item.value === select ? 'shadow-input bg-white text-blue border-blue-light': 'bg-gray-light'
           )}>{item.text}</span>
     </label>
-  )
+  );
   return (
     <div className="mb-10">
       <div className="text-black-10 mb-2">{title}</div>
@@ -47,7 +47,7 @@ const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: 
       </div>
       <p className="min-h-[24px]">{ error}</p>
     </div>
-  )
-})
+  );
+});
 
 export default FormRadioButtonStyle;

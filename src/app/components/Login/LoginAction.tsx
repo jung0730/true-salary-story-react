@@ -1,5 +1,5 @@
-import { useLogin } from '../../services/mutation'
-import Image from 'next/image'
+import { useLogin } from '../../services/mutation';
+import Image from 'next/image';
 import Button from '../Button';
 
 const LoginAction = () => {
@@ -15,7 +15,7 @@ const LoginAction = () => {
       />
       使用 Google 繼續
     </Button>
-  )
-}
+  );
+};
 
-export default LoginAction
+export default LoginAction;

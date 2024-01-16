@@ -1,7 +1,7 @@
-import { getStatistics } from '../../services/query/api/salary'
+import { getStatistics } from '../../services/query/api/salary';
 
 
-import Image from 'next/image'
+import Image from 'next/image';
 
 // 'use client'
 // import { useEffect } from 'react'
@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 
 const Header = async () => {
-  const { registeredUsers, publishedPosts} = await getStatistics()
+  const { registeredUsers, publishedPosts} = await getStatistics();
   return (
     <header className="bg-gray h-auto max-[1920px]:overflow-x-hidden">
     <div className="w-full h-full bg-white sm:rounded-b-[60px] lg:rounded-b-[200px]">
@@ -59,7 +59,7 @@ const Header = async () => {
       </div>
     </div>
   </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

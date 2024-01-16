@@ -3,7 +3,7 @@
 import {
   QueryClient,
   QueryClientProvider,
-} from 'react-query'
+} from 'react-query';
 
 const client = new QueryClient();
 

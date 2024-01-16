@@ -18,7 +18,7 @@ const FormInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLInput
              className='w-full border border-black-1 rounded py-2 px-4 mt-2' />
       <p className="min-h-[24px]">{ error}</p>
     </div>
-  )
-})
+  );
+});
 
 export default FormInput;

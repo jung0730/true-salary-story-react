@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
 import { useRouter } from 'next/navigation';
-import Button from '../Button'
-import Search from './Search'
-import Message from './Message'
-import Point from './Point'
-import User from './User'
+import Button from '../Button';
+import Search from './Search';
+import Message from './Message';
+import Point from './Point';
+import User from './User';
 
 const NavList = () => {
   const router = useRouter();

@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import Button from '../Button'
-import ModalContainer from './ModalContainer'
-import PointModal from '../Nav/PointModal'
+import { useState } from 'react';
+import Button from '../Button';
+import ModalContainer from './ModalContainer';
+import PointModal from '../Nav/PointModal';
 
 const Point = () => {
-  const [isOpen, setIsOpen ] = useState(false)
+  const [isOpen, setIsOpen ] = useState(false);
   return (
     <div className="relative">
     <Button color="yellow-text"

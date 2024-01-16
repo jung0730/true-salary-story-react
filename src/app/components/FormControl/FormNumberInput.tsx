@@ -1,5 +1,5 @@
 import { forwardRef, ForwardedRef } from 'react';
-import NumberInput from './NumberInput'
+import NumberInput from './NumberInput';
 
 type FormInputProps = {
   label: string;
@@ -16,7 +16,7 @@ const FormNumberInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTM
         <NumberInput {...props} ref={ref}/>
       </div>
     </div>
-  )
-})
+  );
+});
 
 export default FormNumberInput;

@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import Button from '../Button'
-import ModalContainer from './ModalContainer'
+import { useState } from 'react';
+import Button from '../Button';
+import ModalContainer from './ModalContainer';
 import SearchModal from './SearchModal';
 
 const Search = () => {
-  const [isOpen, setIsOpen ] = useState(false)
+  const [isOpen, setIsOpen ] = useState(false);
   return (
     <div className="relative">
       <Button color="gray-text"

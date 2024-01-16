@@ -51,7 +51,7 @@ const Form = () => {
   const onSubmit = (data) => {
     setStep(2);
     setFormData(data);
-  }
+  };
   return (
     <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>
       <FormInput label="公司統一編號" placeholder="請輸入公司統一編號" error={errors?.taxId?.message} {...register('taxId', { required: "This is required." })}/>
@@ -69,7 +69,7 @@ const Form = () => {
         儲存
       </button>
     </form>
-  )
-}
+  );
+};
 
 export default Form;

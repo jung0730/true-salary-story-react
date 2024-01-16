@@ -1,7 +1,7 @@
-import Header from '../components/Dashboard/Header'
+import Header from '../components/Dashboard/Header';
 
 export default function Home() {
   return (
     <Header />
-  )
+  );
 }

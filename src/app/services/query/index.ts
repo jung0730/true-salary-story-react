@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery } from 'react-query';
 import { schema as salarySchema } from './queries/salary';
 import { schema as userSchema } from './queries/user';
 import { getCookie } from 'cookies-next';

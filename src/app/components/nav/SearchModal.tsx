@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { useState } from 'react'
-import Button from '../Button'
-import Input from '../Input'
+import { useState } from 'react';
+import Button from '../Button';
+import Input from '../Input';
 
 enum SearchType {
   COMPANY = 'company',
@@ -10,21 +10,21 @@ enum SearchType {
 }
 
 const SearchModal = () => {
-  const [tab, setTab] = useState(SearchType.COMPANY)
+  const [tab, setTab] = useState(SearchType.COMPANY);
   const [searchTerm, setSearchTerm] = useState({
     company: '',
     title: '',
     type: ''
-  })
+  });
   const toggleTabClass = (type: SearchType) => {
-    return tab === type ? 'text-blue border-b-blue' : 'border-b-transparent'
-  }
+    return tab === type ? 'text-blue border-b-blue' : 'border-b-transparent';
+  };
   const handleChange = (type: SearchType, value: string) => {
     setSearchTerm(item => ({
       ...item,
       [type]: value
-    }))
-  }
+    }));
+  };
   return (
       <div className="flex flex-col pt-2 pb-2">
         <div className="w-full flex mb-2">

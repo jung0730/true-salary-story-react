@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 const BaseFooter = () => {
   return (
     <footer className="bg-white sm:py-10 sm:px-3 sm:mb-20 md:mb-0 lg:py-20 max-[1920px]:overflow-x-hidden">

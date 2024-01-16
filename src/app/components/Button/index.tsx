@@ -27,7 +27,7 @@ const Button = (props: ButtonProps) => {
         {/* {icon && <Icon iconName={icon} />} */}
         {children}
       </button>
-  )
-}
+  );
+};
 
 export default Button;

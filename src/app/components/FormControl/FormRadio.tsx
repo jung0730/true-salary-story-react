@@ -24,7 +24,7 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
           )} />
       <span className="ml-2">{item.text}</span>
     </label>
-  )
+  );
   return (
     <div className="mb-10">
       <div className="text-black-10 mb-2">{title}</div>
@@ -33,7 +33,7 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
       </div>
       <p className="min-h-[24px]">{ error }</p>
     </div>
-  )
-})
+  );
+});
 
 export default FormRadio;

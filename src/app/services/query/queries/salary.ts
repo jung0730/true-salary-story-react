@@ -33,4 +33,4 @@ export const schema = {
     queryKey: ['companyInfo'],
     queryFn: api.getCompanyInfo
   },
-}
+};

@@ -17,7 +17,7 @@ const FormSelect = forwardRef((props: FormSelectProps, ref: ForwardedRef<HTMLSel
       <div className="text-black-10 mb-2">{title}</div>
       <Select {...props} ref={ref} />
     </div>
-  )
-})
+  );
+});
 
 export default FormSelect;

@@ -17,7 +17,7 @@ const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectEleme
             {...rest}>
       {item.text}
     </option>
-  )
+  );
   return (
     <>
       <select ref={ref} name={name} onChange={onChange} className="w-full border border-black-1 rounded py-2 pl-4 pr-9 h-[42px]">
@@ -26,7 +26,7 @@ const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectEleme
       </select>
       <p className="min-h-[24px]">{ error }</p>
     </>
-  )
-})
+  );
+});
 
 export default Select;

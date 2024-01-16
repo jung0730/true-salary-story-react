@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <DesktopNav />
-        <Provider>{children}</Provider>
+        <Provider>
+          {children}
+        </Provider>
         <footer>
           footer
         </footer>

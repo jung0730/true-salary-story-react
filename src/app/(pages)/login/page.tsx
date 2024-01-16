@@ -1,27 +1,37 @@
 'use client'
 import { useEffect } from 'react'
-import { useCookies } from 'react-cookie';
-import { useSearchParams, useRouter } from 'next/navigation'
-import LoginAction from '../../components/Login/LoginAction'
+import { setCookie } from 'cookies-next';
+import { useSearchParams, useRouter} from 'next/navigation';
+import LoginAction from '../../components/Login/LoginAction';
+import { useProfile } from '../../services/query/index';
+import useAuthStore from '../../stores/auth';
 
 export default function Page() {
-  const [, setToken] = useCookies(['token']);
-  const [, setRefreshToken] = useCookies(['refreshToken']);
-  const searchParams = useSearchParams()
-  const router = useRouter()
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const { setUser } = useAuthStore();
+  const { data } = useProfile();
   useEffect(() => {
     const checkLoginStatus = () => {
-      const encodedTokens = searchParams.get('tokens')
+      const encodedTokens = searchParams.get('tokens');
       if (encodedTokens) {
         const tokens = JSON.parse(window.atob(encodedTokens))
-        setToken('token', tokens.token, { maxAge: 60 * 60 })
-        setRefreshToken('refreshToken', tokens.refreshToken, { maxAge: 60 * 60 * 24 * 30 })
-        // 存到zustand
-        // 回到登入前的畫面
+        setCookie('token', tokens.token, { maxAge: 60 * 60 })
+        setCookie('refreshToken', tokens.refreshToken, { maxAge: 60 * 60 * 24 * 30 })
+        // todo: 動態redirect
+        // router.push('/');
       }
     }
     checkLoginStatus()
   }, [])
+
+  useEffect(() => {
+    if (data) {
+      setUser({
+        name: data.displayName
+      })
+    }
+  }, [data])
 
   return (
     <div className="login h-screen w-screen flex justify-center items-center">

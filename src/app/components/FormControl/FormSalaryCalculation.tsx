@@ -61,7 +61,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
   };
   return (
     <>
-    <FormRadioButtonStyle defaultValue={salaryTypes} options={salaryTypesOpions} title="薪資狀況(新台幣)" error={errors?.salaryTypes?.message} {...register('salaryTypes', { required: "This is required.", onChange: (e) => {handleSalaryTypeChange(e);} })} />
+    <FormRadioButtonStyle defaultValue={salaryTypes} options={salaryTypesOpions} title="薪資狀況(新台幣)" error={errors?.salaryTypes?.message} {...register('salaryTypes', { required: 'This is required.', onChange: (e) => {handleSalaryTypeChange(e);} })} />
     <div className="mt-4">
     <div className="">
       <div className="flex flex-wrap md:flex-nowrap">
@@ -71,7 +71,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
             <NumberInput placeholder={'月薪 EX:35000'} error={errors?.monthlySalary?.message} {...register('monthlySalary', { pattern: {
                                                                                       value: /^(0|[1-9]\d*)(\.\d+)?$/
                                                                                     },
-                                                                                    required: "This is required.",
+                                                                                    required: 'This is required.',
                                                                                     onBlur: () => {calculateTotal();}})}/>
             <span className="absolute top-2 right-4 flex items-center pt-2 text-black-6 text-sm">x12月</span>
           </>
@@ -81,7 +81,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
               pattern:{
                 value: /^(0|[1-9]\d*)(\.\d+)?$/
               }, 
-              required: "This is required.",
+              required: 'This is required.',
               onBlur: () => {calculateTotal();}})}/>
           }
           {
@@ -89,21 +89,21 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
               pattern:{
                 value: /^(0|[1-9]\d*)(\.\d+)?$/
               },
-              required: "This is required.",
+              required: 'This is required.',
               onBlur: () => {calculateTotal();}})}/>
           }
         </div>
         { salaryTypes === 'hourly' && 
         <div className="md:shrink grow md:w-full flex">
           <div className="w-full">
-            <Select options={workingHoursOptions} error={errors?.avgHoursPerDay?.message} {...register('avgHoursPerDay', {required: "This is required.", onChange: () => {calculateTotal();}})} />
+            <Select options={workingHoursOptions} error={errors?.avgHoursPerDay?.message} {...register('avgHoursPerDay', {required: 'This is required.', onChange: () => {calculateTotal();}})} />
           </div>
         </div>
         }
         { salaryTypes !== 'monthly' && 
         <div className="md:shrink grow md:w-full flex">
           <div className="w-full">
-            <Select options={monthOptions} error={errors?.avgWorkingDaysPerMonth?.message} {...register('avgWorkingDaysPerMonth', {required: "This is required.", onChange: () => {calculateTotal();}})} />
+            <Select options={monthOptions} error={errors?.avgWorkingDaysPerMonth?.message} {...register('avgWorkingDaysPerMonth', {required: 'This is required.', onChange: () => {calculateTotal();}})} />
           </div>
         </div>
         }

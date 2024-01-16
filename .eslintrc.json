@@ -5,6 +5,8 @@
   "rules": {
     "semi": [2, "always"],
     "quotes": [2, "single"],
-    "comma-dangle": [2, "always-multiline"]
+    "comma-dangle": [2, "always-multiline"],
+    "eol-last": "error",
+    "no-multiple-empty-lines": "error"
   }
 }

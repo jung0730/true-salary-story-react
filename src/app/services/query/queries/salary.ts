@@ -3,34 +3,34 @@ import * as api from '../api/salary';
 export const schema = {
   statistics: {
     queryKey: ['statistics'],
-    queryFn: api.getStatistics
+    queryFn: api.getStatistics,
   },
   topPost: {
     queryKey: ['topPost'],
-    queryFn: api.getTopPost
+    queryFn: api.getTopPost,
   },
   topCompany: {
     queryKey: ['topCompany'],
-    queryFn: api.getTopCompany
+    queryFn: api.getTopCompany,
   },
   postResults: {
     queryKey: ['postResults'],
-    queryFn: api.getPostResults
+    queryFn: api.getPostResults,
   },
   companyTitles: {
     queryKey: ['companyTitles'],
-    queryFn: api.getCompanyTitles
+    queryFn: api.getCompanyTitles,
   },
   companySalaries: {
     queryKey: ['companySalaries'],
-    queryFn: api.getCompanySalaries
+    queryFn: api.getCompanySalaries,
   },
   topCompanyType: {
     queryKey: ['topCompanyType'],
-    queryFn: api.getTopCompanyType
+    queryFn: api.getTopCompanyType,
   },
   companyInfo: {
     queryKey: ['companyInfo'],
-    queryFn: api.getCompanyInfo
+    queryFn: api.getCompanyInfo,
   },
 };

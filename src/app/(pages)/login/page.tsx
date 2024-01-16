@@ -28,7 +28,7 @@ export default function Page() {
   useEffect(() => {
     if (data) {
       setUser({
-        name: data.displayName
+        name: data.displayName,
       });
     }
   }, [data]);

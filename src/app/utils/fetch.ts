@@ -38,7 +38,7 @@ export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
   args.credentials = 'include';
   args.headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
-    'Authorization': `Bearer ${token}`
+    'Authorization': `Bearer ${token}`,
   };
   const checkPathParameter = path.indexOf('?') > 0 ? '&' : '?';
   const request = new Request(`${BASE_API_URL}${path}${checkPathParameter}`, args);
@@ -51,7 +51,7 @@ export function post<T>(path: string, body: FormData, args: RequestInit = {}): P
   args.body = body;
   args.credentials = 'include';
   args.headers = {
-    'Authorization': `Bearer ${token}`
+    'Authorization': `Bearer ${token}`,
   };
   const request = new Request(`${BASE_API_URL}${path}`, args);
   return http<T>(request);

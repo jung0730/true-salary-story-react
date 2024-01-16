@@ -11,7 +11,7 @@ type InputProps = {
 
 const Input = (props: InputProps) => {
   const {
-    placeholder, className, isDisabled, onChange, value
+    placeholder, className, isDisabled, onChange, value,
   } = props;
   return (
     <input type="text"

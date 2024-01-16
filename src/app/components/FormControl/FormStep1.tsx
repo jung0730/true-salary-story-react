@@ -23,7 +23,7 @@ const Form = () => {
     getValues,
     setValue,
     resetField,
-    formState: { errors }
+    formState: { errors },
   } = useForm<{ [x: string]: string }>({
     defaultValues: {
       overtime: '3',

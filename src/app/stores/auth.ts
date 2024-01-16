@@ -10,7 +10,7 @@ type Action = {
 
 const defaultState: State = {
   user: {
-    name: ''
+    name: '',
   },
 };
 

@@ -8,7 +8,7 @@ const Form = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<{ [x: string]: string }>({});
   const onSubmit = (data) => {
     setStep(3);

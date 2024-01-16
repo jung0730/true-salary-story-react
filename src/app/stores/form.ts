@@ -12,7 +12,7 @@ type Action = {
 
 const defaultState: State = {
   step: 1,
-  formData: {}
+  formData: {},
 };
 
 const useFormStore = create<State & Action>((set => ({

@@ -14,7 +14,7 @@ const SearchModal = () => {
   const [searchTerm, setSearchTerm] = useState({
     company: '',
     title: '',
-    type: ''
+    type: '',
   });
   const toggleTabClass = (type: SearchType) => {
     return tab === type ? 'text-blue border-b-blue' : 'border-b-transparent';
@@ -22,7 +22,7 @@ const SearchModal = () => {
   const handleChange = (type: SearchType, value: string) => {
     setSearchTerm(item => ({
       ...item,
-      [type]: value
+      [type]: value,
     }));
   };
   return (

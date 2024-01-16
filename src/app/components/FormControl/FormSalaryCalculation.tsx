@@ -5,7 +5,7 @@ import Select from './Select';
 import {
   salaryTypesOpions,
   monthOptions,
-  workingHoursOptions
+  workingHoursOptions,
 } from '../../utils/options';
 
 const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetField }) => {
@@ -69,7 +69,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
           { salaryTypes === 'monthly' &&
           <>
             <NumberInput placeholder={'月薪 EX:35000'} error={errors?.monthlySalary?.message} {...register('monthlySalary', { pattern: {
-                                                                                      value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                                      value: /^(0|[1-9]\d*)(\.\d+)?$/,
                                                                                     },
                                                                                     required: 'This is required.',
                                                                                     onBlur: () => {calculateTotal();}})}/>
@@ -79,7 +79,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
           {
             salaryTypes === 'daily' && <NumberInput placeholder={'日薪 EX:1000'} error={errors?.dailySalary?.message} {...register('dailySalary', {
               pattern:{
-                value: /^(0|[1-9]\d*)(\.\d+)?$/
+                value: /^(0|[1-9]\d*)(\.\d+)?$/,
               }, 
               required: 'This is required.',
               onBlur: () => {calculateTotal();}})}/>
@@ -87,7 +87,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
           {
             salaryTypes === 'hourly' && <NumberInput placeholder={'時薪 EX:176'} error={errors?.hourlySalary?.message} {...register('hourlySalary', {
               pattern:{
-                value: /^(0|[1-9]\d*)(\.\d+)?$/
+                value: /^(0|[1-9]\d*)(\.\d+)?$/,
               },
               required: 'This is required.',
               onBlur: () => {calculateTotal();}})}/>
@@ -110,16 +110,16 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
       </div>
     </div>
     <FormNumberInput placeholder={'年終 EX:12000'} {...register('yearEndBonus', { pattern:{
-                                                                                  value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                                  value: /^(0|[1-9]\d*)(\.\d+)?$/,
                                                                                 }, onBlur: () => {calculateTotal();}})} />
     <FormNumberInput placeholder={'三節'} {...register('holidayBonus', { pattern:{
-                                                                        value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                        value: /^(0|[1-9]\d*)(\.\d+)?$/,
                                                                       }, onBlur: () => {calculateTotal();}})}/>
     <FormNumberInput placeholder={'獎金'} {...register('profitSharingBonus',{ pattern:{
-                                                                              value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                              value: /^(0|[1-9]\d*)(\.\d+)?$/,
                                                                             }, onBlur: () => {calculateTotal();}})}/>
     <FormNumberInput placeholder={'其他'} {...register('otherBonus', { pattern:{
-                                                                       value: /^(0|[1-9]\d*)(\.\d+)?$/
+                                                                       value: /^(0|[1-9]\d*)(\.\d+)?$/,
                                                                      }, onBlur: () => {calculateTotal();}})}/>
     <FormNumberInput defaultValue="0" readOnly="readonly" {...register('total')}/>
     <span className="text-sm text-black-6">若結果數字跟實際有落差，可以點擊數字編輯，但不能低於前項的總和。</span>

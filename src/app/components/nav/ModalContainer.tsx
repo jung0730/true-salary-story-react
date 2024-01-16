@@ -8,7 +8,7 @@ type ModalContainerProps = {
 
 const ModalContainer = (props: ModalContainerProps) => {
   const {
-    children, title, setIsOpen
+    children, title, setIsOpen,
   } = props;
   const ref = useClickOutside(() => setIsOpen(false));
   return (

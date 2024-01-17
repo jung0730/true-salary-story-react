@@ -1,12 +1,5 @@
 import { getStatistics } from '../../services/query/api/salary';
-
-
 import Image from 'next/image';
-
-// 'use client'
-// import { useEffect } from 'react'
-// import { useStatistics } from '@/app/services/query'
-
 
 const Header = async () => {
   const { registeredUsers, publishedPosts} = await getStatistics();

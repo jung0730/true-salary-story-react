@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from '../Button';
 import ModalContainer from './ModalContainer';
-import UserModal from '../Nav/UserModal';
+import UserModal from './UserModal';
 
 const User = () => {
   const [isOpen, setIsOpen ] = useState(false);

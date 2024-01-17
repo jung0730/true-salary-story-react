@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from '../Button';
 import ModalContainer from './ModalContainer';
-import PointModal from '../Nav/PointModal';
+import PointModal from './PointModal';
 
 const Point = () => {
   const [isOpen, setIsOpen ] = useState(false);

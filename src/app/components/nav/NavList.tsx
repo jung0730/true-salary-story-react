@@ -6,11 +6,24 @@ import Search from './Search';
 import Message from './Message';
 import Point from './Point';
 import User from './User';
-import { useGlobalAuth } from '../../hooks/useGlobalAuth';
+import { useEffect } from 'react';
+import { useProfile } from '../../services/query/index';
+import useAuthStore from '../../stores/auth';
 
 const NavList = () => {
   const router = useRouter();
-  const { isLogin } = useGlobalAuth();
+  const { isLogin, setUser, setIsLogin } = useAuthStore();
+  const { data } = useProfile();
+
+  useEffect(() => {
+    if (data) {
+      setUser({
+        name: data.displayName,
+        picture: data.profilePicture,
+      });
+      setIsLogin(true);
+    }
+  }, [data, setUser, setIsLogin]);
   return (
     <>
       <Button color="blue-text" onClick={() => router.push('/share')}>

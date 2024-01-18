@@ -1,18 +1,22 @@
 import { useForm } from 'react-hook-form';
 import useFormStore from '@/app/stores/form';
 import FormTextarea from './Textarea';
+import { usePostSalary } from '@/app/services/mutation';
 
 // label, required, error...
 const Form = () => {
   const { setStep, setFormData, formData } = useFormStore();
+  const { mutate } = usePostSalary();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<{ [x: string]: string }>({});
-  const onSubmit = (data) => {
-    setStep(3);
+  const onSubmit = async (data) => {
+    // setStep(3);
     setFormData({...formData, ...data});
+    const res = await mutate(formData);
+    console.log(res, 'onSubmit res');
   };
   return (
     <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>

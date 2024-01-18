@@ -13,10 +13,13 @@ import FormRadio from './FormRadio';
 import FormSelect from './FormSelect';
 import FormRadioButtonStyle from './FormRadioButtonStyle';
 import FormSalaryCalculation from './FormSalaryCalculation';
+import { useUniformNumbers } from '@/app/services/query';
+import { useState } from 'react';
 
 // label, required, error...
 const Form = () => {
   const { setStep, setFormData } = useFormStore();
+  const [ taxId, setTaxId ] = useState('');
   const {
     register,
     handleSubmit,
@@ -48,13 +51,18 @@ const Form = () => {
       hourlySalary: '',
     },
   });
+  const { data } = useUniformNumbers(taxId);
   const onSubmit = (data) => {
     setStep(2);
     setFormData(data);
   };
+  const handleKeyUp = (value: string) => {
+    // TODO: taxId 驗證
+    setTaxId(value);
+  };
   return (
     <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>
-      <FormInput label="公司統一編號" placeholder="請輸入公司統一編號" error={errors?.taxId?.message} {...register('taxId', { required: 'This is required.' })}/>
+      <FormInput label="公司統一編號" placeholder="請輸入公司統一編號" error={errors?.taxId?.message} {...register('taxId', { required: 'This is required.' })} onKeyUp={(value) => handleKeyUp(value) }/>
       <FormInput label="公司名稱" placeholder="請輸入公司名稱" error={errors?.companyName?.message} {...register('companyName', { required: 'This is required.' })}/>
       <FormInput label="應徵職務" placeholder="請輸入應徵職務" error={errors?.title?.message} {...register('title', { required: 'This is required.' })}/>
       <FormSelect options={cityOptions} title="工作城市" error={errors?.city?.message} {...register('city', { required: 'This is required.' })} />

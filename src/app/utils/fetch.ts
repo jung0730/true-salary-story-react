@@ -45,10 +45,10 @@ export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
   return http<T>(request);
 }
 
-export function post<T>(path: string, body: FormData, args: RequestInit = {}): Promise<T> {
+export function post<T>(path: string, body: object, args: RequestInit = {}): Promise<T> {
   const token = getCookie('token');
   args.method = 'post';
-  args.body = body;
+  args.body = JSON.stringify(body);
   args.credentials = 'include';
   args.headers = {
     'Authorization': `Bearer ${token}`,

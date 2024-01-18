@@ -33,4 +33,8 @@ export const schema = {
     queryKey: ['companyInfo'],
     queryFn: api.getCompanyInfo,
   },
+  uniformNumbers: (taxId: string) => ({
+    queryKey: ['uniformNumbers', taxId],
+    queryFn: () => api.getUniformNumbers(taxId),
+  }),
 };

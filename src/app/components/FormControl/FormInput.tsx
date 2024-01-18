@@ -3,11 +3,12 @@ import { forwardRef, ForwardedRef } from 'react';
 type FormInputProps = {
   label: string;
   placeholder?: string;
-  error?: string
+  error?: string;
+  onKeyUp?: (value: string) => void;
 };
 
 const FormInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLInputElement>) => {
-  const { label, placeholder, error, ...rest } = props;
+  const { label, placeholder, error, onKeyUp, ...rest } = props;
   return (
     <div className="mb-10">
       <label className="text-black-10">{label}</label>
@@ -15,6 +16,7 @@ const FormInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLInput
              placeholder={placeholder}
              ref={ref}
              {...rest}
+             onKeyUp={(e) => onKeyUp && onKeyUp(e.target.value)} 
              className='w-full border border-black-1 rounded py-2 px-4 mt-2' />
       <p className="min-h-[24px]">{ error}</p>
     </div>

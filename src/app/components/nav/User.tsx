@@ -9,7 +9,7 @@ const User = () => {
   const [isOpen, setIsOpen ] = useState(false);
   const { user } = useAuthStore();
   return (
-    <div className="relative flex">
+    <div className="relative">
       <Button color="avatar"
               className="mr-4"
               onClick={() => setIsOpen(!isOpen)}>

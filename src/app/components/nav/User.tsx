@@ -9,12 +9,12 @@ const User = () => {
   const [isOpen, setIsOpen ] = useState(false);
   const { user } = useAuthStore();
   return (
-    <div className="relative">
-    <Button color="avatar"
-            className="mr-5 pt-1"
-            onClick={() => setIsOpen(!isOpen)}>
-      <img className="account-button w-12 h-12 rounded-full" src={user.picture} alt="圖片" />
-    </Button>
+    <div className="relative flex">
+      <Button color="avatar"
+              className="mr-4"
+              onClick={() => setIsOpen(!isOpen)}>
+        <img className="account-button w-12 h-12 rounded-full" src={user.picture} alt="圖片" />
+      </Button>
     { isOpen && <ModalContainer setIsOpen={setIsOpen} title={'Rebecca'}>
                   <UserModal />
                 </ModalContainer> }

@@ -14,7 +14,6 @@ export default function MainLayout({
       <Suspense fallback={null}>
         <NavigationEvents />
       </Suspense>
-      <div>footer</div>
     </>
   );
 }

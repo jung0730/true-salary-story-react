@@ -77,8 +77,8 @@ export const getCompanyInfo = async (taxId: string) => {
   const { result } = res;
 };
 
-export const getUniformNumbers = async (taxId: string) => {
+export const getUniformNumbers = async (taxId: number) => {
   const res = await get(`/api/salary/uniformNumbers/${taxId}`);
-  console.log(res, 'uniformNumbers res');
-  return res;
+  const { isExist, companyName } = res;
+  return { isExist, companyName};
 };

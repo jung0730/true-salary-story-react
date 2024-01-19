@@ -26,8 +26,10 @@ const Form = () => {
     getValues,
     setValue,
     resetField,
+    getFieldState,
     formState: { errors },
   } = useForm<{ [x: string]: string }>({
+    mode: 'onBlur',
     defaultValues: {
       overtime: '3',
       feeling: '3',
@@ -51,18 +53,51 @@ const Form = () => {
       hourlySalary: '',
     },
   });
-  const { data } = useUniformNumbers(taxId);
+  const uniformNumbersRegex = /^[0-9]{8}$/;
+  const fieldState = getFieldState('taxId');
+  let uniformNumbersValue;
+  // const { data } = useUniformNumbers(taxId);
   const onSubmit = (data) => {
     setStep(2);
     setFormData(data);
   };
-  const handleKeyUp = (value: string) => {
-    // TODO: taxId 驗證
-    setTaxId(value);
+  const searchUniformNumbers = () => {
+    const { invalid } = fieldState;
+    if (!invalid) {
+      uniformNumbersValue = Number(getValues('taxId'));
+      // TODO: call api
+    };
+  };
+  const validateTaxId = (taxId: string) => {
+    const matchResult = taxId.match(uniformNumbersRegex);
+  
+    if (matchResult) {
+      const idArray = matchResult[0].split('').map(Number);
+      const weight = [1, 2, 1, 2, 1, 2, 4, 1];
+      let sum = 0;
+    
+      for (let i = 0; i < idArray.length; i++) {
+        const p = idArray[i] * weight[i];
+        const s = Math.floor(p / 10) + (p % 10);
+        sum += s;
+      }
+    
+      const checkNumber = 5;
+      const isLegal = sum % checkNumber === 0 || ((sum + 1) % checkNumber === 0 && idArray[6] === 7);
+      return isLegal;
+    }
   };
   return (
     <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>
-      <FormInput label="公司統一編號" placeholder="請輸入公司統一編號" error={errors?.taxId?.message} {...register('taxId', { required: 'This is required.' })} onKeyUp={(value) => handleKeyUp(value) }/>
+      <FormInput label="公司統一編號" placeholder="請輸入公司統一編號" error={errors?.taxId?.message} {...register('taxId', {
+        required: 'This is required.',
+        pattern: {
+          value: uniformNumbersRegex,
+          message: '統一編號需為8碼',
+        },
+        validate: v => validateTaxId(v) || '統一編號格式不符',
+        onBlur: () => { searchUniformNumbers();},
+      })} />
       <FormInput label="公司名稱" placeholder="請輸入公司名稱" error={errors?.companyName?.message} {...register('companyName', { required: 'This is required.' })}/>
       <FormInput label="應徵職務" placeholder="請輸入應徵職務" error={errors?.title?.message} {...register('title', { required: 'This is required.' })}/>
       <FormSelect options={cityOptions} title="工作城市" error={errors?.city?.message} {...register('city', { required: 'This is required.' })} />

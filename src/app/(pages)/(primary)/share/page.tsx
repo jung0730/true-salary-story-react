@@ -21,8 +21,9 @@ export default function Page() {
             <div className="w-100 p-6 bg-black-10 text-white">
               <h4 className="fs-xl">Rebecca，讓我們開始這趟奇妙旅程吧！</h4>
               <p className="opacity-70 mt-2">在真薪話站上提供的資訊完全不會揭露你的任何個資，請安心分享。</p>
+              <h4>成功分享，</h4>
             </div>
-            { step === 1 ? <FormStep1 /> : <FormStep2 />}
+            {step === 1 ? <FormStep1 /> : <FormStep2 />}
           </div>
         </div>
       </div>

@@ -3,4 +3,4 @@ import { loginWithGoogle } from './login';
 import { postSalary } from './api/salary';
 
 export const useLogin = () => loginWithGoogle();
-export const usePostSalary = () => useMutation({ mutationFn: postSalary});
+export const usePostSalary = () => useMutation({ mutationFn: postSalary });

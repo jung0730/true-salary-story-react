@@ -19,7 +19,7 @@ import { useState } from 'react';
 // label, required, error...
 const Form = () => {
   const { setStep, setFormData } = useFormStore();
-  const [ taxId, setTaxId ] = useState(0);
+  const [taxId, setTaxId] = useState(0);
   const {
     register,
     handleSubmit,
@@ -69,44 +69,105 @@ const Form = () => {
     if (!invalid) {
       uniformNumbersValue = Number(getValues('taxId'));
       setTaxId(uniformNumbersValue);
-    };
+    }
   };
   const validateTaxId = (taxId: string) => {
     const idArray = taxId.split('').map(Number);
     const weight = [1, 2, 1, 2, 1, 2, 4, 1];
     let sum = 0;
-  
+
     for (let i = 0; i < idArray.length; i++) {
       const p = idArray[i] * weight[i];
       const s = Math.floor(p / 10) + (p % 10);
       sum += s;
     }
-  
+
     const checkNumber = 5;
     const isLegal = sum % checkNumber === 0 || ((sum + 1) % checkNumber === 0 && idArray[6] === 7);
     return isLegal;
   };
   return (
     <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>
-      <FormInput label="公司統一編號" placeholder="請輸入公司統一編號" error={errors?.taxId?.message} {...register('taxId', {
-        required: 'This is required.',
-        pattern: {
-          value: uniformNumbersRegex,
-          message: '統一編號需為8碼',
-        },
-        validate: v => validateTaxId(v) || '統一編號格式不符',
-        onBlur: () => { searchUniformNumbers();},
-      })} />
-      <FormInput label="公司名稱" disabled placeholder="請輸入公司名稱" error={errors?.companyName?.message} {...register('companyName', { required: 'This is required.' })}/>
-      <FormInput label="應徵職務" placeholder="請輸入應徵職務" error={errors?.title?.message} {...register('title', { required: 'This is required.' })}/>
-      <FormSelect options={cityOptions} title="工作城市" error={errors?.city?.message} {...register('city', { required: 'This is required.' })} />
-      <FormSelect options={yearsOfServiceOptions} title="在職年資" error={errors?.workYears?.message} {...register('workYears', { required: 'This is required.' })} />
-      <FormSelect options={yearsOfServiceOptions} title="總年資" error={errors?.totalWorkYears?.message} {...register('totalWorkYears', { required: 'This is required.' })} />
-      <FormRadioButtonStyle defaultValue={getValues('employmentType')} options={employmentTypesOptions} title="職務類別"  error={errors?.employmentType?.message} {...register('employmentType',  { required: 'This is required.' })}/>
-      <FormRadioButtonStyle defaultValue={getValues('isInService')} options={isInServiceOptions} title="在職狀況" error={errors?.isInService?.message} {...register('isInService', { required: 'This is required.' })} />
-      <FormSalaryCalculation resetField={resetField} setValue={setValue} register={register} errors={errors} getValues={getValues} />
-      <FormRadio options={overtimeOptions} title="上班頻率" error={errors?.overtime?.message} {...register('overtime', { required: 'This is required.' })} />
-      <FormRadio options={feelingOptions} title="上班狀況" error={errors?.feeling?.message} {...register('feeling', { required: 'This is required.' })} />
+      <FormInput
+        label="公司統一編號"
+        placeholder="請輸入公司統一編號"
+        error={errors?.taxId?.message}
+        {...register('taxId', {
+          required: 'This is required.',
+          pattern: {
+            value: uniformNumbersRegex,
+            message: '統一編號需為8碼',
+          },
+          validate: (v) => validateTaxId(v) || '統一編號格式不符',
+          onBlur: () => {
+            searchUniformNumbers();
+          },
+        })}
+      />
+      <FormInput
+        label="公司名稱"
+        disabled
+        placeholder="請輸入公司名稱"
+        error={errors?.companyName?.message}
+        {...register('companyName', { required: 'This is required.' })}
+      />
+      <FormInput
+        label="應徵職務"
+        placeholder="請輸入應徵職務"
+        error={errors?.title?.message}
+        {...register('title', { required: 'This is required.' })}
+      />
+      <FormSelect
+        options={cityOptions}
+        title="工作城市"
+        error={errors?.city?.message}
+        {...register('city', { required: 'This is required.' })}
+      />
+      <FormSelect
+        options={yearsOfServiceOptions}
+        title="在職年資"
+        error={errors?.workYears?.message}
+        {...register('workYears', { required: 'This is required.' })}
+      />
+      <FormSelect
+        options={yearsOfServiceOptions}
+        title="總年資"
+        error={errors?.totalWorkYears?.message}
+        {...register('totalWorkYears', { required: 'This is required.' })}
+      />
+      <FormRadioButtonStyle
+        defaultValue={getValues('employmentType')}
+        options={employmentTypesOptions}
+        title="職務類別"
+        error={errors?.employmentType?.message}
+        {...register('employmentType', { required: 'This is required.' })}
+      />
+      <FormRadioButtonStyle
+        defaultValue={getValues('isInService')}
+        options={isInServiceOptions}
+        title="在職狀況"
+        error={errors?.isInService?.message}
+        {...register('isInService', { required: 'This is required.' })}
+      />
+      <FormSalaryCalculation
+        resetField={resetField}
+        setValue={setValue}
+        register={register}
+        errors={errors}
+        getValues={getValues}
+      />
+      <FormRadio
+        options={overtimeOptions}
+        title="上班頻率"
+        error={errors?.overtime?.message}
+        {...register('overtime', { required: 'This is required.' })}
+      />
+      <FormRadio
+        options={feelingOptions}
+        title="上班狀況"
+        error={errors?.feeling?.message}
+        {...register('feeling', { required: 'This is required.' })}
+      />
       <button type="submit" className="w-full">
         儲存
       </button>

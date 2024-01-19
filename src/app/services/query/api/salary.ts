@@ -17,7 +17,9 @@ export const getTopCompany = async () => {
 };
 
 export const getPostResults = async () => {
-  const res = await get(`/api/salary/search?companyName=${companyName}&type=${type}&title=${title}&page=${page}&limit=${limit}`);
+  const res = await get(
+    `/api/salary/search?companyName=${companyName}&type=${type}&title=${title}&page=${page}&limit=${limit}`
+  );
   const { companyResults, companyResultsCount, titleResults, titleResultsCount, typeResults, typeResultsCount } = res;
 };
 
@@ -28,7 +30,7 @@ export const getCompanyTitles = async (taxId: string) => {
 
 export const getCompanySalaries = async () => {
   const res = await get(
-    `/api/salary/company/${taxId}?sortOption=${sortOption}&titleOption=${titleOption}&page=${page}&limit=${limit}`,
+    `/api/salary/company/${taxId}?sortOption=${sortOption}&titleOption=${titleOption}&page=${page}&limit=${limit}`
   );
   const { result, totalCount } = res;
   const data = result.map((el) => {
@@ -80,5 +82,5 @@ export const getCompanyInfo = async (taxId: string) => {
 export const getUniformNumbers = async (taxId: number) => {
   const res = await get(`/api/salary/uniformNumbers/${taxId}`);
   const { isExist, companyName } = res;
-  return { isExist, companyName};
+  return { isExist, companyName };
 };

@@ -2,9 +2,7 @@ import Link from 'next/link';
 const BaseFooter = () => {
   return (
     <footer className="bg-white sm:py-10 sm:px-3 sm:mb-20 md:mb-0 lg:py-20 max-[1920px]:overflow-x-hidden">
-      <div
-        className="container mx-auto sm:max-w-[350px] md:max-w-[600px] lg:max-w-7xl flex flex-col justify-center items-center"
-      >
+      <div className="container mx-auto sm:max-w-[350px] md:max-w-[600px] lg:max-w-7xl flex flex-col justify-center items-center">
         <div className="w-full flex flex-wrap mb-5">
           <div className="w-full md:w-4/12 mb-10">
             <div className="w-[150px] lg:w-full">

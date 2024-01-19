@@ -47,22 +47,14 @@ const UserModal = () => {
       },
     },
   ];
-  const userList = LIST.map((item) =>
-  <li key={item.title}>
-    <Button
-      color="black-text"
-      className='w-full'>
-      <div className="text-black-10 group-hover:text-blue">
-        {item.title}
-      </div>
-    </Button>
-  </li>
-  );
-  return (
-    <ul className="list-none pt-2 pb-2">
-      { userList }
-    </ul>
-  );
+  const userList = LIST.map((item) => (
+    <li key={item.title}>
+      <Button color="black-text" className="w-full">
+        <div className="text-black-10 group-hover:text-blue">{item.title}</div>
+      </Button>
+    </li>
+  ));
+  return <ul className="list-none pt-2 pb-2">{userList}</ul>;
 };
 
 export default UserModal;

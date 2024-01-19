@@ -30,21 +30,19 @@ const NavList = () => {
         匿名分享
       </Button>
       <Search />
-      {isLogin &&
+      {isLogin && (
         <>
           <Message />
           <Point />
         </>
-      }
-      {!isLogin &&
-      <Button color="secondary" className="mx-5" onClick={() => router.push('/login')}>
-        登入
-      </Button>
-      }
+      )}
+      {!isLogin && (
+        <Button color="secondary" className="mx-5" onClick={() => router.push('/login')}>
+          登入
+        </Button>
+      )}
       {isLogin && <User />}
-      <Button onClick={() => router.push('/order')}>
-        加薪計畫
-      </Button>
+      <Button onClick={() => router.push('/order')}>加薪計畫</Button>
     </>
   );
 };

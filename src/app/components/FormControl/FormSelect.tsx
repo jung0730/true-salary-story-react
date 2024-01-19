@@ -3,9 +3,9 @@ import Select from './Select';
 
 type FormSelectProps = {
   options: [];
-  title: string,
+  title: string;
   onChange: () => void;
-  error?: string
+  error?: string;
   name: string;
 };
 

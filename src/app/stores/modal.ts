@@ -2,11 +2,11 @@ import { create } from 'zustand';
 
 type State = {
   isOpen: boolean;
-}
+};
 
 type Action = {
   setIsOpen: (isOpen: State['isOpen']) => void;
-}
+};
 
 const defaultState: State = {
   isOpen: false,

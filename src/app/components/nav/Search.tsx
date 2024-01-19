@@ -4,16 +4,17 @@ import ModalContainer from './ModalContainer';
 import SearchModal from './SearchModal';
 
 const Search = () => {
-  const [isOpen, setIsOpen ] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative">
-      <Button color="gray-text"
-              onClick={() => setIsOpen(!isOpen)}>
+      <Button color="gray-text" onClick={() => setIsOpen(!isOpen)}>
         搜尋
       </Button>
-      { isOpen && <ModalContainer setIsOpen={setIsOpen} title={'搜尋'}>
-                  <SearchModal />
-                </ModalContainer> }
+      {isOpen && (
+        <ModalContainer setIsOpen={setIsOpen} title={'搜尋'}>
+          <SearchModal />
+        </ModalContainer>
+      )}
     </div>
   );
 };

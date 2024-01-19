@@ -12,13 +12,15 @@ const FormInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLInput
   return (
     <div className="mb-10">
       <label className="text-black-10">{label}</label>
-      <input type="text"
-             placeholder={placeholder}
-             ref={ref}
-             {...rest}
-             onKeyUp={(e) => onKeyUp && onKeyUp(e.target.value)} 
-             className='w-full border border-black-1 rounded py-2 px-4 mt-2' />
-      <p className="min-h-[24px]">{ error}</p>
+      <input
+        type="text"
+        placeholder={placeholder}
+        ref={ref}
+        {...rest}
+        onKeyUp={(e) => onKeyUp && onKeyUp(e.target.value)}
+        className="w-full border border-black-1 rounded py-2 px-4 mt-2"
+      />
+      <p className="min-h-[24px]">{error}</p>
     </div>
   );
 });

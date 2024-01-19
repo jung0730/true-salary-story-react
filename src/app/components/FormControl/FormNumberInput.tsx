@@ -4,16 +4,15 @@ import NumberInput from './NumberInput';
 type FormInputProps = {
   label: string;
   placeholder?: string;
-  error?: string
+  error?: string;
 };
-
 
 const FormNumberInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLInputElement>) => {
   const { label, placeholder, error, ...rest } = props;
   return (
-    <div className="flex mt-3"> 
+    <div className="flex mt-3">
       <div className="w-full">
-        <NumberInput {...props} ref={ref}/>
+        <NumberInput {...props} ref={ref} />
       </div>
     </div>
   );

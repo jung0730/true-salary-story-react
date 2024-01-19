@@ -4,13 +4,13 @@ type State = {
   user: {};
   currentPath: string;
   isLogin: boolean;
-}
+};
 
 type Action = {
   setUser: (user: {}) => void;
   setCurrentPath: (currentPath: string) => void;
   setIsLogin: (value: boolean) => void;
-}
+};
 
 const defaultState: State = {
   user: {
@@ -23,9 +23,9 @@ const defaultState: State = {
 
 const useAuthStore = create<State & Action>((set) => ({
   ...defaultState,
-  setUser: (user) => set(({ user })),
-  setCurrentPath: (currentPath) => set(({ currentPath })),
-  setIsLogin: (isLogin) => set(({ isLogin })),
+  setUser: (user) => set({ user }),
+  setCurrentPath: (currentPath) => set({ currentPath }),
+  setIsLogin: (isLogin) => set({ isLogin }),
 }));
 
 export default useAuthStore;

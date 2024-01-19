@@ -25,9 +25,9 @@ export function http<T>(request: RequestInfo): Promise<T> {
     .catch((error) => {
       return handleError(error);
     });
-    // .finally(() => {
-    //   hideLoading();
-    // });
+  // .finally(() => {
+  //   hideLoading();
+  // });
 }
 
 const BASE_API_URL = 'http://localhost:3000';
@@ -38,7 +38,7 @@ export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
   args.credentials = 'include';
   args.headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
-    'Authorization': `Bearer ${token}`,
+    Authorization: `Bearer ${token}`,
   };
   const checkPathParameter = path.indexOf('?') > 0 ? '&' : '?';
   const request = new Request(`${BASE_API_URL}${path}${checkPathParameter}`, args);
@@ -51,7 +51,7 @@ export function post<T>(path: string, body: object, args: RequestInit = {}): Pro
   args.body = JSON.stringify(body);
   args.credentials = 'include';
   args.headers = {
-    'Authorization': `Bearer ${token}`,
+    Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json',
   };
   const request = new Request(`${BASE_API_URL}${path}`, args);

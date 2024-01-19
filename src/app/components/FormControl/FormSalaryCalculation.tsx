@@ -45,10 +45,10 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
       salary = Number(dailySalary) * Number(avgWorkingDaysPerMonth);
       total = salary + bonus;
     }
-    setValue('total', total);
+    setValue('yearlySalary', total);
   };
   const handleSalaryTypeChange = () => {
-    setValue('total', 0);
+    setValue('yearlySalary', 0);
     resetField('otherBonus');
     resetField('profitSharingBonus');
     resetField('yearEndBonus');
@@ -121,7 +121,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
     <FormNumberInput placeholder={'其他'} {...register('otherBonus', { pattern:{
                                                                        value: /^(0|[1-9]\d*)(\.\d+)?$/,
                                                                      }, onBlur: () => {calculateTotal();}})}/>
-    <FormNumberInput defaultValue="0" readOnly="readonly" {...register('total')}/>
+    <FormNumberInput defaultValue="0" readOnly="readonly" {...register('yearlySalary')}/>
     <span className="text-sm text-black-6">若結果數字跟實際有落差，可以點擊數字編輯，但不能低於前項的總和。</span>
   </div>
   </>

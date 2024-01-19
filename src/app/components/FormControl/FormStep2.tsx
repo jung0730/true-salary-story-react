@@ -6,17 +6,18 @@ import { usePostSalary } from '@/app/services/mutation';
 // label, required, error...
 const Form = () => {
   const { setStep, setFormData, formData } = useFormStore();
-  const { mutate } = usePostSalary();
+  const { data, mutate } = usePostSalary();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<{ [x: string]: string }>({});
   const onSubmit = async (data) => {
-    // setStep(3);
-    setFormData({...formData, ...data});
-    const res = await mutate(formData);
-    console.log(res, 'onSubmit res');
+    const mergedData = {...data, ...formData};
+    setFormData(mergedData);
+    mutate(mergedData, {
+      onSuccess: (data) => console.log(data), // 'success'
+    });
   };
   return (
     <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>

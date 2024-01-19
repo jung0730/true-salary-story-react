@@ -52,6 +52,7 @@ export function post<T>(path: string, body: object, args: RequestInit = {}): Pro
   args.credentials = 'include';
   args.headers = {
     'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json',
   };
   const request = new Request(`${BASE_API_URL}${path}`, args);
   return http<T>(request);

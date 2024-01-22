@@ -28,10 +28,10 @@ export default function Page() {
             <BaseRow className="mb-5">
               <BaseRowSection>
                 <BaseFieldContainer>
-                  <BaseField label="月薪" value="" />
+                  <BaseField label="月薪" value="" icon="dollar" iconClasses="text-blue" />
                 </BaseFieldContainer>
                 <BaseFieldContainer>
-                  <BaseField label="年薪" value="" />
+                  <BaseField label="年薪" value="" icon="dollar" iconClasses="text-blue" />
                 </BaseFieldContainer>
               </BaseRowSection>
               <BaseRowSection>
@@ -55,7 +55,7 @@ export default function Page() {
                   <BaseField label="上班心情" value="" />
                 </BaseFieldContainer>
                 <BaseFieldContainer>
-                  <BaseField label="加班頻率" value="" />
+                  <BaseField label="加班頻率" value="" icon="time" iconClasses="text-green" />
                 </BaseFieldContainer>
               </BaseRowSection>
               <BaseRowSection>

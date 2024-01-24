@@ -69,6 +69,43 @@ export const getCompanySalaries = async () => {
   });
 };
 
+export const getSalaryInfo = async (id: string) => {
+  const res = await get(`/api/salary/${id}`);
+  const { message, result } = res;
+  return {
+    postId: result?.postId || '',
+    companyType: result?.companyType || '',
+    taxId: result?.taxId || '',
+    companyName: result?.companyName || '',
+    title: result?.title || '',
+    employmentType: result?.employmentType || '',
+    inService: result?.inService !== undefined && result.inService,
+    city: result?.city || '',
+    workYears: result?.workYears || 0,
+    totalWorkYears: result?.totalWorkYears || 0,
+    monthlySalary: result.monthlySalary,
+    dailySalary: result.dailySalary,
+    avgWorkingDaysPerMonth: result?.avgWorkingDaysPerMonth ?? '-',
+    hourlySalary: result.hourlySalary,
+    avgHoursPerDay: result?.avgHoursPerDay ?? 8,
+    yearEndBonus: result?.yearEndBonus ?? '-',
+    holidayBonus: result?.holidayBonus ?? '-',
+    profitSharingBonus: result?.profitSharingBonus ?? '-',
+    otherBonus: result?.otherBonus ?? '-',
+    yearlySalary: result?.yearlySalary ?? '-',
+    overtime: result?.overtime || '',
+    feeling: result?.feeling || '',
+    jobDescription: result?.jobDescription || '',
+    suggestion: result?.suggestion || '',
+    tags: result?.tags || [],
+    customTags: result?.customTags || [],
+    createDate: result?.createDate || '',
+    isLocked: result?.isLocked !== undefined ? result.isLocked : true,
+    createUser: result?.createUser || '',
+    type: result.type,
+  };
+};
+
 export const getTopCompanyType = async () => {
   const res = await get('/api/salary/getTopCompanyType');
   const { companyTypes } = res;

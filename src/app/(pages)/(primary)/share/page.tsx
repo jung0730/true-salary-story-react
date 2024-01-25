@@ -1,10 +1,10 @@
 'use client';
 
-import FormStep1 from '../../../components/FormControl/FormStep1';
-import FormStep2 from '../../../components/FormControl/FormStep2';
-import BaseSection from '@/app/components/BaseSection';
-import useFormStore from '@/app/stores/form';
-import { useGlobalAuth } from '../../../hooks/useGlobalAuth';
+import FormStep1 from '@/components/FormControl/FormStep1';
+import FormStep2 from '@/components/FormControl/FormStep2';
+import BaseSection from '@/components/BaseSection';
+import useFormStore from '@/stores/form';
+import { useGlobalAuth } from '@/hooks/useGlobalAuth';
 import { useEffect } from 'react';
 
 export default function Page() {

@@ -1,13 +1,13 @@
 'use client';
 import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import BaseSection from '@/app/components/BaseSection';
-import BaseFieldContainer from '@/app/components/BaseFieldContainer';
-import BaseField from '@/app/components/BaseField';
-import BaseRow from '@/app/components/BaseRow';
-import BaseRowSection from '@/app/components/BaseRowSection';
-import { useSalaryInfo } from '@/app/services/query';
-import useSalaryStore from '@/app/stores/salary';
+import BaseSection from '@/components/BaseSection';
+import BaseFieldContainer from '@/components/BaseFieldContainer';
+import BaseField from '@/components/BaseField';
+import BaseRow from '@/components/BaseRow';
+import BaseRowSection from '@/components/BaseRowSection';
+import { useSalaryInfo } from '@/services/query';
+import useSalaryStore from '@/stores/salary';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export default function Page() {

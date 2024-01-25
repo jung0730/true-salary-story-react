@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import useFormStore from '@/app/stores/form';
+import useFormStore from '@/stores/form';
 import {
   cityOptions,
   yearsOfServiceOptions,
@@ -7,13 +7,13 @@ import {
   employmentTypesOptions,
   overtimeOptions,
   feelingOptions,
-} from '../../utils/options';
+} from '@/utils/options';
 import FormInput from './FormInput';
 import FormRadio from './FormRadio';
 import FormSelect from './FormSelect';
 import FormRadioButtonStyle from './FormRadioButtonStyle';
 import FormSalaryCalculation from './FormSalaryCalculation';
-import { useUniformNumbers } from '@/app/services/query';
+import { useUniformNumbers } from '@/services/query';
 import { useState } from 'react';
 
 // label, required, error...

@@ -2,8 +2,8 @@
 import { useEffect } from 'react';
 import { setCookie } from 'cookies-next';
 import { useSearchParams, useRouter } from 'next/navigation';
-import LoginAction from '../../../components/Login/LoginAction';
-import useAuthStore from '../../../stores/auth';
+import LoginAction from '@/components/Login/LoginAction';
+import useAuthStore from '@/stores/auth';
 
 export default function Page() {
   const searchParams = useSearchParams();

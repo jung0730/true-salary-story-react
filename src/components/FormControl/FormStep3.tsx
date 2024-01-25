@@ -1,4 +1,4 @@
-import useFormStore from '@/app/stores/form';
+import useFormStore from '@/stores/form';
 
 // label, required, error...
 const Form = () => {

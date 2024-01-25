@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import useAuthStore from '../stores/auth';
+import useAuthStore from '@/stores/auth';
 
 export function NavigationEvents() {
   const pathname = usePathname();

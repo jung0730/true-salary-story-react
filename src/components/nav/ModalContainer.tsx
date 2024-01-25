@@ -1,4 +1,4 @@
-import { useClickOutside } from '../../hooks/useClickOutside';
+import { useClickOutside } from '@/hooks/useClickOutside';
 
 type ModalContainerProps = {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import { getStatistics } from '../../services/query/api/salary';
+import { getStatistics } from '@/services/query/api/salary';
 import Image from 'next/image';
 
 const Header = async () => {

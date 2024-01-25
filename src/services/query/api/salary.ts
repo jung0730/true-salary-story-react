@@ -1,4 +1,4 @@
-import { get } from '../../../utils/fetch';
+import { get } from '@/utils/fetch';
 
 export const getStatistics = async () => {
   const res = await get('/api/public/statistics');

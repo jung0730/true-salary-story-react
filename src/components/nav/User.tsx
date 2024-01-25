@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Button from '../Button';
 import ModalContainer from './ModalContainer';
 import UserModal from './UserModal';
-import useAuthStore from '../../stores/auth';
+import useAuthStore from '@/stores/auth';
 
 const User = () => {
   const [isOpen, setIsOpen] = useState(false);

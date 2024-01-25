@@ -7,8 +7,8 @@ import Message from './Message';
 import Point from './Point';
 import User from './User';
 import { useEffect } from 'react';
-import { useProfile } from '../../services/query/index';
-import useAuthStore from '../../stores/auth';
+import { useProfile } from '@/services/query/index';
+import useAuthStore from '@/stores/auth';
 
 const NavList = () => {
   const router = useRouter();

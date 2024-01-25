@@ -1,4 +1,4 @@
-import { post } from '../../../utils/fetch';
+import { post } from '@/utils/fetch';
 
 export const postSalary = async (data) => {
   const { result } = await post('/api/salary', data);

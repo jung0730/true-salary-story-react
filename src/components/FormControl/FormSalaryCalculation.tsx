@@ -2,7 +2,7 @@ import FormNumberInput from './FormNumberInput';
 import NumberInput from './NumberInput';
 import FormRadioButtonStyle from './FormRadioButtonStyle';
 import Select from './Select';
-import { salaryTypesOpions, monthOptions, workingHoursOptions } from '../../utils/options';
+import { salaryTypesOpions, monthOptions, workingHoursOptions } from '@/utils/options';
 
 const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetField }) => {
   let yearEndBonus;

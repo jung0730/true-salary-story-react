@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
-import useFormStore from '@/app/stores/form';
+import useFormStore from '@/stores/form';
 import FormTextarea from './Textarea';
-import { usePostSalary } from '@/app/services/mutation';
+import { usePostSalary } from '@/services/mutation';
 
 // label, required, error...
 const Form = () => {

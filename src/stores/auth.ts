@@ -1,7 +1,10 @@
 import { create } from 'zustand';
 
 type State = {
-  user: {};
+  user: {
+    name: string;
+    picture: string;
+  };
   currentPath: string;
   isLogin: boolean;
 };

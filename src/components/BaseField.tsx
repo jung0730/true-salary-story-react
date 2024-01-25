@@ -6,6 +6,14 @@ import { AiOutlineSmile } from 'react-icons/ai';
 import { AiOutlineFieldTime } from 'react-icons/ai';
 import { AiOutlineFrown } from 'react-icons/ai';
 
+type BaseFieldProps = {
+  label: string;
+  value: string;
+  className?: string;
+  icon?: string;
+  iconClasses?: string;
+};
+
 const getIcon = (iconType: string, iconClass?: string) => {
   const defaultClasses = 'w-[36px] h-[36px] mr-2';
   switch (iconType) {
@@ -20,7 +28,7 @@ const getIcon = (iconType: string, iconClass?: string) => {
   }
 };
 
-const BaseField = (props) => {
+const BaseField = (props: BaseFieldProps) => {
   const { label, value, className, icon, iconClasses } = props;
   return (
     <>

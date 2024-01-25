@@ -6,7 +6,7 @@ import useAuthStore from '@/stores/auth';
 
 export function NavigationEvents() {
   const pathname = usePathname();
-  const { currentPath, setCurrentPath } = useAuthStore();
+  const { setCurrentPath } = useAuthStore();
 
   useEffect(() => {
     setCurrentPath(pathname);

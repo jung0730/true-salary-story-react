@@ -1,10 +1,12 @@
 import { forwardRef, ForwardedRef } from 'react';
 
 type SelectProps = {
-  options: [{
-    text: string;
-    value: string;
-  }];
+  options: [
+    {
+      text: string;
+      value: string;
+    },
+  ];
   onChange: () => void;
   error?: string;
   name: string;

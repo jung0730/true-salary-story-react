@@ -2,7 +2,7 @@
 
 import FormStep1 from '@/components/FormControl/FormStep1';
 import FormStep2 from '@/components/FormControl/FormStep2';
-import BaseSection from '@/components/BaseSection';
+import BaseSection from '@/components/Salary/BaseSection';
 import useFormStore from '@/stores/form';
 import { useGlobalAuth } from '@/hooks/useGlobalAuth';
 import { useEffect } from 'react';

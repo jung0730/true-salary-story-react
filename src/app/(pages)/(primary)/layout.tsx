@@ -1,4 +1,4 @@
-import DesktopNav from '@/components/nav/DesktopNav';
+import DesktopNav from '@/components/Nav/DesktopNav';
 import { Suspense } from 'react';
 import { NavigationEvents } from '@/components/NavigationEvents';
 

@@ -9,15 +9,20 @@ import BaseRowSection from '@/components/BaseRowSection';
 import { useSalaryInfo } from '@/services/query';
 import useSalaryStore from '@/stores/salary';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { notFound } from 'next/navigation';
 
 export default function Page() {
   const params = useParams();
   const { post, setPost } = useSalaryStore();
   const { id } = params;
-  const { data, error } = useSalaryInfo(id);
+  const { data } = useSalaryInfo(id);
   useEffect(() => {
     if (data) {
-      setPost(data);
+      if (data?.postId) {
+        setPost(data);
+      } else {
+        notFound();
+      }
     }
   }, [data, setPost]);
   const getSalaryTitle = () => {
@@ -47,7 +52,8 @@ export default function Page() {
         return 'smile';
     }
   };
-  const convertNumberRange = (number: number) => {
+  const convertNumberRange = (value: number | string) => {
+    const number = Number(value);
     let text = '-';
     let range = 0;
     if (number >= 100000) {

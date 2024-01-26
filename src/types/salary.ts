@@ -1,0 +1,33 @@
+export type Post = {
+  postId: string;
+  companyType: string;
+  taxId: string;
+  companyName: string;
+  title: string;
+  employmentType: string;
+  inService: boolean;
+  city: string;
+  workYears: number | string;
+  totalWorkYears: number | string;
+  monthlySalary: number | string;
+  dailySalary: number | string;
+  avgWorkingDaysPerMonth: number | string;
+  hourlySalary: number | string;
+  avgHoursPerDay: number | string;
+  yearlySalary: number | string;
+  yearEndBonus: number | string;
+  holidayBonus: number | string;
+  profitSharingBonus: number | string;
+  otherBonus: number | string;
+  overtime: number | string;
+  feeling: number | string;
+  jobDescription: string;
+  suggestion: string;
+  tags?: number[];
+  customTags?: string[];
+  createDate?: string;
+  isLocked?: boolean;
+  createUser?: string;
+  type: string;
+};
+

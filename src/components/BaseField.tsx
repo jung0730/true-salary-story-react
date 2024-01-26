@@ -8,7 +8,7 @@ import { AiOutlineFrown } from 'react-icons/ai';
 
 type BaseFieldProps = {
   label: string;
-  value: string;
+  value: string | number;
   className?: string;
   icon?: string;
   iconClasses?: string;

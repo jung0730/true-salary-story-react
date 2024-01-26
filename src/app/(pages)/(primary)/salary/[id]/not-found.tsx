@@ -1,10 +1,10 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/Button';
-export default function NotFound() {
+export default function notFound() {
   const router = useRouter();
   return (
-    <div className="h-[90vh] md:h-screen w-screen flex justify-center items-center">
+    <div className="h-[90vh] md:h-screen w-screen flex justify-center items-center bg-gray">
       <section className="px-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -26,9 +26,9 @@ export default function NotFound() {
               d="M196.48,102.33a51.95,51.95,0,1,0,51.94,52A51.94,51.94,0,0,0,196.48,102.33Z"
               fill="#fff"
               stroke="#231f20"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.03"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.03"
             ></path>
             <ellipse cx="223.71" cy="137.38" rx="2.4" ry="3.57" fill="#231f20"></ellipse>
             <path d="M135.46,138.89l122-27-24-7s-13-21.55-16.47-22-66.53,13-66.53,13l-4,30.36Z" fill="#231f20"></path>
@@ -103,7 +103,11 @@ export default function NotFound() {
           </g>
         </svg>
         <h2 className="text-xl md:text-4xl text-center mb-10 mt-[-50px]">你搜尋的頁面找不到</h2>
-        <Button color="primary" className="w-[200px] max-w-full mx-auto" onClick={() => router.push('/')}>
+        <Button
+          color="primary"
+          className="flex justify-center items-center rounded transition w-[200px] max-w-full mx-auto"
+          onClick={() => router.push('/')}
+        >
           回到首頁
         </Button>
       </section>

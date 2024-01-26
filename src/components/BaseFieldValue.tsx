@@ -1,4 +1,4 @@
-const BaseFieldValue = ({ value }: { value: string }) => {
+const BaseFieldValue = ({ value }: { value: string | number }) => {
   return <div>{value}</div>;
 };
 

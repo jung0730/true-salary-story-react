@@ -16,13 +16,7 @@
     }
   },
   "lint-staged": {
-    "*.{vue,ts,tsx}": [
-      "yarn lint",
-      "yarn format"
-    ],
-    "*.css": [
-      "yarn format"
-    ]
+    "*.{js,tsx,css,md}": "yarn format"
   },
   "dependencies": {
     "@types/node": "20.3.3",

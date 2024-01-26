@@ -5,34 +5,34 @@ export const schema = {
     queryKey: ['statistics'],
     queryFn: api.getStatistics,
   },
-  topPost: {
-    queryKey: ['topPost'],
-    queryFn: api.getTopPost,
-  },
-  topCompany: {
-    queryKey: ['topCompany'],
-    queryFn: api.getTopCompany,
-  },
-  postResults: {
-    queryKey: ['postResults'],
-    queryFn: api.getPostResults,
-  },
-  companyTitles: {
-    queryKey: ['companyTitles'],
-    queryFn: api.getCompanyTitles,
-  },
-  companySalaries: {
-    queryKey: ['companySalaries'],
-    queryFn: api.getCompanySalaries,
-  },
-  topCompanyType: {
-    queryKey: ['topCompanyType'],
-    queryFn: api.getTopCompanyType,
-  },
-  companyInfo: {
-    queryKey: ['companyInfo'],
-    queryFn: api.getCompanyInfo,
-  },
+  // topPost: {
+  //   queryKey: ['topPost'],
+  //   queryFn: api.getTopPost,
+  // },
+  // topCompany: {
+  //   queryKey: ['topCompany'],
+  //   queryFn: api.getTopCompany,
+  // },
+  // postResults: {
+  //   queryKey: ['postResults'],
+  //   queryFn: api.getPostResults,
+  // },
+  // companyTitles: {
+  //   queryKey: ['companyTitles'],
+  //   queryFn: api.getCompanyTitles,
+  // },
+  // companySalaries: {
+  //   queryKey: ['companySalaries'],
+  //   queryFn: api.getCompanySalaries,
+  // },
+  // topCompanyType: {
+  //   queryKey: ['topCompanyType'],
+  //   queryFn: api.getTopCompanyType,
+  // },
+  // companyInfo: {
+  //   queryKey: ['companyInfo'],
+  //   queryFn: api.getCompanyInfo,
+  // },
   uniformNumbers: (taxId: number) => ({
     queryKey: ['uniformNumbers', taxId],
     queryFn: () => api.getUniformNumbers(taxId),

@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 const handleResponse = (response: Response) => {
   const { ok, status } = response;
   if (!ok) {
-    switch(status) {
+    switch (status) {
       case 404:
         toast.error('頁面不存在!');
         // TODO: redirect 404 page
@@ -21,7 +21,7 @@ const handleResponse = (response: Response) => {
         break;
       default:
         toast.error('系統內部錯誤');
-        return Promise.reject(response)
+        return Promise.reject(response);
     }
   }
   return response.json();
@@ -33,7 +33,7 @@ export function http<T>(request: RequestInfo): Promise<T> {
       return handleResponse(response);
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
     });
 }
 

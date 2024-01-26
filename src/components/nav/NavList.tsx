@@ -17,10 +17,7 @@ const NavList = () => {
 
   useEffect(() => {
     if (data) {
-      setUser({
-        name: data.displayName,
-        picture: data.profilePicture,
-      });
+      setUser(data);
       setIsLogin(true);
     }
   }, [data, setUser, setIsLogin]);

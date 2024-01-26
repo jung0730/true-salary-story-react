@@ -1,24 +1,23 @@
+import type { User } from '@/types/user';
 import { create } from 'zustand';
 
 type State = {
-  user: {
-    name: string;
-    picture: string;
-  };
+  user: User;
   currentPath: string;
   isLogin: boolean;
 };
 
 type Action = {
-  setUser: (user: {}) => void;
+  setUser: (user: User) => void;
   setCurrentPath: (currentPath: string) => void;
   setIsLogin: (value: boolean) => void;
 };
 
 const defaultState: State = {
   user: {
-    name: '',
-    picture: '',
+    displayName: '',
+    email: '',
+    profilePicture: '',
   },
   currentPath: '',
   isLogin: false,

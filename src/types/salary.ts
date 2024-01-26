@@ -30,4 +30,3 @@ export type Post = {
   createUser?: string;
   type: string;
 };
-

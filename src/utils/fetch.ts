@@ -1,20 +1,30 @@
 import { getCookie } from 'cookies-next';
+import { toast } from 'react-hot-toast';
 
 const handleResponse = (response: Response) => {
-  if (!response.ok) {
-    throw new Error(response.statusText);
+  const { ok, status } = response;
+  if (!ok) {
+    switch(status) {
+      case 404:
+        toast.error('頁面不存在!');
+        // TODO: redirect 404 page
+        break;
+      case 500:
+        toast.error('系統內部錯誤');
+        break;
+      case 401:
+        toast.error('登入狀態已過期');
+        // TODO: redirect login page
+        break;
+      case 403:
+        toast.error('沒有權限訪問');
+        break;
+      default:
+        toast.error('系統內部錯誤');
+        return Promise.reject(response)
+    }
   }
   return response.json();
-};
-
-const handleError = (error: any) => {
-  if (error.response && error.response.status && (error.response.status === 504 || error.response.status === 404)) {
-    console.log('Gateway Time-out 或查無此頁');
-  } else if (error.response && error.response.status && error.response.status === 403) {
-    console.log('無權限');
-  }
-  console.log(error);
-  throw error;
 };
 
 export function http<T>(request: RequestInfo): Promise<T> {
@@ -23,11 +33,8 @@ export function http<T>(request: RequestInfo): Promise<T> {
       return handleResponse(response);
     })
     .catch((error) => {
-      return handleError(error);
+      console.log(error)
     });
-  // .finally(() => {
-  //   hideLoading();
-  // });
 }
 
 const BASE_API_URL = 'http://localhost:3000';
@@ -40,8 +47,7 @@ export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
     'Content-Type': 'application/x-www-form-urlencoded',
     Authorization: `Bearer ${token}`,
   };
-  const checkPathParameter = path.indexOf('?') > 0 ? '&' : '?';
-  const request = new Request(`${BASE_API_URL}${path}${checkPathParameter}`, args);
+  const request = new Request(`${BASE_API_URL}${path}`, args);
   return http<T>(request);
 }
 

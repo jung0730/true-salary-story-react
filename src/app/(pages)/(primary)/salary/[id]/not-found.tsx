@@ -1,8 +1,7 @@
 'use client';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import Button from '@/components/Button';
 export default function notFound() {
-  const router = useRouter();
   return (
     <div className="h-[90vh] md:h-screen w-screen flex justify-center items-center bg-gray">
       <section className="px-4">
@@ -106,7 +105,7 @@ export default function notFound() {
         <Button
           color="primary"
           className="flex justify-center items-center rounded transition w-[200px] max-w-full mx-auto"
-          onClick={() => router.push('/')}
+          onClick={() => redirect('/')}
         >
           回到首頁
         </Button>

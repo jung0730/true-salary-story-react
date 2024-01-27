@@ -8,7 +8,7 @@ type FormRadioButtonStyleProps = {
     value: string;
   }[];
   title: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   defaultValue: string;
   error?: string;
 };
@@ -18,7 +18,7 @@ const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: 
   const [select, setSelect] = useState(defaultValue);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelect(e.target.value);
-    onChange();
+    onChange(e);
   };
   const optionsList = options.map((item, index) => (
     <label

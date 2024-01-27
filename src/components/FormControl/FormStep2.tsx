@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import useFormStore from '@/stores/form';
-import FormTextarea from './Textarea';
+import FormTextarea from './FormTextarea';
 import { usePostSalary } from '@/services/mutation';
 
 // label, required, error...

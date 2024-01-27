@@ -1,12 +1,13 @@
 import { forwardRef, ForwardedRef } from 'react';
-import Select from './Select';
+import Select from '../Select';
 
 type FormSelectProps = {
-  options: [];
+  options: {
+    text: string;
+    value: string | number;
+  }[];
   title: string;
-  onChange: () => void;
   error?: string;
-  name: string;
 };
 
 const FormSelect = forwardRef((props: FormSelectProps, ref: ForwardedRef<HTMLSelectElement>) => {

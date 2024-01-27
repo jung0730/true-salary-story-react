@@ -1,10 +1,28 @@
 import FormNumberInput from './FormNumberInput';
-import NumberInput from './NumberInput';
+import NumberInput from '../NumberInput';
 import FormRadioButtonStyle from './FormRadioButtonStyle';
-import Select from './Select';
+import Select from '../Select';
 import { salaryTypesOpions, monthOptions, workingHoursOptions } from '@/utils/options';
+import {
+  UseFormRegister,
+  UseFormSetValue,
+  UseFormGetValues,
+  UseFormResetField,
+  FieldValues,
+  UseFormSetError,
+} from 'react-hook-form';
+import React from 'react';
 
-const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetField }) => {
+// type FormProps = {
+//   register: UseFormRegister<FieldValues>
+//   getValues: UseFormGetValues<FieldValues>;
+//   setValue: UseFormSetValue<FieldValues>
+//   resetField: UseFormResetField<FieldValues>
+//   errors: UseFormSetError<FieldValues>
+// }
+
+const FormSalaryCalculation = (props) => {
+  const { register, errors, getValues, setValue, resetField } = props;
   let yearEndBonus;
   let holidayBonus;
   let profitSharingBonus;
@@ -14,7 +32,7 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
   let hourlySalary;
   let avgWorkingDaysPerMonth;
   let avgHoursPerDay;
-  let salaryTypes;
+  let salaryTypes: string;
   salaryTypes = getValues('salaryTypes');
   const calculateTotal = () => {
     yearEndBonus = getValues('yearEndBonus');
@@ -64,8 +82,8 @@ const FormSalaryCalculation = ({ register, errors, getValues, setValue, resetFie
         error={errors?.salaryTypes?.message}
         {...register('salaryTypes', {
           required: 'This is required.',
-          onChange: (e) => {
-            handleSalaryTypeChange(e);
+          onChange: () => {
+            handleSalaryTypeChange();
           },
         })}
       />

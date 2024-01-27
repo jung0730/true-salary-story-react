@@ -1,5 +1,5 @@
 import { forwardRef, ForwardedRef } from 'react';
-import NumberInput from './NumberInput';
+import NumberInput from '../NumberInput';
 
 type FormInputProps = {
   label: string;

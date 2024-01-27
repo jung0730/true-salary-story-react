@@ -1,22 +1,24 @@
 import clsx from 'clsx';
-import { forwardRef, ForwardedRef } from 'react';
+import React, { forwardRef, ForwardedRef } from 'react';
 import { useState } from 'react';
 
 type FormRadioButtonStyleProps = {
-  options: [];
+  options: {
+    text: string;
+    value: string;
+  }[];
   title: string;
   onChange: () => void;
   defaultValue: string;
   error?: string;
 };
 
-// label, required, error...
 const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: ForwardedRef<HTMLInputElement>) => {
   const { title, options, onChange, error, defaultValue, ...rest } = props;
   const [select, setSelect] = useState(defaultValue);
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelect(e.target.value);
-    onChange(e);
+    onChange();
   };
   const optionsList = options.map((item, index) => (
     <label

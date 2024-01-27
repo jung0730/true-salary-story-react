@@ -2,7 +2,10 @@ import clsx from 'clsx';
 import { forwardRef, ForwardedRef } from 'react';
 
 type FormRadioProps = {
-  options: [];
+  options: {
+    text: string;
+    value: string | number;
+  }[];
   value?: string;
   title: string;
   error?: string;

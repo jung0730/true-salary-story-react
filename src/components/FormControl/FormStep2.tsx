@@ -3,8 +3,7 @@ import useFormStore from '@/stores/form';
 import FormTextarea from './FormTextarea';
 import { usePostSalary } from '@/services/mutation';
 
-// label, required, error...
-const Form = () => {
+const FormStep2 = () => {
   const { setStep, setFormData, formData, setPost } = useFormStore();
   const { data, mutate } = usePostSalary();
   const {
@@ -45,4 +44,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormStep2;

@@ -1,13 +1,13 @@
 import { forwardRef, ForwardedRef } from 'react';
 
-type FormInputProps = {
+type FormTextAreaProps = {
   label: string;
   placeholder?: string;
   error?: string;
   sublabel: string;
 };
 
-const FormTextarea = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLTextAreaElement>) => {
+const FormTextarea = forwardRef((props: FormTextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => {
   const { label, placeholder, sublabel, error, ...rest } = props;
   return (
     <div className="mb-10">

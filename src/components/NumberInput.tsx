@@ -1,14 +1,13 @@
 import { forwardRef, ForwardedRef } from 'react';
 
-type FormInputProps = {
-  label: string;
+type NumberInputProps = {
   placeholder?: string;
   error?: string;
   defaultValue?: string;
 };
 
-const NumberInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLInputElement>) => {
-  const { label, placeholder, error, defaultValue, ...rest } = props;
+const NumberInput = forwardRef((props: NumberInputProps, ref: ForwardedRef<HTMLInputElement>) => {
+  const { placeholder, error, defaultValue, ...rest } = props;
   return (
     <>
       <input

@@ -16,8 +16,7 @@ import FormSalaryCalculation from './FormSalaryCalculation';
 import { useUniformNumbers } from '@/services/query';
 import { useState } from 'react';
 
-// label, required, error...
-const Form = () => {
+const FormStep1 = () => {
   const { setStep, setFormData } = useFormStore();
   const [taxId, setTaxId] = useState(0);
   const {
@@ -175,4 +174,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormStep1;

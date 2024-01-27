@@ -1,7 +1,6 @@
 import useFormStore from '@/stores/form';
 
-// label, required, error...
-const Form = () => {
+const FormStep3 = () => {
   const { post } = useFormStore();
   return (
     <div>
@@ -379,4 +378,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormStep3;

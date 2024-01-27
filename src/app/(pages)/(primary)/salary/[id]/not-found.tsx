@@ -1,4 +1,3 @@
-'use client';
 import { redirect } from 'next/navigation';
 import Button from '@/components/Button';
 export default function notFound() {

@@ -5,12 +5,14 @@ type SelectProps = {
     text: string;
     value: string | number;
   }[];
-  onChange?: () => void;
+  title: string;
   error?: string;
+  name: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectElement>) => {
-  const { options, error, onChange, ...rest } = props;
+  const { options, error, onChange, name, ...rest } = props;
   const optionsList = options.map((item) => (
     <option key={item.text} value={item.value} {...rest}>
       {item.text}
@@ -18,7 +20,12 @@ const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectEleme
   ));
   return (
     <>
-      <select ref={ref} onChange={onChange} className="w-full border border-black-1 rounded py-2 pl-4 pr-9 h-[42px]">
+      <select
+        ref={ref}
+        name={name}
+        onChange={onChange}
+        className="w-full border border-black-1 rounded py-2 pl-4 pr-9 h-[42px]"
+      >
         <option value="">請選擇</option>
         {optionsList}
       </select>

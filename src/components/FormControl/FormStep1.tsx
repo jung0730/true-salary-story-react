@@ -34,7 +34,7 @@ const FormStep1 = () => {
       overtime: '3',
       feeling: '3',
       employmentType: '全職',
-      inService: true,
+      inService: 'Y',
       taxId: '',
       companyName: '',
       title: '資深工程師',
@@ -164,7 +164,7 @@ const FormStep1 = () => {
         {...register('employmentType', { required: '職務類別為必填欄位' })}
       />
       <FormRadioButtonStyle
-        defaultValue={getValues('inService') === true ? 'Y' : 'N'}
+        defaultValue={getValues('inService')}
         options={isInServiceOptions}
         title="在職狀況"
         error={errors?.inService?.message}

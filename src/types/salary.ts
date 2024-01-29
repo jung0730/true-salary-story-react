@@ -37,7 +37,7 @@ type SubmitPost = {
   companyName: string;
   title: string;
   employmentType: string;
-  inService: boolean | string;
+  inService: string;
   city: string;
   workYears: number | string;
   totalWorkYears: number | string;

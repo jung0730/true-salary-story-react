@@ -20,7 +20,7 @@ type BasePost = {
   feeling: number | string;
   jobDescription?: string;
   suggestion?: string;
-}
+};
 
 export type Post = BasePost & {
   postId: string;
@@ -39,6 +39,6 @@ export type SubmitPost = BasePost & {
 };
 
 export type SubmitPostForStep1 = Omit<SubmitPost, 'jobDescription' | 'suggestion'> & {
-  salaryTypes: string
+  salaryTypes: string;
 };
 export type SubmitPostForStep2 = Pick<SubmitPost, 'jobDescription' | 'suggestion'>;

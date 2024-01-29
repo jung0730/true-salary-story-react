@@ -7,8 +7,8 @@ type State = {
   result: {
     title: string;
     companyName: string;
-    point: number
-  }
+    point: number;
+  };
 };
 
 type Action = {
@@ -46,8 +46,8 @@ const defaultState: State = {
   result: {
     title: '',
     companyName: '',
-    point: 0
-  }
+    point: 0,
+  },
 };
 
 const useFormStore = create<State & Action>((set) => ({

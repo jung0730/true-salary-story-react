@@ -55,6 +55,7 @@ type SubmitPost = {
   feeling: number | string;
   jobDescription: string;
   suggestion: string;
+  salaryTypes: string;
 };
 
 export type SubmitPostForStep1 = Omit<SubmitPost, 'jobDescription' | 'suggestion'>;

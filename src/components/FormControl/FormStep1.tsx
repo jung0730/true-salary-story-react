@@ -50,6 +50,7 @@ const FormStep1 = () => {
       dailySalary: '',
       monthlySalary: '',
       hourlySalary: '',
+      salaryTypes: 'monthly',
     },
   });
   const uniformNumbersRegex = /^[0-9]{8}$/;

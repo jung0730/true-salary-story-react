@@ -16,8 +16,7 @@ const FormSalaryCalculation = (props) => {
   let hourlySalary;
   let avgWorkingDaysPerMonth;
   let avgHoursPerDay;
-  let salaryTypes: string;
-  salaryTypes = getValues('salaryTypes');
+  const salaryTypes = getValues('salaryTypes');
   const calculateTotal = () => {
     yearEndBonus = getValues('yearEndBonus');
     holidayBonus = getValues('holidayBonus');

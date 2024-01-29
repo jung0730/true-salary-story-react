@@ -6,7 +6,7 @@ import type { SubmitPostForStep2 } from '@/types/salary';
 import { useRouter } from 'next/navigation';
 
 const FormStep2 = () => {
-  const { setFormData, formData, setResult } = useFormStore();
+  const { setFormData, formData, setResult, result } = useFormStore();
   const { mutate } = usePostSalary();
   const router = useRouter();
   const {

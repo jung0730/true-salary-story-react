@@ -7,10 +7,10 @@ type ResPostSalary = {
     title: string;
     companyName: string;
     point: number;
-  };
+  }[];
 };
 
 export const postSalary = async (data: SubmitPost) => {
   const { result } = await post<ResPostSalary>('/api/salary', data);
-  return result;
+  return result[0];
 };

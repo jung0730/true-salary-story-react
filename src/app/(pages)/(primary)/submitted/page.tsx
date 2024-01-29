@@ -1,10 +1,12 @@
+'use client';
 import useFormStore from '@/stores/form';
+import BaseSection from '@/components/Salary/BaseSection';
 import SubmittedSVG from '@/components/Image/SubmittedSVG';
 
 const Page = () => {
   const { result } = useFormStore();
   return (
-    <div>
+    <BaseSection>
       <div className="flex">
         <div className="self-center mr-3">
           <i className="icomoon icon-sparkle-checked text-5xl text-blue"></i>
@@ -76,7 +78,7 @@ const Page = () => {
           <SubmittedSVG />
         </div>
       </div>
-    </div>
+    </BaseSection>
   );
 };
 

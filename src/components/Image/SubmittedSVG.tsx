@@ -270,15 +270,15 @@ const SubmittedSVG = () => {
           d="M130.45,67.3h-.07a.45.45,0,0,1-.37-.36l-2-9.32a.45.45,0,0,1,.34-.54l28.28-6.76a.48.48,0,0,1,.55.3.47.47,0,0,1-.26.57L134.78,60.4l-3.93,6.68A.47.47,0,0,1,130.45,67.3ZM129,57.86l1.67,7.75,3.42-5.8a.45.45,0,0,1,.22-.19l17-7.09Z"
           fill="#231f20"
         ></path>
-        <text transform="translate(126.73 80.54)" font-size="13.06" font-family="MyriadPro-Regular, Myriad Pro">
-          <tspan letter-spacing="0.01em">S</tspan>
+        <text transform="translate(126.73 80.54)" fontSize="13.06" fontFamily="MyriadPro-Regular, Myriad Pro">
+          <tspan letterSpacing="0.01em">S</tspan>
           <tspan x="6.52" y="0">
             e
           </tspan>
-          <tspan x="13.06" y="0" letter-spacing="0em">
+          <tspan x="13.06" y="0" letterSpacing="0em">
             n
           </tspan>
-          <tspan x="20.25" y="0" letter-spacing="0em">
+          <tspan x="20.25" y="0" letterSpacing="0em">
             t
           </tspan>
         </text>

@@ -15,6 +15,7 @@ import FormRadioButtonStyle from './FormRadioButtonStyle';
 import FormSalaryCalculation from './FormSalaryCalculation';
 import { useUniformNumbers } from '@/services/query';
 import { useState } from 'react';
+import type { SubmitPostForStep1 } from '@/types/salary';
 
 const FormStep1 = () => {
   const { setStep, setFormData } = useFormStore();
@@ -27,20 +28,19 @@ const FormStep1 = () => {
     resetField,
     getFieldState,
     formState: { errors },
-  } = useForm<{ [x: string]: string }>({
+  } = useForm<SubmitPostForStep1>({
     mode: 'onBlur',
     defaultValues: {
       overtime: '3',
       feeling: '3',
       employmentType: '全職',
-      isInService: 'N',
-      taxId: '123456',
-      companyName: 'test',
-      title: 'title',
+      inService: true,
+      taxId: '',
+      companyName: '',
+      title: '資深工程師',
       city: '台北',
-      workYears: '10',
-      totalWorkYears: '15',
-      salaryTypes: 'monthly',
+      workYears: '2',
+      totalWorkYears: '4',
       otherBonus: '',
       profitSharingBonus: '',
       yearEndBonus: '',
@@ -59,9 +59,30 @@ const FormStep1 = () => {
   if (data?.isExist) {
     setValue('companyName', data.companyName);
   }
-  const onSubmit = (data) => {
+  const onSubmit = (data: SubmitPostForStep1) => {
+    const convertData = {
+      overtime: Number(data.overtime),
+      feeling: Number(data.feeling),
+      employmentType: data.employmentType,
+      inService: data.inService === 'Y',
+      taxId: data.taxId,
+      companyName: data.companyName,
+      title: data.title,
+      city: data.city,
+      workYears: Number(data.workYears),
+      totalWorkYears: Number(data.totalWorkYears),
+      otherBonus: (data.otherBonus && Number(data.otherBonus)) || null,
+      profitSharingBonus: (data.profitSharingBonus && Number(data.profitSharingBonus)) || null,
+      yearEndBonus: (data.yearEndBonus && Number(data.yearEndBonus)) || null,
+      avgHoursPerDay: (data.avgHoursPerDay && Number(data.avgHoursPerDay)) || null,
+      holidayBonus: (data.holidayBonus && Number(data.holidayBonus)) || null,
+      avgWorkingDaysPerMonth: (data.avgWorkingDaysPerMonth && Number(data.avgWorkingDaysPerMonth)) || null,
+      dailySalary: (data.dailySalary && Number(data.dailySalary)) || null,
+      monthlySalary: (data.monthlySalary && Number(data.monthlySalary)) || null,
+      hourlySalary: (data.hourlySalary && Number(data.hourlySalary)) || null,
+    };
     setStep(2);
-    setFormData(data);
+    setFormData(convertData);
   };
   const searchUniformNumbers = () => {
     const { invalid } = fieldState;
@@ -88,11 +109,11 @@ const FormStep1 = () => {
   return (
     <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>
       <FormInput
-        label="公司統一編號"
+        label="公司統一編號8碼(ex: 12228473)"
         placeholder="請輸入公司統一編號"
         error={errors?.taxId?.message}
         {...register('taxId', {
-          required: 'This is required.',
+          required: '統一編號為必填欄位',
           pattern: {
             value: uniformNumbersRegex,
             message: '統一編號需為8碼',
@@ -108,45 +129,45 @@ const FormStep1 = () => {
         disabled
         placeholder="請輸入公司名稱"
         error={errors?.companyName?.message}
-        {...register('companyName', { required: 'This is required.' })}
+        {...register('companyName', { required: '公司名稱為為必填欄位' })}
       />
       <FormInput
         label="應徵職務"
         placeholder="請輸入應徵職務"
         error={errors?.title?.message}
-        {...register('title', { required: 'This is required.' })}
+        {...register('title', { required: '應徵職務為必填欄位' })}
       />
       <FormSelect
         options={cityOptions}
         title="工作城市"
         error={errors?.city?.message}
-        {...register('city', { required: 'This is required.' })}
+        {...register('city', { required: '工作城市為必填欄位' })}
       />
       <FormSelect
         options={yearsOfServiceOptions}
         title="在職年資"
         error={errors?.workYears?.message}
-        {...register('workYears', { required: 'This is required.' })}
+        {...register('workYears', { required: '在職年資為必填欄位' })}
       />
       <FormSelect
         options={yearsOfServiceOptions}
         title="總年資"
         error={errors?.totalWorkYears?.message}
-        {...register('totalWorkYears', { required: 'This is required.' })}
+        {...register('totalWorkYears', { required: '總年資為必填欄位' })}
       />
       <FormRadioButtonStyle
         defaultValue={getValues('employmentType')}
         options={employmentTypesOptions}
         title="職務類別"
         error={errors?.employmentType?.message}
-        {...register('employmentType', { required: 'This is required.' })}
+        {...register('employmentType', { required: '職務類別為必填欄位' })}
       />
       <FormRadioButtonStyle
-        defaultValue={getValues('isInService')}
+        defaultValue={getValues('inService') === true ? 'Y' : 'N'}
         options={isInServiceOptions}
         title="在職狀況"
-        error={errors?.isInService?.message}
-        {...register('isInService', { required: 'This is required.' })}
+        error={errors?.inService?.message}
+        {...register('inService', { required: '在職狀況為必填欄位' })}
       />
       <FormSalaryCalculation
         resetField={resetField}
@@ -159,13 +180,13 @@ const FormStep1 = () => {
         options={overtimeOptions}
         title="上班頻率"
         error={errors?.overtime?.message}
-        {...register('overtime', { required: 'This is required.' })}
+        {...register('overtime', { required: '上班頻率為必填欄位' })}
       />
       <FormRadio
         options={feelingOptions}
         title="上班狀況"
         error={errors?.feeling?.message}
-        {...register('feeling', { required: 'This is required.' })}
+        {...register('feeling', { required: '上班狀況為必填欄位' })}
       />
       <button type="submit" className="w-full">
         儲存

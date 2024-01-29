@@ -3,23 +3,7 @@ import NumberInput from '../NumberInput';
 import FormRadioButtonStyle from './FormRadioButtonStyle';
 import Select from '../Select';
 import { salaryTypesOpions, monthOptions, workingHoursOptions } from '@/utils/options';
-import {
-  UseFormRegister,
-  UseFormSetValue,
-  UseFormGetValues,
-  UseFormResetField,
-  FieldValues,
-  UseFormSetError,
-} from 'react-hook-form';
 import React from 'react';
-
-// type FormProps = {
-//   register: UseFormRegister<FieldValues>
-//   getValues: UseFormGetValues<FieldValues>;
-//   setValue: UseFormSetValue<FieldValues>
-//   resetField: UseFormResetField<FieldValues>
-//   errors: UseFormSetError<FieldValues>
-// }
 
 const FormSalaryCalculation = (props) => {
   const { register, errors, getValues, setValue, resetField } = props;
@@ -81,14 +65,14 @@ const FormSalaryCalculation = (props) => {
         title="薪資狀況(新台幣)"
         error={errors?.salaryTypes?.message}
         {...register('salaryTypes', {
-          required: 'This is required.',
+          required: '薪資狀況(新台幣)為必填欄位',
           onChange: () => {
             handleSalaryTypeChange();
           },
         })}
       />
       <div className="mt-4">
-        <div className="">
+        <div>
           <div className="flex flex-wrap md:flex-nowrap">
             <div className="w-full">
               {salaryTypes === 'monthly' && (
@@ -97,10 +81,7 @@ const FormSalaryCalculation = (props) => {
                     placeholder={'月薪 EX:35000'}
                     error={errors?.monthlySalary?.message}
                     {...register('monthlySalary', {
-                      pattern: {
-                        value: /^(0|[1-9]\d*)(\.\d+)?$/,
-                      },
-                      required: 'This is required.',
+                      required: '月薪為必填欄位',
                       onBlur: () => {
                         calculateTotal();
                       },
@@ -114,10 +95,7 @@ const FormSalaryCalculation = (props) => {
                   placeholder={'日薪 EX:1000'}
                   error={errors?.dailySalary?.message}
                   {...register('dailySalary', {
-                    pattern: {
-                      value: /^(0|[1-9]\d*)(\.\d+)?$/,
-                    },
-                    required: 'This is required.',
+                    required: '日薪為必填欄位',
                     onBlur: () => {
                       calculateTotal();
                     },
@@ -129,10 +107,7 @@ const FormSalaryCalculation = (props) => {
                   placeholder={'時薪 EX:176'}
                   error={errors?.hourlySalary?.message}
                   {...register('hourlySalary', {
-                    pattern: {
-                      value: /^(0|[1-9]\d*)(\.\d+)?$/,
-                    },
-                    required: 'This is required.',
+                    required: '時薪為必填欄位',
                     onBlur: () => {
                       calculateTotal();
                     },
@@ -147,7 +122,7 @@ const FormSalaryCalculation = (props) => {
                     options={workingHoursOptions}
                     error={errors?.avgHoursPerDay?.message}
                     {...register('avgHoursPerDay', {
-                      required: 'This is required.',
+                      required: '每日平均工時為必填欄位',
                       onChange: () => {
                         calculateTotal();
                       },
@@ -163,7 +138,7 @@ const FormSalaryCalculation = (props) => {
                     options={monthOptions}
                     error={errors?.avgWorkingDaysPerMonth?.message}
                     {...register('avgWorkingDaysPerMonth', {
-                      required: 'This is required.',
+                      required: '每月平均工時為必填欄位',
                       onChange: () => {
                         calculateTotal();
                       },
@@ -177,9 +152,6 @@ const FormSalaryCalculation = (props) => {
         <FormNumberInput
           placeholder={'年終 EX:12000'}
           {...register('yearEndBonus', {
-            pattern: {
-              value: /^(0|[1-9]\d*)(\.\d+)?$/,
-            },
             onBlur: () => {
               calculateTotal();
             },
@@ -188,9 +160,6 @@ const FormSalaryCalculation = (props) => {
         <FormNumberInput
           placeholder={'三節'}
           {...register('holidayBonus', {
-            pattern: {
-              value: /^(0|[1-9]\d*)(\.\d+)?$/,
-            },
             onBlur: () => {
               calculateTotal();
             },
@@ -199,9 +168,6 @@ const FormSalaryCalculation = (props) => {
         <FormNumberInput
           placeholder={'獎金'}
           {...register('profitSharingBonus', {
-            pattern: {
-              value: /^(0|[1-9]\d*)(\.\d+)?$/,
-            },
             onBlur: () => {
               calculateTotal();
             },
@@ -210,9 +176,6 @@ const FormSalaryCalculation = (props) => {
         <FormNumberInput
           placeholder={'其他'}
           {...register('otherBonus', {
-            pattern: {
-              value: /^(0|[1-9]\d*)(\.\d+)?$/,
-            },
             onBlur: () => {
               calculateTotal();
             },

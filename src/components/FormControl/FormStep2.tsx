@@ -2,16 +2,23 @@ import { useForm } from 'react-hook-form';
 import useFormStore from '@/stores/form';
 import FormTextarea from './FormTextarea';
 import { usePostSalary } from '@/services/mutation';
+import type { SubmitPostForStep2 } from '@/types/salary';
 
 const FormStep2 = () => {
   const { setStep, setFormData, formData, setPost } = useFormStore();
-  const { data, mutate } = usePostSalary();
+  const { mutate } = usePostSalary();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<{ [x: string]: string }>({});
-  const onSubmit = async (data) => {
+  } = useForm<SubmitPostForStep2>({
+    mode: 'onBlur',
+    defaultValues: {
+      jobDescription: '',
+      suggestion: '',
+    },
+  });
+  const onSubmit = async (data: SubmitPostForStep2) => {
     const mergedData = { ...data, ...formData };
     setFormData(mergedData);
     mutate(mergedData, {
@@ -28,14 +35,14 @@ const FormStep2 = () => {
         sublabel="還記得工作時的情形嗎?不論是工作項目、工作環境、福利條件、花費時間等,都可以在這裡盡情分享。"
         placeholder="輸入工作內容...."
         error={errors?.jobDescription?.message}
-        {...register('jobDescription', { required: 'This is required.' })}
+        {...register('jobDescription', { required: '工作內容分享為必填欄位' })}
       />
       <FormTextarea
         label="建議與資訊・100 積分"
         sublabel="還有什麼想跟職場後輩說的嗎?給予建議或資訊來幫助後輩們更了解這間公司。"
         placeholder="輸入建議資訊...."
         error={errors?.suggestion?.message}
-        {...register('suggestion', { required: 'This is required.' })}
+        {...register('suggestion', { required: '建議與資訊為必填欄位' })}
       />
       <button type="submit" className="w-full">
         儲存

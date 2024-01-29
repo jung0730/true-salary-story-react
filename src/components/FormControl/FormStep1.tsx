@@ -81,6 +81,7 @@ const FormStep1 = () => {
       dailySalary: (data.dailySalary && Number(data.dailySalary)) || null,
       monthlySalary: (data.monthlySalary && Number(data.monthlySalary)) || null,
       hourlySalary: (data.hourlySalary && Number(data.hourlySalary)) || null,
+      yearlySalary: Number(data.yearlySalary),
     };
     setStep(2);
     setFormData(convertData);

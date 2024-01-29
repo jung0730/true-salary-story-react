@@ -36,11 +36,11 @@ const FormSalaryCalculation = (props) => {
       total = salary + bonus;
     }
     if (salaryTypes === 'hourly') {
-      salary = Number(hourlySalary) * Number(avgHoursPerDay) * Number(avgWorkingDaysPerMonth);
+      salary = Number(hourlySalary) * Number(avgHoursPerDay) * Number(avgWorkingDaysPerMonth) * 12;
       total = salary + bonus;
     }
     if (salaryTypes === 'daily') {
-      salary = Number(dailySalary) * Number(avgWorkingDaysPerMonth);
+      salary = Number(dailySalary) * Number(avgWorkingDaysPerMonth) * 12;
       total = salary + bonus;
     }
     setValue('yearlySalary', total);

@@ -1,21 +1,53 @@
 import { create } from 'zustand';
+import type { SubmitPost } from '@/types/salary';
 
 type State = {
   step: number;
-  formData: object;
-  post: object[];
+  formData: SubmitPost;
+  result: {
+    title: string;
+    companyName: string;
+    point: number
+  }
 };
 
 type Action = {
   setStep: (step: State['step']) => void;
   setFormData: (step: State['formData']) => void;
-  setPost: (step: State['post']) => void;
+  setResult: (step: State['result']) => void;
 };
 
 const defaultState: State = {
   step: 1,
-  formData: {},
-  post: [{}],
+  formData: {
+    taxId: '',
+    companyName: '',
+    title: '',
+    employmentType: '',
+    inService: '',
+    city: '',
+    workYears: '',
+    totalWorkYears: '',
+    monthlySalary: '',
+    dailySalary: '',
+    avgWorkingDaysPerMonth: '',
+    hourlySalary: '',
+    avgHoursPerDay: '',
+    yearEndBonus: '',
+    holidayBonus: '',
+    profitSharingBonus: '',
+    otherBonus: '',
+    yearlySalary: '',
+    overtime: '',
+    feeling: '',
+    jobDescription: '',
+    suggestion: '',
+  },
+  result: {
+    title: '',
+    companyName: '',
+    point: 0
+  }
 };
 
 const useFormStore = create<State & Action>((set) => ({
@@ -23,7 +55,7 @@ const useFormStore = create<State & Action>((set) => ({
 
   setStep: (step) => set({ step }),
   setFormData: (formData) => set({ formData }),
-  setPost: (post) => set({ post }),
+  setResult: (result) => set({ result }),
 }));
 
 export default useFormStore;

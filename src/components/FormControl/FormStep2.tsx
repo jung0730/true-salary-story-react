@@ -3,10 +3,12 @@ import useFormStore from '@/stores/form';
 import FormTextarea from './FormTextarea';
 import { usePostSalary } from '@/services/mutation';
 import type { SubmitPostForStep2 } from '@/types/salary';
+import { useRouter } from 'next/navigation';
 
 const FormStep2 = () => {
-  const { setStep, setFormData, formData, setPost } = useFormStore();
+  const { setFormData, formData, setResult } = useFormStore();
   const { mutate } = usePostSalary();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -23,8 +25,8 @@ const FormStep2 = () => {
     setFormData(mergedData);
     mutate(mergedData, {
       onSuccess: (data) => {
-        setPost(data);
-        setStep(3);
+        setResult(data);
+        router.push('/submitted');
       },
     });
   };

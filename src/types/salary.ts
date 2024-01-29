@@ -1,62 +1,44 @@
-export type Post = {
-  postId: string;
-  companyType: string;
+type BasePost = {
   taxId: string;
   companyName: string;
   title: string;
   employmentType: string;
-  inService: boolean;
   city: string;
-  workYears: number;
-  totalWorkYears: number;
-  monthlySalary: number;
-  dailySalary: number;
-  avgWorkingDaysPerMonth: number;
-  hourlySalary: number;
-  avgHoursPerDay: number;
-  yearlySalary: number;
-  yearEndBonus: number;
-  holidayBonus: number;
-  profitSharingBonus: number;
-  otherBonus: number;
-  overtime: number;
-  feeling: number;
-  jobDescription: string;
-  suggestion: string;
+  workYears: number | string;
+  totalWorkYears: number | string;
+  monthlySalary: number | string | null;
+  dailySalary: number | string | null;
+  avgWorkingDaysPerMonth: number | string | null;
+  hourlySalary: number | string | null;
+  avgHoursPerDay: number | string | null;
+  yearlySalary: number | string | null;
+  yearEndBonus: number | string | null;
+  holidayBonus: number | string | null;
+  profitSharingBonus: number | string | null;
+  otherBonus: number | string | null;
+  overtime: number | string;
+  feeling: number | string;
+  jobDescription?: string;
+  suggestion?: string;
+}
+
+export type Post = BasePost & {
+  postId: string;
   tags?: number[];
   customTags?: string[];
   createDate?: string;
   isLocked?: boolean;
   createUser?: string;
   type: string;
-};
-
-type SubmitPost = {
+  inService: boolean;
   companyType: string;
-  taxId: string;
-  companyName: string;
-  title: string;
-  employmentType: string;
-  inService: string;
-  city: string;
-  workYears: number | string;
-  totalWorkYears: number | string;
-  monthlySalary: number | string;
-  dailySalary: number | string;
-  avgWorkingDaysPerMonth: number | string;
-  hourlySalary: number | string;
-  avgHoursPerDay: number | string;
-  yearlySalary: number | string;
-  yearEndBonus: number | string;
-  holidayBonus: number | string;
-  profitSharingBonus: number | string;
-  otherBonus: number | string;
-  overtime: number | string;
-  feeling: number | string;
-  jobDescription: string;
-  suggestion: string;
-  salaryTypes: string;
 };
 
-export type SubmitPostForStep1 = Omit<SubmitPost, 'jobDescription' | 'suggestion'>;
+export type SubmitPost = BasePost & {
+  inService: string | boolean;
+};
+
+export type SubmitPostForStep1 = Omit<SubmitPost, 'jobDescription' | 'suggestion'> & {
+  salaryTypes: string
+};
 export type SubmitPostForStep2 = Pick<SubmitPost, 'jobDescription' | 'suggestion'>;

@@ -1,7 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import Button from '../Button';
+import BaseLink from '@/components/BaseLink';
 import Search from './Search';
 import Message from './Message';
 import Point from './Point';
@@ -11,7 +10,6 @@ import { useProfile } from '@/services/query/index';
 import useAuthStore from '@/stores/auth';
 
 const NavList = () => {
-  const router = useRouter();
   const { isLogin, setUser, setIsLogin } = useAuthStore();
   const { data } = useProfile();
 
@@ -23,9 +21,9 @@ const NavList = () => {
   }, [data]);
   return (
     <>
-      <Button color="blue-text" onClick={() => router.push('/share')}>
+      <BaseLink color="blue-text" href="/share">
         匿名分享
-      </Button>
+      </BaseLink>
       <Search />
       {isLogin && (
         <>
@@ -34,12 +32,12 @@ const NavList = () => {
         </>
       )}
       {!isLogin && (
-        <Button color="secondary" className="mx-5" onClick={() => router.push('/login')}>
+        <BaseLink color="secondary" className="mx-5" href="/login">
           登入
-        </Button>
+        </BaseLink>
       )}
       {isLogin && <User />}
-      <Button onClick={() => router.push('/order')}>加薪計畫</Button>
+      <BaseLink href="/order">加薪計畫</BaseLink>
     </>
   );
 };

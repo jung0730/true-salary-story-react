@@ -53,7 +53,7 @@ export default function Page() {
         return 'smile';
     }
   };
-  const convertNumberRange = (value: number | string) => {
+  const convertNumberRange = (value: number) => {
     const number = Number(value);
     let text = '-';
     let range = 0;

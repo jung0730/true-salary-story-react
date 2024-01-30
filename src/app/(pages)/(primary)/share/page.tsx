@@ -12,7 +12,7 @@ export default function Page() {
   const { redirectToLogin } = useGlobalAuth();
   useEffect(() => {
     redirectToLogin();
-  });
+  }, []);
   return (
     <BaseSection>
       <h2 className="text-3xl mb-5 md:px-0 px-5">匿名分享</h2>

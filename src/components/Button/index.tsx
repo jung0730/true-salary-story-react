@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { colors } from './constants';
-// import Icon from '../Nav/Icon'
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -11,7 +10,7 @@ type ButtonProps = {
 };
 
 const Button = (props: ButtonProps) => {
-  const { children, className, icon, color, onClick, ...rest } = props;
+  const { children, className, color, onClick, ...rest } = props;
   const classes = colors[color ?? 'primary'];
   return (
     <button className={clsx('duration-300 ease-in-out transition', className, classes)} onClick={onClick} {...rest}>

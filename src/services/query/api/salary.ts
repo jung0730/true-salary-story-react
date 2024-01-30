@@ -126,8 +126,13 @@ export const getSalaryInfo = async (id: string) => {
 //   const { result } = res;
 // };
 
+type ResUniformNumbers = {
+  companyName: string;
+  isExist: boolean;
+};
+
 export const getUniformNumbers = async (taxId: number) => {
-  const res = await get(`/api/salary/uniformNumbers/${taxId}`);
+  const res = await get<ResUniformNumbers>(`/api/salary/uniformNumbers/${taxId}`);
   const { isExist, companyName } = res;
   return { isExist, companyName };
 };

@@ -1,4 +1,37 @@
-type BasePost = {
+export type Post = {
+  postId: string;
+  taxId: string;
+  companyName: string;
+  title: string;
+  employmentType: string;
+  city: string;
+  workYears: number;
+  totalWorkYears: number;
+  monthlySalary: number;
+  dailySalary: number;
+  avgWorkingDaysPerMonth: number;
+  hourlySalary: number;
+  avgHoursPerDay: number;
+  yearlySalary: number;
+  yearEndBonus: number;
+  holidayBonus: number;
+  profitSharingBonus: number;
+  otherBonus: number;
+  overtime: string;
+  feeling: string;
+  jobDescription: string;
+  suggestion: string;
+  tags?: number[];
+  customTags?: string[];
+  createDate?: string;
+  isLocked?: boolean;
+  createUser?: string;
+  type: string;
+  inService: boolean;
+  companyType: string;
+};
+
+export type SubmitPost = {
   taxId: string;
   companyName: string;
   title: string;
@@ -20,21 +53,6 @@ type BasePost = {
   feeling: number | string;
   jobDescription: string;
   suggestion: string;
-};
-
-export type Post = BasePost & {
-  postId: string;
-  tags?: number[];
-  customTags?: string[];
-  createDate?: string;
-  isLocked?: boolean;
-  createUser?: string;
-  type: string;
-  inService: boolean;
-  companyType: string;
-};
-
-export type SubmitPost = BasePost & {
   inService: string | boolean;
 };
 

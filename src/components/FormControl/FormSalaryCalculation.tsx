@@ -5,7 +5,7 @@ import Select from '../Select';
 import { salaryTypesOpions, monthOptions, workingHoursOptions } from '@/utils/options';
 import React from 'react';
 
-const FormSalaryCalculation = (props) => {
+const FormSalaryCalculation = (props: any) => {
   const { register, errors, getValues, setValue, resetField } = props;
   let yearEndBonus;
   let holidayBonus;

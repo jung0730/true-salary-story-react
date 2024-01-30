@@ -21,7 +21,7 @@ const FormStep2 = () => {
     },
   });
   const onSubmit = async (data: SubmitPostForStep2) => {
-    const mergedData = { ...data, ...formData };
+    const mergedData = { ...formData, ...data };
     setFormData(mergedData);
     mutate(mergedData, {
       onSuccess: (data) => {

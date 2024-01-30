@@ -192,8 +192,11 @@ const FormStep1 = () => {
         error={errors?.feeling?.message}
         {...register('feeling', { required: '上班狀況為必填欄位' })}
       />
-      <button type="submit" className="w-full">
-        儲存
+      <button
+        type="submit"
+        className="duration-300 ease-in-out transition flex mx-auto text-white fill-white bg-blue hover:bg-black-10 rounded py-3 px-5"
+      >
+        下一步
       </button>
     </form>
   );

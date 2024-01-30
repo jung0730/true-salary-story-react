@@ -1,3 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply font-bold;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.03em;
+  }
+  h2 {
+    @apply font-bold;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: 0.03em;
+  }
+  h3 {
+    @apply font-bold;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0.03em;
+  }
+  h4 {
+    @apply font-bold;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.03em;
+  }
+  h5 {
+    @apply font-bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+  }
+  h6 {
+    @apply font-medium;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.03em;
+  }
+  .body {
+    @apply font-normal;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.03em;
+  }
+  .body-sm {
+    @apply font-normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+  }
+  .caption {
+    @apply font-normal;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.03em;
+  }
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .bottom-modal {
+    @apply rounded-t-3xl;
+    filter: drop-shadow(0px -2px 8px rgba(43, 43, 49, 0.1));
+    backdrop-filter: blur(4px);
+  }
+  th {
+    @apply border-b-2 border-b-black-5 py-5 text-left;
+  }
+  td {
+    @apply border-b border-b-black-5 py-5;
+  }
+}

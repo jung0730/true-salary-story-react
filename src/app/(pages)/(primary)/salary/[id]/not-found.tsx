@@ -8,7 +8,6 @@ export default function notFound() {
         <NotFoundSVG />
         <h2 className="text-xl md:text-4xl text-center mb-10 mt-[-50px]">你搜尋的頁面找不到</h2>
         <Button
-          color="primary"
           className="flex justify-center items-center rounded transition w-[200px] max-w-full mx-auto"
           onClick={() => redirect('/')}
         >

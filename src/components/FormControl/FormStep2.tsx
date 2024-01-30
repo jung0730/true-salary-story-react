@@ -46,7 +46,10 @@ const FormStep2 = () => {
         error={errors?.suggestion?.message}
         {...register('suggestion', { required: '建議與資訊為必填欄位' })}
       />
-      <button type="submit" className="w-full">
+      <button
+        type="submit"
+        className="duration-300 ease-in-out transition flex mx-auto text-white fill-white bg-blue hover:bg-black-10 rounded py-3 px-5"
+      >
         儲存
       </button>
     </form>

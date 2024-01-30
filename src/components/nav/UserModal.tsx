@@ -49,7 +49,7 @@ const UserModal = () => {
   ];
   const userList = LIST.map((item) => (
     <li key={item.title}>
-      <Button color="black-text" className="w-full">
+      <Button color="black-text" className="w-full" onClick={() => {}}>
         <div className="text-black-10 group-hover:text-blue">{item.title}</div>
       </Button>
     </li>

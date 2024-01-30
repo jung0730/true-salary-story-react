@@ -10,6 +10,7 @@ import { useSalaryInfo } from '@/services/query';
 import useSalaryStore from '@/stores/salary';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { notFound } from 'next/navigation';
+import Button from '@/components/Button';
 
 export default function Page() {
   const params = useParams();
@@ -169,10 +170,7 @@ export default function Page() {
               <br />
               <span>兌換後馬上就能向前輩發問！</span>
             </div>
-            {/* <BaseButton v-if="post.isLocked" content="查看完整內容及薪水" @click="emit('view', post.postId)" />
-            <BaseButton v-if="!post.isLocked && !isMySalary" content="我要請教" @click="handleCreateConsult">
-              <span v-show="loading">...</span>
-            </BaseButton> */}
+            <Button onClick={() => {}}>查看完整內容及薪水</Button>
           </div>
         </div>
       </div>

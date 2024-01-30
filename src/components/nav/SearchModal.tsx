@@ -75,7 +75,7 @@ const SearchModal = () => {
           )}
         </div>
       </div>
-      <Button color="secondary" className="w-full">
+      <Button color="secondary" className="w-full" onClick={() => {}}>
         搜尋
       </Button>
     </div>

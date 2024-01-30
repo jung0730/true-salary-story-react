@@ -25,7 +25,7 @@ export default function Page() {
         notFound();
       }
     }
-  }, [data, setPost]);
+  }, [data]);
   const getSalaryTitle = () => {
     if (post.type === 'monthly') {
       return '月薪';

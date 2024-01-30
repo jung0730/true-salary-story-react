@@ -10,7 +10,7 @@ export function NavigationEvents() {
 
   useEffect(() => {
     setCurrentPath(pathname);
-  }, [pathname, setCurrentPath]);
+  }, [pathname]);
 
   return null;
 }

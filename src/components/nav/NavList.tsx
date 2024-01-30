@@ -20,7 +20,7 @@ const NavList = () => {
       setUser(data);
       setIsLogin(true);
     }
-  }, [data, setUser, setIsLogin]);
+  }, [data]);
   return (
     <>
       <Button color="blue-text" onClick={() => router.push('/share')}>

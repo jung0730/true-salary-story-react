@@ -4,6 +4,7 @@ import FormTextarea from './FormTextarea';
 import { usePostSalary } from '@/services/mutation';
 import type { SubmitPostForStep2 } from '@/types/salary';
 import { useRouter } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
 const FormStep2 = () => {
   const { setFormData, formData, setResult } = useFormStore();
@@ -26,6 +27,7 @@ const FormStep2 = () => {
     mutate(mergedData, {
       onSuccess: (data) => {
         setResult(data);
+        revalidatePath('/');
         router.push('/submitted');
       },
     });

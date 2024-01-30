@@ -82,6 +82,8 @@ const FormStep1 = () => {
       monthlySalary: (data.monthlySalary && Number(data.monthlySalary)) || null,
       hourlySalary: (data.hourlySalary && Number(data.hourlySalary)) || null,
       yearlySalary: Number(data.yearlySalary),
+      jobDescription: '',
+      suggestion: '',
     };
     setStep(2);
     setFormData(convertData);
@@ -165,7 +167,7 @@ const FormStep1 = () => {
         {...register('employmentType', { required: '職務類別為必填欄位' })}
       />
       <FormRadioButtonStyle
-        defaultValue={getValues('inService')}
+        defaultValue={String(getValues('inService'))}
         options={isInServiceOptions}
         title="在職狀況"
         error={errors?.inService?.message}

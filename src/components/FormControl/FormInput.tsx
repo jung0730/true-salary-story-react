@@ -20,7 +20,7 @@ const FormInput = forwardRef((props: FormInputProps, ref: ForwardedRef<HTMLInput
         onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) => onKeyUp && onKeyUp((e.target as HTMLInputElement).value)}
         className="w-full border border-black-1 rounded py-2 px-4 mt-2"
       />
-      <p className="min-h-[24px]">{error}</p>
+      <p className="min-h-[24px] text-red">{error}</p>
     </div>
   );
 });

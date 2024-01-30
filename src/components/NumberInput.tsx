@@ -26,7 +26,7 @@ const NumberInput = forwardRef((props: NumberInputProps, ref: ForwardedRef<HTMLI
         {...rest}
         className="w-full border border-black-1 rounded py-2 pl-4 pr-9"
       />
-      <p className="min-h-[24px]">{error}</p>
+      <p className="min-h-[24px] text-red">{error}</p>
     </>
   );
 });

@@ -18,8 +18,8 @@ type BasePost = {
   otherBonus: number | string | null;
   overtime: number | string;
   feeling: number | string;
-  jobDescription?: string;
-  suggestion?: string;
+  jobDescription: string;
+  suggestion: string;
 };
 
 export type Post = BasePost & {

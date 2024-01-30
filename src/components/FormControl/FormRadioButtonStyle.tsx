@@ -51,7 +51,7 @@ const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: 
     <div className="mb-10">
       <div className="text-black-10 mb-2">{title}</div>
       <div className="flex items-center justify-center">{optionsList}</div>
-      <p className="min-h-[24px]">{error}</p>
+      <p className="min-h-[24px] text-red">{error}</p>
     </div>
   );
 });

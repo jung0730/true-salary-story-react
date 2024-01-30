@@ -29,7 +29,7 @@ const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectEleme
         <option value="">請選擇</option>
         {optionsList}
       </select>
-      <p className="min-h-[24px]">{error}</p>
+      <p className="min-h-[24px] text-red">{error}</p>
     </>
   );
 });

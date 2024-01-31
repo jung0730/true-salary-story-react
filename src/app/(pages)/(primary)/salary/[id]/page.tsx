@@ -83,8 +83,8 @@ export default function Page() {
       <div className="flex flex-col bg-white">
         <div className="flex flex-col sm:p-3 md:p-6">
           <div className="mb-5 flex">
-            <div className="w-[48px] h-[48px] mr-[18px] flex items-center justify-center rounded bg-blue-light">
-              <AiOutlineCheckCircle className="w-[40px] h-[40px] text-blue-dark" />
+            <div className="mr-[18px] flex h-[48px] w-[48px] items-center justify-center rounded bg-blue-light">
+              <AiOutlineCheckCircle className="h-[40px] w-[40px] text-blue-dark" />
             </div>
             <div className="flex flex-col justify-between">
               <h5>

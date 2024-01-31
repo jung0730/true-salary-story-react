@@ -7,7 +7,10 @@ type ResStatisticsType = {
 };
 
 export const getStatistics = async () => {
-  const res = await get<ResStatisticsType>('/api/public/statistics');
+  const args = {
+    next: { revalidate: 3600 },
+  };
+  const res = await get<ResStatisticsType>('/api/public/statistics', args);
   return res;
 };
 

@@ -24,7 +24,7 @@ export default function Page() {
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray">
-      <div className="login-box w-10/12 border-2 bg-white p-10 md:w-[400px]">
+      <div className="w-10/12 border-2 bg-white p-10 md:w-[400px]">
         <h2 className="mt-5 text-2xl text-blue md:text-3xl">有比較才有進步</h2>
         <div className="mt-10">
           <LoginAction />

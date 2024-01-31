@@ -17,7 +17,7 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
   const optionsList = options.map((item) => (
     <label
       key={item.text}
-      className="releative mb-5 flex w-full cursor-pointer items-center justify-start last:mb-0 md:mb-0 md:w-auto md:flex-1"
+      className="mb-5 flex w-full cursor-pointer items-center justify-start last:mb-0 md:mb-0 md:w-auto md:flex-1"
     >
       <input
         type="radio"
@@ -25,7 +25,7 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
         ref={ref}
         value={item.value}
         className={clsx(
-          'size-[20px] after:size-[15px] relative appearance-none after:absolute after:right-0 after:top-1/2 after:translate-y-[-50%] after:rounded-full after:border after:border-solid after:border-black-6 after:content-[""] checked:after:border-[6px] checked:after:border-blue'
+          "w-[20px] h-[20px] after:w-[15px] after:h-[15px] relative appearance-none after:absolute after:right-0 after:top-1/2 after:translate-y-[-50%] after:rounded-full after:border after:border-solid after:border-black-6 after:content-[''] checked:after:border-[6px] checked:after:border-blue"
         )}
       />
       <span className="ml-2">{item.text}</span>

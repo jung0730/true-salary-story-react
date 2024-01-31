@@ -1,11 +1,6 @@
 const SubmittedSVG = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 400 300"
-      height="306"
-      className="illustration styles_illustrationTablet__1DWOa w-full"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" height="306" className="w-full">
       <g id="_532_sending_emails_flatline" data-name="#532_sending_emails_flatline">
         <polygon
           points="309.71 135.89 309.71 256.65 86.74 256.65 86.74 135.89 198.23 68.48 309.71 135.89"

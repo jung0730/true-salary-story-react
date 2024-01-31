@@ -12,13 +12,13 @@ const Page = () => {
       <h2 className="mb-5 px-5 text-3xl md:px-0">匿名分享</h2>
       <div className="block">
         <div className="w-full md:mt-10 md:rounded-b md:border-2 md:border-black-10 lg:mt-0 lg:w-full">
-          <div className="w-100 bg-black-10 p-6 text-white">
+          <div className="bg-black-10 p-6 text-white">
             <h4>成功分享，獲得200!</h4>
           </div>
           <div className="bg-white px-3 py-6 md:p-6">
             <div className="flex">
               <div className="mr-3 self-center">
-                <AiOutlineCheckCircle className="size-[40px] text-blue-dark" />
+                <AiOutlineCheckCircle className="h-[36px] w-[36px] text-blue-dark" />
               </div>
               <div>
                 <h5 className="text-xl">
@@ -34,9 +34,6 @@ const Page = () => {
               </div>
             </div>
             <div className="mt-7 flex">
-              <div className="mr-3 self-center">
-                <i className="icomoon icon-coin text-5xl text-blue"></i>
-              </div>
               <div className="self-center">
                 <h5 className="text-xl">取得積分</h5>
               </div>
@@ -47,9 +44,6 @@ const Page = () => {
                   <div className="mr-5">
                     <h5 className="text-xl">加薪計畫</h5>
                     <span className="mt-3 text-black-6">前後 1 年間薪水任你看,無廣告閱讀體驗, 再贈送 2000 積分!</span>
-                  </div>
-                  <div className="ml-auto self-center">
-                    <i className="icomoon icon-star-circle text-5xl text-blue"></i>
                   </div>
                 </div>
                 <div className="mt-auto flex">
@@ -70,9 +64,6 @@ const Page = () => {
                       <br />
                       300 積分可解鎖 1 個聊天室
                     </p>
-                  </div>
-                  <div className="ml-auto self-center">
-                    <i className="icomoon icon-star text-5xl text-blue"></i>
                   </div>
                 </div>
                 <Button color="white" className="mt-auto w-full" onClick={() => {}}>

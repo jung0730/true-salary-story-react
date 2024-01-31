@@ -1,12 +1,6 @@
 const NotFoundSVG = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 400 300"
-      width="406"
-      height="306"
-      className="illustration styles_illustrationTablet__1DWOa max-w-full"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="406" height="306" className="max-w-full">
       <g id="_146_404_page_not_found_flatline" data-name="#146_404_page_not_found_flatline">
         <path
           d="M98.53,188.69H49.36V169.25L95.91,96.56h22.22v74.49H135v17.64H118.13v23.52H98.53Zm0-64.36H98.2L69.29,171.05H98.53Z"

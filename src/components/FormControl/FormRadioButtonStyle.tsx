@@ -24,7 +24,7 @@ const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: 
     <label
       key={item.text}
       htmlFor={item.value}
-      className="flex-1 releative cursor-pointer items-center inline-flex justify-start"
+      className="releative inline-flex flex-1 cursor-pointer items-center justify-start"
     >
       <input
         type="radio"
@@ -33,14 +33,14 @@ const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: 
         value={item.value}
         id={item.value}
         onChange={handleChange}
-        className={clsx('h-0 left-0 opacity-0 pointer-events-none absolute top-0 invisible width-0 appearance-none')}
+        className={clsx('width-0 pointer-events-none invisible absolute left-0 top-0 h-0 appearance-none opacity-0')}
       />
       <span
         className={clsx(
-          'text-black-5 releative items-center flex justify-center py-3 w-full border border-dark',
+          'releative flex w-full items-center justify-center border border-dark py-3 text-black-5',
           { 'rounded-r': Number(index) === options.length - 1 },
           { 'rounded-l': Number(index) === 0 },
-          item.value === select ? 'shadow-input bg-white text-blue border-blue-light' : 'bg-gray-light'
+          item.value === select ? 'border-blue-light bg-white text-blue shadow-input' : 'bg-gray-light'
         )}
       >
         {item.text}
@@ -49,7 +49,7 @@ const FormRadioButtonStyle = forwardRef((props: FormRadioButtonStyleProps, ref: 
   ));
   return (
     <div className="mb-10">
-      <div className="text-black-10 mb-2">{title}</div>
+      <div className="mb-2 text-black-10">{title}</div>
       <div className="flex items-center justify-center">{optionsList}</div>
       <p className="min-h-[24px] text-red">{error}</p>
     </div>

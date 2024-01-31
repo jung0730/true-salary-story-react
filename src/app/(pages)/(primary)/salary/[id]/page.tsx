@@ -81,10 +81,10 @@ export default function Page() {
   return (
     <BaseSection>
       <div className="flex flex-col bg-white">
-        <div className="sm:p-3 md:p-6 flex flex-col">
-          <div className="flex mb-5">
-            <div className="w-[48px] h-[48px] flex justify-center items-center rounded bg-blue-light mr-[18px]">
-              <AiOutlineCheckCircle className="w-[40px] h-[40px] text-blue-dark" />
+        <div className="flex flex-col sm:p-3 md:p-6">
+          <div className="mb-5 flex">
+            <div className="size-[48px] mr-[18px] flex items-center justify-center rounded bg-blue-light">
+              <AiOutlineCheckCircle className="size-[40px] text-blue-dark" />
             </div>
             <div className="flex flex-col justify-between">
               <h5>
@@ -92,14 +92,14 @@ export default function Page() {
               </h5>
               <div className="flex">
                 <div className="caption text-black-6">{post.employmentType}</div>
-                <span className="caption text-black-6 px-3">|</span>
+                <span className="caption px-3 text-black-6">|</span>
                 <div className="caption text-black-6">{post.city}</div>
-                <span className="caption text-black-6 px-3">|</span>
+                <span className="caption px-3 text-black-6">|</span>
                 <div className="caption text-black-6">{post.createDate + ' 分享'}</div>
               </div>
             </div>
           </div>
-          <div className="flex flex-col pb-5 border-b border-b-black-1 mb-5">
+          <div className="mb-5 flex flex-col border-b border-b-black-1 pb-5">
             <BaseRow className="mb-5">
               <BaseRowSection>
                 <BaseFieldContainer>
@@ -164,7 +164,7 @@ export default function Page() {
           </div>
           <BaseField label="工作內容" value={post.jobDescription} className="mb-5" />
           <BaseField label="其他建議" value={post.suggestion} className="mb-5" />
-          <div className="flex sm:flex-col sm:justify-center md:flex-row md:justify-between p-4 bg-blue-light">
+          <div className="flex bg-blue-light p-4 sm:flex-col sm:justify-center md:flex-row md:justify-between">
             <div className="text-blue sm:pb-3">
               <span>想了解只有員工才知道的職場心聲？</span>
               <br />

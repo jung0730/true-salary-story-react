@@ -18,7 +18,7 @@ const Input = (props: InputProps) => {
       disabled={isDisabled}
       placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
-      className={clsx('w-full ps-10 py-3 pe-5', className)}
+      className={clsx('w-full py-3 pe-5 ps-10', className)}
     />
   );
 };

@@ -1,7 +1,7 @@
 const BaseSection = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section className="bg-gray pt-[130px] pb-10 md:py-20 max-[1920px]:overflow-x-hidden min-h-screen">
-      <div className="mx-auto md:px-14 md:max-w-full lg:max-w-7xl mt-15 lg:mt-10">{children}</div>
+    <section className="min-h-screen bg-gray pb-10 pt-[130px] max-[1920px]:overflow-x-hidden md:py-20">
+      <div className="mx-auto mt-15 md:max-w-full md:px-14 lg:mt-10 lg:max-w-7xl">{children}</div>
     </section>
   );
 };

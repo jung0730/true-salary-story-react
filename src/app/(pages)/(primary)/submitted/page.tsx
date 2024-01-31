@@ -9,16 +9,16 @@ const Page = () => {
   const { result } = useFormStore();
   return (
     <BaseSection>
-      <h2 className="text-3xl mb-5 md:px-0 px-5">匿名分享</h2>
+      <h2 className="mb-5 px-5 text-3xl md:px-0">匿名分享</h2>
       <div className="block">
-        <div className="w-full md:border-2 md:border-black-10 md:mt-10 lg:mt-0 md:rounded-bl md:rounded-br lg:w-full">
-          <div className="w-100 p-6 bg-black-10 text-white">
+        <div className="w-full md:mt-10 md:rounded-b md:border-2 md:border-black-10 lg:mt-0 lg:w-full">
+          <div className="w-100 bg-black-10 p-6 text-white">
             <h4>成功分享，獲得200!</h4>
           </div>
-          <div className="px-3 py-6 md:p-6 bg-white">
+          <div className="bg-white px-3 py-6 md:p-6">
             <div className="flex">
-              <div className="self-center mr-3">
-                <AiOutlineCheckCircle className="w-[40px] h-[40px] text-blue-dark" />
+              <div className="mr-3 self-center">
+                <AiOutlineCheckCircle className="size-[40px] text-blue-dark" />
               </div>
               <div>
                 <h5 className="text-xl">
@@ -28,32 +28,32 @@ const Page = () => {
                     {result?.title ? `-${result.title}` : ''}
                   </span>
                 </h5>
-                <span className="text-black-6 text-sm">
+                <span className="text-sm text-black-6">
                   為維護內容品質,薪水情報會在通過專人審核後上架。未經審核前,薪水情報的內容只有自己看得到。
                 </span>
               </div>
             </div>
-            <div className="flex mt-7">
-              <div className="self-center mr-3">
+            <div className="mt-7 flex">
+              <div className="mr-3 self-center">
                 <i className="icomoon icon-coin text-5xl text-blue"></i>
               </div>
               <div className="self-center">
                 <h5 className="text-xl">取得積分</h5>
               </div>
             </div>
-            <div className="md:flex mt-5">
-              <div className="w-full mr-6 border border-black-3 rounded p-6 flex flex-col bg-white min-h-[240px]">
-                <div className="flex mb-4">
+            <div className="mt-5 md:flex">
+              <div className="mr-6 flex min-h-[240px] w-full flex-col rounded border border-black-3 bg-white p-6">
+                <div className="mb-4 flex">
                   <div className="mr-5">
                     <h5 className="text-xl">加薪計畫</h5>
-                    <span className="text-black-6 mt-3">前後 1 年間薪水任你看,無廣告閱讀體驗, 再贈送 2000 積分!</span>
+                    <span className="mt-3 text-black-6">前後 1 年間薪水任你看,無廣告閱讀體驗, 再贈送 2000 積分!</span>
                   </div>
-                  <div className="self-center ml-auto">
+                  <div className="ml-auto self-center">
                     <i className="icomoon icon-star-circle text-5xl text-blue"></i>
                   </div>
                 </div>
-                <div className="flex mt-auto">
-                  <Button className="w-full mr-4" onClick={() => {}}>
+                <div className="mt-auto flex">
+                  <Button className="mr-4 w-full" onClick={() => {}}>
                     NT 699
                   </Button>
                   <Button color="white" className="w-full" onClick={() => {}}>
@@ -61,31 +61,31 @@ const Page = () => {
                   </Button>
                 </div>
               </div>
-              <div className="w-full md:mt-0 mt-5 border border-black-3 rounded p-6 flex flex-col bg-white min-h-[240px]">
-                <div className="flex mb-4">
+              <div className="mt-5 flex min-h-[240px] w-full flex-col rounded border border-black-3 bg-white p-6 md:mt-0">
+                <div className="mb-4 flex">
                   <div className="mr-5">
                     <h5 className="text-xl">100積分</h5>
-                    <p className="text-black-6 mt-3">
+                    <p className="mt-3 text-black-6">
                       100 積分可觀看 1 則薪水情報
                       <br />
                       300 積分可解鎖 1 個聊天室
                     </p>
                   </div>
-                  <div className="self-center ml-auto">
+                  <div className="ml-auto self-center">
                     <i className="icomoon icon-star text-5xl text-blue"></i>
                   </div>
                 </div>
-                <Button color="white" className="w-full mt-auto" onClick={() => {}}>
+                <Button color="white" className="mt-auto w-full" onClick={() => {}}>
                   NT$ 150
                 </Button>
               </div>
             </div>
-            <div className="md:flex space-x-4 mt-7 border border-black-10 rounded p-6 bg-white">
-              <div className="self-center md:w-3/6 w-full">
+            <div className="mt-7 space-x-4 rounded border border-black-10 bg-white p-6 md:flex">
+              <div className="w-full self-center md:w-3/6">
                 <p className="mb-5 text-xl">想知道加薪的秘訣是什麼嗎?好薪的前輩親自告訴你!</p>
                 <p className="mb-9 text-xl">取得產業前輩專業意見，快速擴展職場人脈!</p>
               </div>
-              <div className="md:w-3/6 w-full">
+              <div className="w-full md:w-3/6">
                 <SubmittedSVG />
               </div>
             </div>

@@ -54,7 +54,7 @@ const UserModal = () => {
       </Button>
     </li>
   ));
-  return <ul className="list-none pt-2 pb-2">{userList}</ul>;
+  return <ul className="list-none py-2">{userList}</ul>;
 };
 
 export default UserModal;

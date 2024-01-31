@@ -33,7 +33,7 @@ const FormStep2 = () => {
     });
   };
   return (
-    <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>
+    <form className="bg-white px-3 py-6 md:p-6" onSubmit={handleSubmit(onSubmit)}>
       <FormTextarea
         label="工作內容分享・100 積分"
         sublabel="還記得工作時的情形嗎?不論是工作項目、工作環境、福利條件、花費時間等,都可以在這裡盡情分享。"
@@ -50,7 +50,7 @@ const FormStep2 = () => {
       />
       <button
         type="submit"
-        className="duration-300 ease-in-out transition flex mx-auto text-white fill-white bg-blue hover:bg-black-10 rounded py-3 px-5"
+        className="mx-auto flex rounded bg-blue fill-white px-5 py-3 text-white transition duration-300 ease-in-out hover:bg-black-10"
       >
         儲存
       </button>

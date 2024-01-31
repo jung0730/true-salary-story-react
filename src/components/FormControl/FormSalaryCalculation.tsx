@@ -86,7 +86,7 @@ const FormSalaryCalculation = (props: any) => {
                       },
                     })}
                   />
-                  <span className="absolute top-2 right-4 flex items-center pt-2 text-black-6 text-sm">x12月</span>
+                  <span className="absolute right-4 top-2 flex items-center pt-2 text-sm text-black-6">x12月</span>
                 </>
               )}
               {salaryTypes === 'daily' && (
@@ -115,7 +115,7 @@ const FormSalaryCalculation = (props: any) => {
               )}
             </div>
             {salaryTypes === 'hourly' && (
-              <div className="md:shrink grow md:w-full flex">
+              <div className="flex grow md:w-full md:shrink">
                 <div className="w-full">
                   <Select
                     options={workingHoursOptions}
@@ -131,7 +131,7 @@ const FormSalaryCalculation = (props: any) => {
               </div>
             )}
             {salaryTypes !== 'monthly' && (
-              <div className="md:shrink grow md:w-full flex">
+              <div className="flex grow md:w-full md:shrink">
                 <div className="w-full">
                   <Select
                     options={monthOptions}

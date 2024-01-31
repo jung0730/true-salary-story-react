@@ -26,8 +26,8 @@ const SearchModal = () => {
     }));
   };
   return (
-    <div className="flex flex-col pt-2 pb-2">
-      <div className="w-full flex mb-2">
+    <div className="flex flex-col py-2">
+      <div className="mb-2 flex w-full">
         <Button
           color="black-text"
           onClick={() => setTab(SearchType.COMPANY)}
@@ -50,8 +50,8 @@ const SearchModal = () => {
           產業
         </Button>
       </div>
-      <div className="w-full mb-2">
-        <div className="flex items-center w-full border border-black-1 rounded mb-2">
+      <div className="mb-2 w-full">
+        <div className="mb-2 flex w-full items-center rounded border border-black-1">
           {tab === SearchType.COMPANY && (
             <Input
               placeholder={'搜尋公司'}

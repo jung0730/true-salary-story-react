@@ -1,5 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:tailwindcss/recommended"
+  ],
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "react/display-name": "off",

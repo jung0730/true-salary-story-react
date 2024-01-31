@@ -24,7 +24,7 @@ const NumberInput = forwardRef((props: NumberInputProps, ref: ForwardedRef<HTMLI
         onKeyPress={handleKeyPress}
         ref={ref}
         {...rest}
-        className="w-full border border-black-1 rounded py-2 pl-4 pr-9"
+        className="w-full rounded border border-black-1 py-2 pl-4 pr-9"
       />
       <p className="min-h-[24px] text-red">{error}</p>
     </>

@@ -13,7 +13,7 @@ const BaseLink = (props: LinkProps) => {
   const { children, className, color, href, ...rest } = props;
   const classes = colors[color ?? 'primary'];
   return (
-    <Link href={href} className={clsx('duration-300 ease-in-out transition', className, classes)} {...rest}>
+    <Link href={href} className={clsx('transition duration-300 ease-in-out', className, classes)} {...rest}>
       {children}
     </Link>
   );

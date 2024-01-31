@@ -6,7 +6,7 @@ type IconProps = {
 
 const Icon = (props: IconProps) => {
   const { iconName } = props;
-  return <span className={clsx('text-lg me-2', iconName)}></span>;
+  return <span className={clsx('me-2 text-lg', iconName)}></span>;
 };
 
 export default Icon;

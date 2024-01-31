@@ -17,7 +17,7 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
   const optionsList = options.map((item) => (
     <label
       key={item.text}
-      className="w-full md:w-auto flex md:flex-1 releative cursor-pointer items-center justify-start md:mb-0 mb-5 last:mb-0"
+      className="releative mb-5 flex w-full cursor-pointer items-center justify-start last:mb-0 md:mb-0 md:w-auto md:flex-1"
     >
       <input
         type="radio"
@@ -25,7 +25,7 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
         ref={ref}
         value={item.value}
         className={clsx(
-          'appearance-none w-[20px] h-[20px] relative after:content-[""] after:absolute after:top-1/2 after:translate-y-[-50%] after:right-0 after:w-[15px] after:h-[15px] after:border after:border-black-6 after:border-solid after:rounded-full checked:after:border-[6px] checked:after:border-blue'
+          'size-[20px] after:size-[15px] relative appearance-none after:absolute after:right-0 after:top-1/2 after:translate-y-[-50%] after:rounded-full after:border after:border-solid after:border-black-6 after:content-[""] checked:after:border-[6px] checked:after:border-blue'
         )}
       />
       <span className="ml-2">{item.text}</span>
@@ -33,8 +33,8 @@ const FormRadio = forwardRef((props: FormRadioProps, ref: ForwardedRef<HTMLInput
   ));
   return (
     <div className="mb-10">
-      <div className="text-black-10 mb-2">{title}</div>
-      <div className="md:flex items-center justify-between">{optionsList}</div>
+      <div className="mb-2 text-black-10">{title}</div>
+      <div className="items-center justify-between md:flex">{optionsList}</div>
       <p className="min-h-[24px] text-red">{error}</p>
     </div>
   );

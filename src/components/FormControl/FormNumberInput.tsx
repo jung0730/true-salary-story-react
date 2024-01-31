@@ -9,7 +9,7 @@ type FormNumberInputProps = {
 
 const FormNumberInput = forwardRef((props: FormNumberInputProps, ref: ForwardedRef<HTMLInputElement>) => {
   return (
-    <div className="flex mt-3">
+    <div className="mt-3 flex">
       <div className="w-full">
         <NumberInput {...props} ref={ref} />
       </div>

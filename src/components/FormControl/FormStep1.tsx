@@ -111,7 +111,7 @@ const FormStep1 = () => {
     return isLegal;
   };
   return (
-    <form className="px-3 py-6 md:p-6 bg-white" onSubmit={handleSubmit(onSubmit)}>
+    <form className="bg-white px-3 py-6 md:p-6" onSubmit={handleSubmit(onSubmit)}>
       <FormInput
         label="公司統一編號8碼(ex: 12228473)"
         placeholder="請輸入公司統一編號"
@@ -194,7 +194,7 @@ const FormStep1 = () => {
       />
       <button
         type="submit"
-        className="duration-300 ease-in-out transition flex mx-auto text-white fill-white bg-blue hover:bg-black-10 rounded py-3 px-5"
+        className="mx-auto flex rounded bg-blue fill-white px-5 py-3 text-white transition duration-300 ease-in-out hover:bg-black-10"
       >
         下一步
       </button>

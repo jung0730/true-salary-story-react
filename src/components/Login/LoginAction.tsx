@@ -4,7 +4,7 @@ import Button from '../Button';
 const LoginAction = () => {
   return (
     <Button
-      className="w-full flex justify-center items-center"
+      className="flex w-full items-center justify-center"
       color="gray"
       onClick={() => (window.location.href = 'http://localhost:3000/social/google')}
     >

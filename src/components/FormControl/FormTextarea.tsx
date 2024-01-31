@@ -18,7 +18,7 @@ const FormTextarea = forwardRef((props: FormTextAreaProps, ref: ForwardedRef<HTM
         placeholder={placeholder}
         ref={ref}
         {...rest}
-        className="w-full border border-black-1 rounded py-2 px-4 mt-2"
+        className="mt-2 w-full rounded border border-black-1 px-4 py-2"
       />
       <p className="min-h-[24px] text-red">{error}</p>
     </div>

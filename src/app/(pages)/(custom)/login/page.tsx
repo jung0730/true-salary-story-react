@@ -23,9 +23,9 @@ export default function Page() {
   }, [searchParams, router, currentPath]);
 
   return (
-    <div className="bg-gray h-screen w-screen flex justify-center items-center">
-      <div className="login-box bg-white border-2 p-10 w-10/12 md:w-[400px]">
-        <h2 className="text-blue mt-5 md:text-3xl text-2xl">有比較才有進步</h2>
+    <div className="flex h-screen w-screen items-center justify-center bg-gray">
+      <div className="login-box w-10/12 border-2 bg-white p-10 md:w-[400px]">
+        <h2 className="mt-5 text-2xl text-blue md:text-3xl">有比較才有進步</h2>
         <div className="mt-10">
           <LoginAction />
         </div>

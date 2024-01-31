@@ -1,5 +1,5 @@
 const BaseRowSection = ({ children }: { children: React.ReactNode }) => {
-  return <div className="lg:w-1/2 flex justify-between items-center">{children}</div>;
+  return <div className="flex items-center justify-between lg:w-1/2">{children}</div>;
 };
 
 export default BaseRowSection;

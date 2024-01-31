@@ -24,7 +24,7 @@ const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectEleme
         ref={ref}
         name={name}
         onChange={onChange}
-        className="w-full border border-black-1 rounded py-2 pl-4 pr-9 h-[42px]"
+        className="h-[42px] w-full rounded border border-black-1 py-2 pl-4 pr-9"
       >
         <option value="">請選擇</option>
         {optionsList}

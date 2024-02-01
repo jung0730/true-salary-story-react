@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 export const useGlobalAuth = () => {
   const token = getCookie('token');
   const checkAuthToken = () => {
-    if (!!token) {
+    if (!Boolean(token)) {
       return redirect('/login');
     }
   };

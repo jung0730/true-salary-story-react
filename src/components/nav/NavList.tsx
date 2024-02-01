@@ -7,11 +7,13 @@ import Point from './Point';
 import User from './User';
 import { useEffect } from 'react';
 import { useProfile } from '@/services/query/index';
+import { useGlobalAuth } from '@/hooks/useGlobalAuth';
 import useAuthStore from '@/stores/auth';
 
 const NavList = () => {
   const { isLogin, setUser, setIsLogin } = useAuthStore();
-  const { data } = useProfile();
+  const { token } = useGlobalAuth();
+  const { data } = useProfile(token);
 
   useEffect(() => {
     if (data) {

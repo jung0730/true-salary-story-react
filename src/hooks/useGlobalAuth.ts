@@ -3,16 +3,15 @@ import { redirect } from 'next/navigation';
 
 export const useGlobalAuth = () => {
   const token = getCookie('token');
-  const isLogin = Boolean(token);
-  const redirectToLogin = () => {
-    if (!isLogin) {
+  const checkAuthToken = () => {
+    if (!!token) {
       return redirect('/login');
     }
   };
 
   return {
-    isLogin,
-    redirectToLogin,
+    token,
+    checkAuthToken,
   };
 };
 

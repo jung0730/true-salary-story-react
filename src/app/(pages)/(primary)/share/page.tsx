@@ -8,10 +8,14 @@ import { useGlobalAuth } from '@/hooks/useGlobalAuth';
 import { useEffect } from 'react';
 
 export default function Page() {
+  let didInit = false;
   const { step } = useFormStore();
-  const { redirectToLogin } = useGlobalAuth();
+  const { checkAuthToken } = useGlobalAuth();
   useEffect(() => {
-    redirectToLogin();
+    if (!didInit) {
+      didInit = true;
+      checkAuthToken();
+    }
   }, []);
   return (
     <BaseSection>

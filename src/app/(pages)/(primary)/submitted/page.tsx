@@ -1,12 +1,9 @@
-'use client';
-import useFormStore from '@/stores/form';
 import BaseSection from '@/components/Salary/BaseSection';
-import Button from '@/components/Button';
+import BaseLink from '@/components/BaseLink';
 import SubmittedSVG from '@/components/Image/SubmittedSVG';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
+import SuccessfulPost from '@/components/Salary/SuccessfulPost';
 
 const Page = () => {
-  const { result } = useFormStore();
   return (
     <BaseSection>
       <h2 className="mb-5 px-5 text-3xl md:px-0">匿名分享</h2>
@@ -16,23 +13,7 @@ const Page = () => {
             <h4>成功分享，獲得200!</h4>
           </div>
           <div className="bg-white px-3 py-6 md:p-6">
-            <div className="flex">
-              <div className="mr-3 self-center">
-                <AiOutlineCheckCircle className="h-[36px] w-[36px] text-blue-dark" />
-              </div>
-              <div>
-                <h5 className="text-xl">
-                  成功分享薪水情報:
-                  <span className="text-blue">
-                    {result?.companyName}
-                    {result?.title ? `-${result.title}` : ''}
-                  </span>
-                </h5>
-                <span className="text-sm text-black-6">
-                  為維護內容品質,薪水情報會在通過專人審核後上架。未經審核前,薪水情報的內容只有自己看得到。
-                </span>
-              </div>
-            </div>
+            <SuccessfulPost />
             <div className="mt-7 flex">
               <div className="self-center">
                 <h5 className="text-xl">取得積分</h5>
@@ -47,12 +28,12 @@ const Page = () => {
                   </div>
                 </div>
                 <div className="mt-auto flex">
-                  <Button className="mr-4 w-full" onClick={() => {}}>
+                  <BaseLink className="mr-4 w-full" href="">
                     NT 699
-                  </Button>
-                  <Button color="white" className="w-full" onClick={() => {}}>
+                  </BaseLink>
+                  <BaseLink color="white" className="w-full" href="">
                     了解更多
-                  </Button>
+                  </BaseLink>
                 </div>
               </div>
               <div className="mt-5 flex min-h-[240px] w-full flex-col rounded border border-black-3 bg-white p-6 md:mt-0">
@@ -66,9 +47,9 @@ const Page = () => {
                     </p>
                   </div>
                 </div>
-                <Button color="white" className="mt-auto w-full" onClick={() => {}}>
+                <BaseLink color="white" className="mt-auto w-full" href="">
                   NT$ 150
-                </Button>
+                </BaseLink>
               </div>
             </div>
             <div className="mt-7 space-x-4 rounded border border-black-10 bg-white p-6 md:flex">

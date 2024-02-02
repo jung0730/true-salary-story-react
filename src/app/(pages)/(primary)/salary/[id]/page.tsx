@@ -1,31 +1,26 @@
-'use client';
-import { useEffect } from 'react';
-import { useParams } from 'next/navigation';
 import BaseSection from '@/components/Salary/BaseSection';
 import BaseFieldContainer from '@/components/Salary/BaseFieldContainer';
 import BaseField from '@/components/Salary/BaseField';
 import BaseRow from '@/components/Salary/BaseRow';
 import BaseRowSection from '@/components/Salary/BaseRowSection';
-import { useSalaryInfo } from '@/services/query';
+import ViewDetailPost from '@/components/Salary/ViewDetailPost';
 import useSalaryStore from '@/stores/salary';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { notFound } from 'next/navigation';
-import Button from '@/components/Button';
+import { getSalaryInfo } from '@/services/query/api/salary';
 
-export default function Page() {
-  const params = useParams();
-  const { post, setPost } = useSalaryStore();
-  const { id } = params;
-  const { data } = useSalaryInfo(id);
-  useEffect(() => {
-    if (data) {
-      if (data?.postId) {
-        setPost(data);
-      } else {
-        notFound();
-      }
-    }
-  }, [data]);
+export default async function Page(params: { params: { id: string } }) {
+  const { id } = params.params;
+  const result = await getSalaryInfo(id);
+  if (result) {
+    useSalaryStore.setState({
+      post: result,
+    });
+  } else {
+    notFound();
+  }
+
+  const post = useSalaryStore.getState().post;
   const getSalaryTitle = () => {
     if (post.type === 'monthly') {
       return '月薪';
@@ -164,14 +159,7 @@ export default function Page() {
           </div>
           <BaseField label="工作內容" value={post.jobDescription} className="mb-5" />
           <BaseField label="其他建議" value={post.suggestion} className="mb-5" />
-          <div className="flex bg-blue-light p-4 sm:flex-col sm:justify-center md:flex-row md:justify-between">
-            <div className="text-blue sm:pb-3">
-              <span>想了解只有員工才知道的職場心聲？</span>
-              <br />
-              <span>兌換後馬上就能向前輩發問！</span>
-            </div>
-            <Button onClick={() => {}}>查看完整內容及薪水</Button>
-          </div>
+          <ViewDetailPost />
         </div>
       </div>
     </BaseSection>

@@ -6,7 +6,7 @@ import LoginAction from '@/components/Login/LoginAction';
 import { useCookie } from '@/hooks/useCookie';
 
 export default function Page() {
-  const { token, redirectUrl } = useCookie();
+  const { redirectUrl } = useCookie();
   const searchParams = useSearchParams();
   const router = useRouter();
   const encodedTokens = searchParams.get('tokens');
@@ -19,7 +19,7 @@ export default function Page() {
       }
     };
     checkLoginStatus();
-  }, [searchParams, router, token]);
+  }, [encodedTokens, redirectUrl, router]);
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray">

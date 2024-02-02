@@ -20,14 +20,23 @@ export function middleware(request: NextRequest) {
   }
   if (pathname === '/login') {
     const redirectUrl = searchParams.get('redirect_to');
+    const encodedTokens = searchParams.get('tokens')
     if (redirectUrl) {
       const response = NextResponse.next();
       response.cookies.set('redirectUrl', redirectUrl, { maxAge: 60 * 60 });
       return response;
     }
+    if (encodedTokens) {
+      const decodedTokensBuffer = Buffer.from(encodedTokens, 'base64');
+      const decodedTokensString = decodedTokensBuffer.toString('utf-8');
+      const tokens = JSON.parse(decodedTokensString);
+      const response = NextResponse.next()
+      response.cookies.set('token', tokens.token, { maxAge: 60 * 60 });
+      return response
+    }
     if (token) {
       const url = request.nextUrl.clone();
-      url.pathname = '/';
+      url.pathname = '/'
       return NextResponse.redirect(url);
     }
   }

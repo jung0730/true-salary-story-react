@@ -1,5 +1,6 @@
 'use client';
 
+import { getCookie } from 'cookies-next';
 import BaseLink from '@/components/BaseLink';
 import Search from './Search';
 import Message from './Message';
@@ -7,12 +8,11 @@ import Point from './Point';
 import User from './User';
 import { useEffect } from 'react';
 import { useProfile } from '@/services/query/index';
-import { useGlobalAuth } from '@/hooks/useGlobalAuth';
 import useAuthStore from '@/stores/auth';
 
 const NavList = () => {
+  const token = getCookie('token');
   const { isLogin, setUser, setIsLogin } = useAuthStore();
-  const { token } = useGlobalAuth();
   const { data } = useProfile(token);
 
   useEffect(() => {

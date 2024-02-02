@@ -84,6 +84,7 @@ type ResSalaryInfo = {
 
 export const getSalaryInfo = async (id: string) => {
   const res = await get<ResSalaryInfo>(`/api/salary/${id}`);
+  // console.log(res)
   const { result } = res;
   return {
     postId: result?.postId || '',

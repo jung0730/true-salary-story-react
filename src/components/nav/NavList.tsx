@@ -1,6 +1,4 @@
 'use client';
-
-import { getCookie } from 'cookies-next';
 import BaseLink from '@/components/BaseLink';
 import Search from './Search';
 import Message from './Message';
@@ -9,9 +7,10 @@ import User from './User';
 import { useEffect } from 'react';
 import { useProfile } from '@/services/query/index';
 import useAuthStore from '@/stores/auth';
+import { useCookie } from '@/hooks/useCookie';
 
 const NavList = () => {
-  const token = getCookie('token');
+  const { token } = useCookie();
   const { isLogin, setUser, setIsLogin } = useAuthStore();
   const { data } = useProfile(token);
 

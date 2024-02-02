@@ -3,24 +3,23 @@ import { useEffect } from 'react';
 import { setCookie } from 'cookies-next';
 import { useSearchParams, useRouter } from 'next/navigation';
 import LoginAction from '@/components/Login/LoginAction';
-import useAuthStore from '@/stores/auth';
+import { useCookie } from '@/hooks/useCookie';
 
 export default function Page() {
+  const { token, redirectUrl } = useCookie();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { currentPath } = useAuthStore();
+  const encodedTokens = searchParams.get('tokens');
   useEffect(() => {
     const checkLoginStatus = () => {
-      const encodedTokens = searchParams.get('tokens');
       if (encodedTokens) {
         const tokens = JSON.parse(window.atob(encodedTokens));
         setCookie('token', tokens.token, { maxAge: 60 * 60 });
-        setCookie('refreshToken', tokens.refreshToken, { maxAge: 60 * 60 * 24 * 30 });
-        router.push(currentPath || '/');
+        router.push(redirectUrl || '/');
       }
     };
     checkLoginStatus();
-  }, [searchParams, router, currentPath]);
+  }, [searchParams, router, token]);
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray">

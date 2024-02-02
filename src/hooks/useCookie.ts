@@ -5,7 +5,7 @@ export const useCookie = () => {
   const redirectUrl = getCookie('redirectUrl');
   return {
     token,
-    redirectUrl
+    redirectUrl,
   };
 };
 

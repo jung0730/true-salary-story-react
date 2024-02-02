@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,tsx,css,md, ts}": "yarn format"
+    "*.{js,tsx,css,md,ts}": "yarn format"
   },
   "dependencies": {
     "@types/node": "20.3.3",

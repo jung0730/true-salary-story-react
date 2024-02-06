@@ -3,14 +3,14 @@ import type { SubmitPost } from '@/types/salary';
 
 type ResPostSalary = {
   message: string;
-  result: {
+  data: {
     title: string;
     companyName: string;
     point: number;
-  }[];
+  };
 };
 
-export const postSalary = async (data: SubmitPost) => {
-  const { result } = await post<ResPostSalary>('/api/salary', data);
-  return result[0];
+export const postSalary = async (info: SubmitPost) => {
+  const { data } = await post<ResPostSalary>('/api/salary', info);
+  return data;
 };

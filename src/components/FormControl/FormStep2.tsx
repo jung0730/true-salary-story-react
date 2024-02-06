@@ -27,7 +27,6 @@ const FormStep2 = () => {
     mutate(mergedData, {
       onSuccess: (data) => {
         setResult(data);
-        revalidatePath('/');
         router.push('/submitted');
       },
     });

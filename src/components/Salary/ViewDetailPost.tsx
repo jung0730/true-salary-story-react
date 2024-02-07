@@ -1,7 +1,8 @@
 'use client';
 import Button from '../Button';
 
-const ViewDetailPost = () => {
+const ViewDetailPost = (props: { isLocked: boolean }) => {
+  const { isLocked } = props;
   return (
     <div className="flex bg-blue-light p-4 sm:flex-col sm:justify-center md:flex-row md:justify-between">
       <div className="text-blue sm:pb-3">
@@ -9,7 +10,8 @@ const ViewDetailPost = () => {
         <br />
         <span>兌換後馬上就能向前輩發問！</span>
       </div>
-      <Button onClick={() => {}}>查看完整內容及薪水</Button>
+      {isLocked && <Button onClick={() => {}}>查看完整內容及薪水</Button>}
+      {!isLocked && <Button onClick={() => {}}>我要請教</Button>}
     </div>
   );
 };

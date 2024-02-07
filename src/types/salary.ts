@@ -24,7 +24,7 @@ export type Post = {
   tags?: number[];
   customTags?: string[];
   createDate?: string;
-  isLocked?: boolean;
+  isLocked: boolean;
   createUser?: string;
   type: string;
   inService: boolean;

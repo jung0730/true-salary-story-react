@@ -44,25 +44,32 @@ const BASE_API_URL = 'http://localhost:3000';
 
 export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
   const token = getCookie('token');
-  args.method = 'get';
-  args.credentials = 'include';
-  args.headers = {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    Authorization: `Bearer ${token}`,
+
+  const requestOptions: RequestInit = {
+    ...args,
+    method: 'get',
+    credentials: 'include',
+    headers: {
+      Authorization: token ? `Bearer ${token}` : '',
+    },
   };
-  const request = new Request(`${BASE_API_URL}${path}`, args);
+  const request = new Request(`${BASE_API_URL}${path}`, requestOptions);
   return http<T>(request);
 }
 
 export function post<T>(path: string, body: object, args: RequestInit = {}): Promise<T> {
   const token = getCookie('token');
-  args.method = 'post';
-  args.body = JSON.stringify(body);
-  args.credentials = 'include';
-  args.headers = {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json',
+
+  const requestOptions: RequestInit = {
+    ...args,
+    method: 'post',
+    credentials: 'include',
+    body: JSON.stringify(body),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token ? `Bearer ${token}` : '',
+    },
   };
-  const request = new Request(`${BASE_API_URL}${path}`, args);
+  const request = new Request(`${BASE_API_URL}${path}`, requestOptions);
   return http<T>(request);
 }

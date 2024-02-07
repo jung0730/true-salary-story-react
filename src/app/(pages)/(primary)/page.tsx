@@ -7,5 +7,3 @@ export default function Home() {
     </>
   );
 }
-// 在fetch 設定{next: {revalidate: 3600}} 沒清除快取
-export const revalidate = 3600;

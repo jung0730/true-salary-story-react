@@ -7,17 +7,19 @@ import ViewDetailPost from '@/components/Salary/ViewDetailPost';
 import useSalaryStore from '@/stores/salary';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { notFound } from 'next/navigation';
-import { getSalaryInfo } from '@/services/query/api/salary';
+import { getSalaryInfo } from '@/services/server';
 
 export default async function Page(params: { params: { id: string } }) {
   const { id } = params.params;
-  const result = await getSalaryInfo(id);
-  if (result) {
-    useSalaryStore.setState({
-      post: result,
-    });
-  } else {
-    notFound();
+  if (id) {
+    const data = await getSalaryInfo(id);
+    if (data) {
+      useSalaryStore.setState({
+        post: data,
+      });
+    } else {
+      notFound();
+    }
   }
 
   const post = useSalaryStore.getState().post;
@@ -159,7 +161,7 @@ export default async function Page(params: { params: { id: string } }) {
           </div>
           <BaseField label="工作內容" value={post.jobDescription} className="mb-5" />
           <BaseField label="其他建議" value={post.suggestion} className="mb-5" />
-          <ViewDetailPost />
+          <ViewDetailPost isLocked={post.isLocked} />
         </div>
       </div>
     </BaseSection>

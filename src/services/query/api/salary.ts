@@ -2,16 +2,15 @@ import { get } from '@/utils/fetch';
 import type { Post } from '@/types/salary';
 
 type ResStatisticsType = {
-  registeredUsers: number;
-  publishedPosts: number;
+  data: {
+    registeredUsers: number;
+    publishedPosts: number;
+  };
 };
 
 export const getStatistics = async () => {
-  const args = {
-    next: { revalidate: 3600 },
-  };
-  const res = await get<ResStatisticsType>('/api/public/statistics', args);
-  return res;
+  const res = await get<ResStatisticsType>('/api/public/statistics');
+  return res.data;
 };
 
 // export const getTopPost = async () => {

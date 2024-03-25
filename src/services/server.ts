@@ -75,3 +75,11 @@ export const getStatistics = async () => {
   const res = await fetchData('/api/public/statistics', args);
   return res.data;
 };
+
+export const getTopPost = async () => {
+  const args = {
+    next: { revalidate: 3600 },
+  };
+  const res = await fetchData('/api/salary/getTopPost', args);
+  return res.data;
+};

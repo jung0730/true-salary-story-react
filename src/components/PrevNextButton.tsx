@@ -12,13 +12,14 @@ const PrevNextButton = (props: PrevNextButtonProps) => {
     <button
       type="button"
       className={clsx(
-        'flex justify-center items-center hover:bg-blue transition duration-150 ease-in-out',
+        'flex items-center justify-center transition duration-150 ease-in-out hover:bg-blue',
         { 'rounded-full text-white bg-black-10 py-4 px-5': shape === 'circle' },
         { 'border-black-10 text-black-10  bg-white py-2 hover:text-white': shape === 'square' },
         { 'rounded-tr border-r-2 border-t-2 border-l ps-4 pe-3.5': shape === 'square' && position === 'right' },
         { 'rounded-tl border-l-2 border-t-2 border-r ps-3.5 pe-4': shape === 'square' && position === 'left' }
       )}
     >
+      {/* TODO: 加入icon */}
       {position === 'left' && <span className="icon-left-arrow text-lg md:text-2xl"></span>}
       {position === 'right' && <span className="icon-right-arrow text-lg md:text-2xl"></span>}
     </button>

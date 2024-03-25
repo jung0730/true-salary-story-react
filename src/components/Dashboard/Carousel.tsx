@@ -5,12 +5,17 @@ import PostCard from './PostCard';
 
 type CarouselProps = {
   items: {
-    [id: string]: string;
+    postId: string;
+    title: string;
+    companyName: string;
+    overtime: string;
+    feeling: string;
   }[];
+  cate: string;
 };
 
 const Carousel = (props: CarouselProps) => {
-  const { items } = props;
+  const { items, cate } = props;
   const [ref] = useKeenSlider<HTMLDivElement>({
     slides: {
       perView: 4,
@@ -21,7 +26,7 @@ const Carousel = (props: CarouselProps) => {
     <div ref={ref} className="keen-slider">
       {items.map((item, index) => (
         <div className="keen-slider__slide" key={index}>
-          <PostCard item={item} />
+          <PostCard item={item} cate={cate} />
         </div>
       ))}
     </div>

@@ -7,7 +7,7 @@ const Point = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative">
-      <Button color="yellow-text" onClick={() => setIsOpen(!isOpen)}>
+      <Button color="yellow-text" icon="shop" onClick={() => setIsOpen(!isOpen)}>
         積分
       </Button>
       {isOpen && (

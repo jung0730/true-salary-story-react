@@ -7,6 +7,7 @@ import { AiOutlineFire } from 'react-icons/ai';
 import { AiOutlineStar } from 'react-icons/ai';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { AiOutlineMessage } from 'react-icons/ai';
+import { AiOutlineShopping } from 'react-icons/ai';
 
 type IconProps = {
   icon: string;
@@ -14,25 +15,28 @@ type IconProps = {
   size?: number;
 };
 
-const getIcon = (iconType: string, iconClass?: string, size: number = 24) => {
-  switch (iconType) {
-    case 'dollar':
-      return <AiOutlineDollar size={size} className={clsx(iconClass)} />;
-    case 'smile':
-      return <AiOutlineSmile size={size} className={clsx(iconClass)} />;
-    case 'frown':
-      return <AiOutlineFrown size={size} className={clsx(iconClass)} />;
-    case 'time':
-      return <AiOutlineFieldTime size={size} className={clsx(iconClass)} />;
-    case 'fire':
-      return <AiOutlineFire size={size} className={clsx(iconClass)} />;
-    case 'star':
-      return <AiOutlineStar size={size} className={clsx(iconClass)} />;
-    case 'search':
-      return <AiOutlineSearch size={size} className={clsx(iconClass)} />;
-    case 'message':
-      return <AiOutlineMessage size={size} className={clsx(iconClass)} />;
+// interface IconComponents {
+//   [key: string]: React.ComponentType<{ size: number; className?: string }>;
+// }
+
+// const iconComponents: IconComponents = {
+//   dollar: AiOutlineDollar,
+//   smile: AiOutlineSmile,
+//   frown: AiOutlineFrown,
+//   time: AiOutlineFieldTime,
+//   fire: AiOutlineFire,
+//   star: AiOutlineStar,
+//   search: AiOutlineSearch,
+//   message: AiOutlineMessage,
+//   shop: AiOutlineShopping
+// };
+
+const getIcon = (iconType: string, iconClasses: string = '', size: number = 24) => {
+  const IconComponent = iconComponents[iconType];
+  if (!IconComponent) {
+    return null;
   }
+  return <IconComponent size={size} className={clsx(iconClasses)} />;
 };
 
 const BaseField = (props: IconProps) => {

@@ -40,9 +40,7 @@ const Header = async () => {
               </div>
             </div>
           </div>
-          <div className="h-full w-full lg:w-1/2">
-            <Image src="/banner.svg" alt="" width={500} height={500}></Image>
-          </div>
+          <Image src="/banner.svg" alt="" width={500} height={500}></Image>
         </div>
       </div>
     </header>

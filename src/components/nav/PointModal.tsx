@@ -15,7 +15,7 @@ const PointModal = () => {
           </p>
         </div>
         <div className="flex flex-col items-end justify-center">
-          <Button color="primary" onClick={() => {}}>
+          <Button color="primary" onClick={() => {}} disabled={true}>
             NT $699
           </Button>
         </div>
@@ -26,7 +26,7 @@ const PointModal = () => {
           <p className="caption">可兌換 1 則薪水情報</p>
         </div>
         <div className="flex flex-col items-end justify-center">
-          <Button color="secondary" onClick={() => {}}>
+          <Button color="secondary" onClick={() => {}} disabled={true}>
             NT $150
           </Button>
         </div>

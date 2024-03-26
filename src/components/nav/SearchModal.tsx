@@ -51,10 +51,11 @@ const SearchModal = () => {
         </Button>
       </div>
       <div className="mb-2 w-full">
-        <div className="mb-2 flex w-full items-center rounded border border-black-1">
+        <div className="text-blue mb-2 flex w-full items-center rounded border border-black-1">
           {tab === SearchType.COMPANY && (
             <Input
               placeholder={'搜尋公司'}
+              icon="search"
               value={searchTerm.company}
               onChange={(value) => handleChange(SearchType.COMPANY, value)}
             />
@@ -62,6 +63,7 @@ const SearchModal = () => {
           {tab === SearchType.JOB_TITLE && (
             <Input
               placeholder={'搜尋職位'}
+              icon="search"
               value={searchTerm.title}
               onChange={(value) => handleChange(SearchType.JOB_TITLE, value)}
             />
@@ -69,13 +71,14 @@ const SearchModal = () => {
           {tab === SearchType.COMPANY_TYPE && (
             <Input
               placeholder={'搜尋產業'}
+              icon="search"
               value={searchTerm.type}
               onChange={(value) => handleChange(SearchType.COMPANY_TYPE, value)}
             />
           )}
         </div>
       </div>
-      <Button color="secondary" className="w-full" onClick={() => {}}>
+      <Button color="secondary" className="w-full justify-center" onClick={() => {}} disabled={true}>
         搜尋
       </Button>
     </div>

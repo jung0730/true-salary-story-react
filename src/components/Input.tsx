@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Icon from '@/components/Icon';
 
 type InputProps = {
   isDisabled?: boolean;
@@ -6,19 +7,23 @@ type InputProps = {
   className?: string;
   placeholder?: string;
   value?: string;
+  icon?: string;
 };
 
 const Input = (props: InputProps) => {
-  const { placeholder, className, isDisabled, onChange, value } = props;
+  const { placeholder, className, isDisabled, onChange, value, icon } = props;
   return (
-    <input
-      type="text"
-      value={value}
-      disabled={isDisabled}
-      placeholder={placeholder}
-      onChange={(e) => onChange(e.target.value)}
-      className={clsx('w-full py-3 pe-5 ps-10', className)}
-    />
+    <div className="flex items-center">
+      {icon && <Icon icon={icon} iconClasses="ml-4" />}
+      <input
+        type="text"
+        value={value}
+        disabled={isDisabled}
+        placeholder={placeholder}
+        onChange={(e) => onChange(e.target.value)}
+        className={clsx('w-full py-3 px-4', className)}
+      />
+    </div>
   );
 };
 

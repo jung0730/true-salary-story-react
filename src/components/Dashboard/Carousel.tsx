@@ -2,6 +2,7 @@
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import PostCard from './PostCard';
+import { useRouter } from 'next/navigation';
 
 type CarouselProps = {
   items: {
@@ -15,6 +16,7 @@ type CarouselProps = {
 };
 
 const Carousel = (props: CarouselProps) => {
+  const router = useRouter();
   const { items, cate } = props;
   const [ref] = useKeenSlider<HTMLDivElement>({
     slides: {
@@ -22,10 +24,13 @@ const Carousel = (props: CarouselProps) => {
       spacing: 15,
     },
   });
+  const clickHandler = (id: string) => {
+    router.push(`/salary/${id}`);
+  };
   return (
     <div ref={ref} className="keen-slider">
       {items.map((item, index) => (
-        <div className="keen-slider__slide" key={index}>
+        <div className="keen-slider__slide hover:bg-gray-light" key={index} onClick={() => clickHandler(item.postId)}>
           <PostCard item={item} cate={cate} />
         </div>
       ))}

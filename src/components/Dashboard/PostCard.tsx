@@ -47,7 +47,7 @@ const PostCard = (props: PostCardProps) => {
   };
 
   return (
-    <div className="flex min-w-[257px] cursor-pointer border border-black-1 transition duration-150 ease-in-out hover:shadow-card sm:w-[318px] sm:flex-col md:w-[572px] md:flex-row lg:w-[408px] lg:max-w-[416px]">
+    <div className="flex min-w-[257px] cursor-pointer border border-black-1 sm:w-[318px] sm:flex-col md:w-[572px] md:flex-row lg:w-[408px] lg:max-w-[416px]">
       <div
         className={`flex fill-white px-3 text-white sm:flex-row sm:justify-start sm:py-2 md:flex-col md:items-center md:justify-center md:py-5 ${cate === 'top' ? 'bg-blue' : 'bg-black-10'}`}
       >

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import NavList from './NavList';
+import Link from 'next/link';
 const DesktopNav = () => {
   return (
     <nav
@@ -7,7 +8,9 @@ const DesktopNav = () => {
       aria-label="平板電腦版選單"
     >
       <div className="container mx-auto flex max-w-[1800px] justify-between items-center">
-        <Image src="/LOGO-lg.png" alt="" width={150} height={150} />
+        <Link href="/">
+          <Image src="/LOGO-lg.png" alt="" width={150} height={150} />
+        </Link>
         <div className="hidden flex-row items-center justify-center lg:flex">
           <NavList />
         </div>

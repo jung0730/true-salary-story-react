@@ -3,6 +3,8 @@ import { AiOutlineDollar } from 'react-icons/ai';
 import { AiOutlineSmile } from 'react-icons/ai';
 import { AiOutlineFieldTime } from 'react-icons/ai';
 import { AiOutlineFrown } from 'react-icons/ai';
+import { AiOutlineFire } from 'react-icons/ai';
+import { AiOutlineStar } from 'react-icons/ai';
 
 type IconProps = {
   icon: string;
@@ -21,12 +23,16 @@ const getIcon = (iconType: string, iconClass?: string, size: number = 9) => {
       return <AiOutlineFrown className={clsx(iconClass, defaultClasses)} />;
     case 'time':
       return <AiOutlineFieldTime className={clsx(iconClass, defaultClasses)} />;
+    case 'fire':
+      return <AiOutlineFire className={clsx(iconClass, defaultClasses)} />;
+    case 'star':
+      return <AiOutlineStar className={clsx(iconClass, defaultClasses)} />;
   }
 };
 
 const BaseField = (props: IconProps) => {
   const { icon, iconClasses, size } = props;
-  return <>{icon && getIcon(icon, iconClasses, size)}</>;
+  return <>{getIcon(icon, iconClasses, size)}</>;
 };
 
 export default BaseField;

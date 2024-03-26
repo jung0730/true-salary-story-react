@@ -51,11 +51,8 @@ const PostCard = (props: PostCardProps) => {
       <div
         className={`flex fill-white px-3 text-white sm:flex-row sm:justify-start sm:py-2 md:flex-col md:items-center md:justify-center md:py-5 ${cate === 'top' ? 'bg-blue' : 'bg-black-10'}`}
       >
-        {/* TODO: 加入Icon */}
-        <span
-          className={`icon-${cate === 'top' ? 'star-circle-fill' : 'fire'} mr-1.5 mt-0.5 text-sm md:m-0 md:mb-1`}
-        ></span>
-        <div className="flex text-center text-sm font-light leading-4 tracking-wide sm:flex-row md:flex-col">
+        <Icon icon={cate === 'top' ? 'star' : 'fire'} iconClasses={'text-white'} size={4} />
+        <div className="mt-2 flex text-center text-sm font-light leading-4 tracking-wide sm:flex-row md:flex-col">
           <span>{cate === 'top' ? '精' : '最'}</span>
           <span>{cate === 'top' ? '選' : '新'}</span>
         </div>

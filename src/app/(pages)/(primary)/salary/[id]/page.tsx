@@ -104,7 +104,7 @@ export default async function Page(params: { params: { id: string } }) {
                     label={getSalaryTitle()}
                     value={post.isLocked ? '兌換後顯示' : convertNumberRange(getSalary())}
                     icon="dollar"
-                    iconClasses="text-blue"
+                    iconClasses="text-blue mr-2"
                   />
                 </BaseFieldContainer>
                 <BaseFieldContainer>
@@ -112,7 +112,7 @@ export default async function Page(params: { params: { id: string } }) {
                     label="年薪"
                     value={post.isLocked ? '兌換後顯示' : convertNumberRange(post.yearlySalary)}
                     icon="dollar"
-                    iconClasses="text-blue"
+                    iconClasses="text-blue mr-2"
                   />
                 </BaseFieldContainer>
               </BaseRowSection>
@@ -134,10 +134,15 @@ export default async function Page(params: { params: { id: string } }) {
             <BaseRow>
               <BaseRowSection>
                 <BaseFieldContainer>
-                  <BaseField label="上班心情" value={post.feeling} icon={getFeelingIcon()} iconClasses="text-green" />
+                  <BaseField
+                    label="上班心情"
+                    value={post.feeling}
+                    icon={getFeelingIcon()}
+                    iconClasses="text-green mr-2"
+                  />
                 </BaseFieldContainer>
                 <BaseFieldContainer>
-                  <BaseField label="加班頻率" value={post.overtime} icon="time" iconClasses="text-green" />
+                  <BaseField label="加班頻率" value={post.overtime} icon="time" iconClasses="text-green mr-2" />
                 </BaseFieldContainer>
               </BaseRowSection>
               <BaseRowSection>

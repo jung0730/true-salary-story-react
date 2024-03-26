@@ -51,8 +51,8 @@ const PostCard = (props: PostCardProps) => {
       <div
         className={`flex fill-white px-3 text-white sm:flex-row sm:justify-start sm:py-2 md:flex-col md:items-center md:justify-center md:py-5 ${cate === 'top' ? 'bg-blue' : 'bg-black-10'}`}
       >
-        <Icon icon={cate === 'top' ? 'star' : 'fire'} iconClasses={'text-white'} size={4} />
-        <div className="mt-2 flex text-center text-sm font-light leading-4 tracking-wide sm:flex-row md:flex-col">
+        <Icon icon={cate === 'top' ? 'star' : 'fire'} iconClasses={'text-white mb-2'} size={16} />
+        <div className="flex text-center text-sm font-light leading-4 tracking-wide sm:flex-row md:flex-col">
           <span>{cate === 'top' ? '精' : '最'}</span>
           <span>{cate === 'top' ? '選' : '新'}</span>
         </div>
@@ -72,7 +72,7 @@ const PostCard = (props: PostCardProps) => {
           <div
             className={`caption border border-${feelingClass} text-${feelingClass} flex items-center justify-center rounded-full px-3 py-1 sm:me-1 md:me-2`}
           >
-            {getFeelingIcon() && <Icon icon={getFeelingIcon()} iconClasses={`text-${feelingClass}`} size={4} />}
+            {getFeelingIcon() && <Icon icon={getFeelingIcon()} iconClasses={`text-${feelingClass}`} size={16} />}
             <span className="ms-1">{feeling}</span>
           </div>
         </div>

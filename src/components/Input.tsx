@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-// import Icon from '../Nav/Icon'
 
 type InputProps = {
   isDisabled?: boolean;

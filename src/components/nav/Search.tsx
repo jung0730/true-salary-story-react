@@ -7,7 +7,7 @@ const Search = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative">
-      <Button color="gray-text" onClick={() => setIsOpen(!isOpen)}>
+      <Button icon="search" color="gray-text" onClick={() => setIsOpen(!isOpen)}>
         搜尋
       </Button>
       {isOpen && (

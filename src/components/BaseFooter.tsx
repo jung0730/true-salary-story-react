@@ -1,13 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 const BaseFooter = () => {
   return (
-    <footer className="bg-white max-[1920px]:overflow-x-hidden sm:mb-20 sm:px-3 sm:py-10 md:mb-0 lg:py-20">
+    <footer className="bg-gray max-[1920px]:overflow-x-hidden sm:mb-20 sm:px-3 sm:py-10 md:mb-0 lg:py-20">
       <div className="container mx-auto flex flex-col items-center justify-center sm:max-w-[350px] md:max-w-[600px] lg:max-w-7xl">
         <div className="mb-5 flex w-full flex-wrap">
           <div className="mb-10 w-full md:w-4/12">
-            <div className="w-[150px] lg:w-full">
-              <img src="../assets/img/LOGO-lg.png" alt="LOGO" />
-            </div>
+            <Image src="/LOGO-lg.png" alt="" width={150} height={150} />
           </div>
           <div className="mb-10 w-1/2 md:w-2/12">
             <div className="flex flex-col">
@@ -93,7 +92,7 @@ const BaseFooter = () => {
           </div>
         </div>
         <div className="flex w-full">
-          <p className="caption text-black-6">Copyright © 2023 北方貓科技有限公司 版權所有</p>
+          <p className="caption text-black-6">Copyright © 2024 北方貓科技有限公司 版權所有</p>
         </div>
       </div>
     </footer>

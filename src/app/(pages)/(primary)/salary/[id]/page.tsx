@@ -4,8 +4,8 @@ import BaseField from '@/components/Salary/BaseField';
 import BaseRow from '@/components/Salary/BaseRow';
 import BaseRowSection from '@/components/Salary/BaseRowSection';
 import ViewDetailPost from '@/components/Salary/ViewDetailPost';
+import Icon from '@/components/Icon';
 import useSalaryStore from '@/stores/salary';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { notFound } from 'next/navigation';
 import { getSalaryInfo } from '@/services/server';
 
@@ -81,7 +81,7 @@ export default async function Page(params: { params: { id: string } }) {
         <div className="flex flex-col sm:p-3 md:p-6">
           <div className="mb-5 flex">
             <div className="mr-[18px] flex h-[48px] w-[48px] items-center justify-center rounded bg-blue-light">
-              <AiOutlineCheckCircle className="h-[40px] w-[40px] text-blue-dark" />
+              <Icon icon="check" size={40} iconClasses="text-blue-dark" />
             </div>
             <div className="flex flex-col justify-between">
               <h5>

@@ -1,13 +1,17 @@
 import clsx from 'clsx';
-import { AiOutlineDollar } from 'react-icons/ai';
-import { AiOutlineSmile } from 'react-icons/ai';
-import { AiOutlineFieldTime } from 'react-icons/ai';
-import { AiOutlineFrown } from 'react-icons/ai';
-import { AiOutlineFire } from 'react-icons/ai';
-import { AiOutlineStar } from 'react-icons/ai';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { AiOutlineMessage } from 'react-icons/ai';
-import { AiOutlineShopping } from 'react-icons/ai';
+import { IconType } from 'react-icons';
+import {
+  AiOutlineDollar,
+  AiOutlineCheckCircle,
+  AiOutlineSmile,
+  AiOutlineFieldTime,
+  AiOutlineFrown,
+  AiOutlineFire,
+  AiOutlineStar,
+  AiOutlineSearch,
+  AiOutlineMessage,
+  AiOutlineShopping,
+} from 'react-icons/ai';
 
 type IconProps = {
   icon: string;
@@ -15,21 +19,20 @@ type IconProps = {
   size?: number;
 };
 
-// interface IconComponents {
-//   [key: string]: React.ComponentType<{ size: number; className?: string }>;
-// }
-
-// const iconComponents: IconComponents = {
-//   dollar: AiOutlineDollar,
-//   smile: AiOutlineSmile,
-//   frown: AiOutlineFrown,
-//   time: AiOutlineFieldTime,
-//   fire: AiOutlineFire,
-//   star: AiOutlineStar,
-//   search: AiOutlineSearch,
-//   message: AiOutlineMessage,
-//   shop: AiOutlineShopping
-// };
+const iconComponents: {
+  [key: string]: IconType;
+} = {
+  dollar: AiOutlineDollar,
+  smile: AiOutlineSmile,
+  frown: AiOutlineFrown,
+  time: AiOutlineFieldTime,
+  fire: AiOutlineFire,
+  star: AiOutlineStar,
+  search: AiOutlineSearch,
+  message: AiOutlineMessage,
+  shop: AiOutlineShopping,
+  check: AiOutlineCheckCircle,
+};
 
 const getIcon = (iconType: string, iconClasses: string = '', size: number = 24) => {
   const IconComponent = iconComponents[iconType];

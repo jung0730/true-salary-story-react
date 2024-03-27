@@ -21,7 +21,7 @@ const Input = (props: InputProps) => {
         disabled={isDisabled}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        className={clsx('w-full py-3 px-4', className)}
+        className={clsx('w-full px-4 py-3', className)}
       />
     </div>
   );

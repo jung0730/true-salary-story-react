@@ -16,32 +16,32 @@ const SelectPoint = () => {
     router.push(`/checkout?type=single&point=${point}`);
   };
   return (
-    <div className="w-full lg:w-1/3 flex flex-col border border-black-1 py-5 px-6 rounded me-3 mb-5">
-      <div className="flex justify-between items-center mb-5 mt-[1px]">
+    <div className="mb-5 me-3 flex w-full flex-col rounded border border-black-1 px-6 py-5 lg:w-1/3">
+      <div className="mb-5 mt-[1px] flex items-center justify-between">
         <div className="flex flex-col">
-          <h4 className="text-black-6 mb-3">{point}積分</h4>
+          <h4 className="mb-3 text-black-6">{point}積分</h4>
           <h6 className="text-black-10">${Number(point) * 1.5}元</h6>
         </div>
         <div className="icon-star-circle text-5xl"></div>
       </div>
-      <div className="flex flex-col lg:flex-row justify-between items-baseline pb-5 border-b border-black-1 mb-5">
-        <div className="w-full mb-2 lg:mb-0 lg:me-2">
+      <div className="mb-5 flex flex-col items-baseline justify-between border-b border-black-1 pb-5 lg:flex-row">
+        <div className="mb-2 w-full lg:mb-0 lg:me-2">
           <Select options={offerPointOption} name="point" onChange={(point) => selectPointHandler(point)} />
         </div>
         <Button className="w-full lg:w-1/2" color="secondary" disabled={!point} onClick={clickHandler}>
           購買
         </Button>
       </div>
-      <div className="h-full flex flex-col justify-between">
-        <div className="flex pb-5 border-b border-black-1 mb-5">
-          <div className="icon-sparkle-checked text-blue text-md pt-1 mr-3"></div>
+      <div className="flex h-full flex-col justify-between">
+        <div className="mb-5 flex border-b border-black-1 pb-5">
+          <div className="icon-sparkle-checked text-md mr-3 pt-1 text-blue"></div>
           <div>
             <div className="caption mb-1">每 100 積分可觀看 1 筆薪水情報</div>
             <div className="caption">每 300 積分可解鎖 1 個聊天室</div>
           </div>
         </div>
         <div className="flex">
-          <div className="icon-info text-blue text-lg mr-3"></div>
+          <div className="icon-info mr-3 text-lg text-blue"></div>
           <div className="caption text-black-5">贈送積分使用期限為購買日期後 6 個月</div>
         </div>
       </div>

@@ -4,9 +4,9 @@ import LinePayment from '@/components/Offer/LinePayment';
 
 export default function Page() {
   return (
-    <section className="bg-gray sm:py-10 md:py-10 lg:pt-20 lg:pb-1 max-[1920px]:overflow-x-hidden min-h-screen">
-      <div className="container mx-auto sm:max-w-[350px] md:max-w-[600px] lg:max-w-7xl flex flex-col justify-center items-center mt-5 md:mt-24 lg:mt-10">
-        <div className="w-full flex flex-col lg:flex-row border-2 border-black-10 p-6 bg-white">
+    <section className="min-h-screen bg-gray max-[1920px]:overflow-x-hidden sm:py-10 md:py-10 lg:pb-1 lg:pt-20">
+      <div className="container mx-auto mt-5 flex flex-col items-center justify-center sm:max-w-[350px] md:mt-24 md:max-w-[600px] lg:mt-10 lg:max-w-7xl">
+        <div className="flex w-full flex-col border-2 border-black-10 bg-white p-6 lg:flex-row">
           <SelectPoint />
           <SelectSubscription />
           <LinePayment />

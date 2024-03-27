@@ -1,7 +1,7 @@
 const LinePayment = () => {
   return (
-    <div className="w-full lg:w-1/3 flex flex-col border border-black-1 py-5 px-6 rounded">
-      <div className="h-full flex flex-col justify-center items-center py-5">
+    <div className="flex w-full flex-col rounded border border-black-1 px-6 py-5 lg:w-1/3">
+      <div className="flex h-full flex-col items-center justify-center py-5">
         <div className="flex flex-col">
           <div className="caption mb-5">支援下列付款方式</div>
           <div className="text-md">

@@ -51,7 +51,7 @@ const SearchModal = () => {
         </Button>
       </div>
       <div className="mb-2 w-full">
-        <div className="text-blue mb-2 flex w-full items-center rounded border border-black-1">
+        <div className="mb-2 flex w-full items-center rounded border border-black-1 text-blue">
           {tab === SearchType.COMPANY && (
             <Input
               placeholder={'搜尋公司'}

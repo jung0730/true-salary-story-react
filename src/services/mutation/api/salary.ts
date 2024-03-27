@@ -14,3 +14,13 @@ export const postSalary = async (info: SubmitPost) => {
   const { data } = await post<ResPostSalary>('/api/salary', info);
   return data;
 };
+
+export const postOrder = async (params) => {
+  const { data } = await post('/api/linepay/order', param);
+  return data.transactionId;
+};
+
+export const postTransaction = async (transactionId: string) => {
+  const { data } = await post(`/linepay/${transactionId}`, transactionId);
+  return data.paymentUrl;
+};

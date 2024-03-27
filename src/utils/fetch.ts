@@ -57,7 +57,7 @@ export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
   return http<T>(request);
 }
 
-export function post<T>(path: string, body: object, args: RequestInit = {}): Promise<T> {
+export function post<T>(path: string, body?: object, args: RequestInit = {}): Promise<T> {
   const token = getCookie('token');
 
   const requestOptions: RequestInit = {

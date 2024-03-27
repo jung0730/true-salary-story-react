@@ -1,8 +1,11 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
 import Button from '../Button';
+import { usePostOrder, usePostTransaction } from '@/services/mutation';
 
 const Sum = () => {
+  const { mutate } = usePostOrder();
+  const { mutate: mutateTransaction } = usePostTransaction();
   const searchParams = useSearchParams();
   const type = searchParams.get('type') || '';
   const point = searchParams.get('point') || '';
@@ -40,6 +43,19 @@ const Sum = () => {
       purchaseType: type,
       amount: result.price,
     };
+    mutate(params, {
+      onSuccess: (transactionId) => {
+        if (transactionId) {
+          mutateTransaction(transactionId, {
+            onSuccess: (url) => {
+              if (url) {
+                window.location.href = url;
+              }
+            },
+          });
+        }
+      },
+    });
     // call api 800 取得 line pay transactionId
     // const transactionId = await order.fetchLinePayOrder(param);
 

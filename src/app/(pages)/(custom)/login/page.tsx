@@ -3,21 +3,23 @@ import { useEffect } from 'react';
 import { setCookie } from 'cookies-next';
 import { useSearchParams, useRouter } from 'next/navigation';
 import LoginAction from '@/components/Login/LoginAction';
+import { useCookie } from '@/hooks/useCookie';
 
 export default function Page() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { redirectUrl } = useCookie();
   const encodedTokens = searchParams.get('tokens');
   useEffect(() => {
     const checkLoginStatus = () => {
       if (encodedTokens) {
         const tokens = JSON.parse(window.atob(encodedTokens));
         setCookie('token', tokens.token, { maxAge: 60 * 60 });
-        router.push('/');
+        router.push(redirectUrl || '/');
       }
     };
     checkLoginStatus();
-  }, [encodedTokens, router]);
+  }, [encodedTokens, redirectUrl, router]);
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray">

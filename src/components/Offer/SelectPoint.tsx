@@ -5,6 +5,7 @@ import Button from '../Button';
 import Select from '../Select';
 import { offerPointOption } from '@/utils/options';
 import { useRouter } from 'next/navigation';
+import Icon from '../Icon';
 
 const SelectPoint = () => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const SelectPoint = () => {
           <h4 className="mb-3 text-black-6">{point}積分</h4>
           <h6 className="text-black-10">${Number(point) * 1.5}元</h6>
         </div>
-        <div className="icon-star-circle text-5xl"></div>
+        <Icon icon="star" size={40} />
       </div>
       <div className="mb-5 flex flex-col items-baseline justify-between border-b border-black-1 pb-5 lg:flex-row">
         <div className="mb-2 w-full lg:mb-0 lg:me-2">
@@ -33,15 +34,11 @@ const SelectPoint = () => {
         </Button>
       </div>
       <div className="flex h-full flex-col justify-between">
-        <div className="mb-5 flex border-b border-black-1 pb-5">
-          <div className="icon-sparkle-checked text-md mr-3 pt-1 text-blue"></div>
-          <div>
-            <div className="caption mb-1">每 100 積分可觀看 1 筆薪水情報</div>
-            <div className="caption">每 300 積分可解鎖 1 個聊天室</div>
-          </div>
+        <div className="mb-5 border-b border-black-1 pb-5">
+          <div className="caption mb-1">◆ 每 100 積分可觀看 1 筆薪水情報</div>
+          <div className="caption">◆ 每 300 積分可解鎖 1 個聊天室</div>
         </div>
         <div className="flex">
-          <div className="icon-info mr-3 text-lg text-blue"></div>
           <div className="caption text-black-5">贈送積分使用期限為購買日期後 6 個月</div>
         </div>
       </div>

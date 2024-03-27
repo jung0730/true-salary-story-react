@@ -3,7 +3,7 @@ import Icon from '@/components/Icon';
 
 type InputProps = {
   isDisabled?: boolean;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   className?: string;
   placeholder?: string;
   value?: string;
@@ -12,6 +12,11 @@ type InputProps = {
 
 const Input = (props: InputProps) => {
   const { placeholder, className, isDisabled, onChange, value, icon } = props;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!isDisabled && onChange) {
+      onChange(e.target.value);
+    }
+  };
   return (
     <div className="flex items-center">
       {icon && <Icon icon={icon} iconClasses="ml-4" />}
@@ -20,7 +25,7 @@ const Input = (props: InputProps) => {
         value={value}
         disabled={isDisabled}
         placeholder={placeholder}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={handleChange}
         className={clsx('w-full px-4 py-3', className)}
       />
     </div>

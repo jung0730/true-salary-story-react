@@ -1,5 +1,6 @@
 import { getCookie } from 'cookies-next';
 import { toast } from 'react-hot-toast';
+import { useRouter, notFound } from 'next/navigation';
 
 const handleResponse = (response: Response) => {
   const { ok } = response;
@@ -15,21 +16,22 @@ export function http<T>(request: RequestInfo): Promise<T> {
       return handleResponse(response);
     })
     .catch((error) => {
+      //TODO: 導頁邏輯待驗證
       const { statusCode, message } = error;
+      const router = useRouter();
       switch (statusCode) {
         case 400:
           toast.error(message || '輸入有誤');
           break;
         case 404:
           toast.error('頁面不存在!');
-          // TODO: redirect 404 page
-          break;
+          notFound();
         case 500:
           toast.error('系統內部錯誤');
           break;
         case 401:
           toast.error('登入狀態已過期');
-          // TODO: redirect login page
+          router.push('/login');
           break;
         case 403:
           toast.error('沒有權限訪問');

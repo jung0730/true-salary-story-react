@@ -1,22 +1,23 @@
 'use client';
 import { useEffect } from 'react';
+import { setCookie } from 'cookies-next';
 import { useSearchParams, useRouter } from 'next/navigation';
 import LoginAction from '@/components/Login/LoginAction';
-import { useCookie } from '@/hooks/useCookie';
 
 export default function Page() {
-  const { redirectUrl } = useCookie();
   const searchParams = useSearchParams();
   const router = useRouter();
   const encodedTokens = searchParams.get('tokens');
   useEffect(() => {
     const checkLoginStatus = () => {
       if (encodedTokens) {
-        router.push(redirectUrl || '/');
+        const tokens = JSON.parse(window.atob(encodedTokens));
+        setCookie('token', tokens.token, { maxAge: 60 * 60 });
+        router.push('/');
       }
     };
     checkLoginStatus();
-  }, [encodedTokens, redirectUrl, router]);
+  }, [encodedTokens, router]);
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray">

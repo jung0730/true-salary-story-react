@@ -17,7 +17,7 @@ const Button = (props: ButtonProps) => {
   return (
     <>
       <button
-        className={clsx('flex items-center transition duration-300 ease-in-out', className, classes, {
+        className={clsx('flex items-center justify-center transition duration-300 ease-in-out', className, classes, {
           'disabled:opacity-25': disabled,
         })}
         onClick={onClick}

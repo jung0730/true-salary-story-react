@@ -1,6 +1,15 @@
 import Button from '../Button';
+import { useRouter } from 'next/navigation';
 
 const PointModal = () => {
+  const router = useRouter();
+  const clickHandler = (type: string) => {
+    let str = '';
+    if (type === 'single') {
+      str = '&point=100';
+    }
+    router.push(`/checkout?type=${type}${str}`);
+  };
   return (
     <div className="flex flex-col pb-2 pt-5">
       <div className="mb-3 flex justify-between rounded border border-black-1 px-3 py-4">
@@ -15,7 +24,7 @@ const PointModal = () => {
           </p>
         </div>
         <div className="flex flex-col items-end justify-center">
-          <Button color="primary" onClick={() => {}} disabled={true}>
+          <Button color="primary" onClick={() => clickHandler('subscription')}>
             NT $699
           </Button>
         </div>
@@ -26,7 +35,7 @@ const PointModal = () => {
           <p className="caption">可兌換 1 則薪水情報</p>
         </div>
         <div className="flex flex-col items-end justify-center">
-          <Button color="secondary" onClick={() => {}} disabled={true}>
+          <Button color="secondary" onClick={() => clickHandler('single')}>
             NT $150
           </Button>
         </div>

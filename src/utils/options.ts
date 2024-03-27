@@ -529,36 +529,29 @@ export const offerPointOption = [
   {
     text: '100 積分',
     value: 100,
-    price: 150,
   },
   {
     text: '200 積分',
     value: 200,
-    price: 300,
   },
   {
     text: '300 積分',
     value: 300,
-    price: 450,
   },
   {
     text: '400 積分',
     value: 400,
-    price: 600,
   },
   {
     text: '500 積分',
     value: 500,
-    price: 750,
   },
   {
     text: '1000 積分',
     value: 1000,
-    price: 1500,
   },
   {
     text: '1500 積分',
     value: 1500,
-    price: 2250,
   },
 ];

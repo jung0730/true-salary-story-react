@@ -1,6 +1,13 @@
+'use client';
+
 import Button from '../Button';
+import { useRouter } from 'next/navigation';
 
 const SelectSubscription = () => {
+  const router = useRouter();
+  const clickHandler = () => {
+    router.push('/checkout?type=subscription');
+  };
   return (
     <div className="w-full lg:w-1/3 flex flex-col border border-black-1 py-5 px-6 rounded me-3 mb-5">
       <div className="flex justify-between items-center mb-5">
@@ -11,7 +18,9 @@ const SelectSubscription = () => {
         <div className="icon-fire text-6xl text-blue"></div>
       </div>
       <div className="flex pb-5 border-b border-black-1 mb-5 mt-1">
-        <Button className="w-full">馬上訂閱</Button>
+        <Button className="w-full" onClick={clickHandler}>
+          馬上訂閱
+        </Button>
       </div>
       <div className="flex flex-col justify-between">
         <div className="flex pb-5 border-b border-black-1 mb-5">

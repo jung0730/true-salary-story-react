@@ -12,7 +12,7 @@ const BaseFooter = () => {
             <div className="flex flex-col">
               <div className="caption mb-3">服務</div>
               <Link
-                href="/order/offer"
+                href="/plan"
                 className="caption mb-3 text-black-6 transition duration-150 ease-in-out hover:text-black-10"
               >
                 加薪計畫

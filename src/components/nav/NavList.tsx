@@ -38,7 +38,7 @@ const NavList = () => {
         </BaseLink>
       )}
       {isLogin && <User />}
-      <BaseLink href="/order">加薪計畫</BaseLink>
+      <BaseLink href="/plan">加薪計畫</BaseLink>
     </>
   );
 };

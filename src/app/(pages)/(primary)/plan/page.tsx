@@ -1,6 +1,6 @@
-import SelectPoint from '@/components/Offer/SelectPoint';
-import SelectSubscription from '@/components/Offer/SelectSubscription';
-import LinePayment from '@/components/Offer/LinePayment';
+import SelectPoint from '@/components/Plan/SelectPoint';
+import SelectSubscription from '@/components/Plan/SelectSubscription';
+import LinePayment from '@/components/Plan/LinePayment';
 
 export default function Page() {
   return (

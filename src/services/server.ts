@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import { handleResponse } from '../utils/handleSuccessErrorResponse';
 
 async function fetchData(url: string, args: RequestInit = {}, method = 'get') {
   const BASE_API_URL = 'http://localhost:3000';
@@ -17,15 +18,11 @@ async function fetchData(url: string, args: RequestInit = {}, method = 'get') {
 
   return fetch(`${BASE_API_URL}${url}`, args)
     .then((response) => {
-      const { ok } = response;
-      if (ok) return response.json();
-      return response.json().then((error) => {
-        throw error;
-      });
+      return handleResponse(response);
     })
     .catch((error) => {
-      // TODO: server data fetching 如何顯示toast
-      console.log(error);
+      // 要在client component 才能使用toast error
+      return error;
     });
 }
 

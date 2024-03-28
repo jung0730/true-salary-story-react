@@ -15,7 +15,11 @@ const ViewDetailPost = (props: { isLocked: boolean }) => {
           查看完整內容及薪水
         </Button>
       )}
-      {!isLocked && <Button onClick={() => {}}>我要請教</Button>}
+      {!isLocked && (
+        <Button onClick={() => {}} disabled={true}>
+          我要請教
+        </Button>
+      )}
     </div>
   );
 };

@@ -4,7 +4,7 @@ const NoDataSVG = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         data-name="Layer 1"
-        className="max-w-xs w-full h-auto mx-auto my-8"
+        className="mx-auto my-8 h-auto w-full max-w-xs"
         viewBox="0 0 782.04441 701.88002"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
@@ -125,7 +125,7 @@ const NoDataSVG = () => {
           fill="#366bab"
         />
       </svg>
-      <div className="text-blue h3 text-center font-medium text-xl">目前沒有資料</div>
+      <div className="h3 text-center text-xl font-medium text-blue">目前沒有資料</div>
     </>
   );
 };

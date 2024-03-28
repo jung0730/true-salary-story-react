@@ -111,7 +111,7 @@ const FormStep1 = () => {
     return isLegal;
   };
   return (
-    <form className="bg-white px-3 py-6 md:p-6" onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <FormInput
         label="公司統一編號8碼(ex: 12228473)"
         placeholder="請輸入公司統一編號"

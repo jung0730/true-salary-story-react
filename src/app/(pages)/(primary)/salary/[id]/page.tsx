@@ -1,4 +1,4 @@
-import BaseSection from '@/components/Salary/BaseSection';
+import BaseLayout from '@/components/BaseLayout';
 import BaseFieldContainer from '@/components/Salary/BaseFieldContainer';
 import BaseField from '@/components/Salary/BaseField';
 import BaseRow from '@/components/Salary/BaseRow';
@@ -76,99 +76,87 @@ export default async function Page(params: { params: { id: string } }) {
     return text;
   };
   return (
-    <BaseSection>
-      <div className="flex flex-col bg-white">
-        <div className="flex flex-col sm:p-3 md:p-6">
-          <div className="mb-5 flex">
-            <div className="mr-[18px] flex h-[48px] w-[48px] items-center justify-center rounded bg-blue-light">
-              <Icon icon="check" size={40} iconClasses="text-blue-dark" />
-            </div>
-            <div className="flex flex-col justify-between">
-              <h5>
-                {post.companyName} | {post.title}
-              </h5>
-              <div className="flex">
-                <div className="caption text-black-6">{post.employmentType}</div>
-                <span className="caption px-3 text-black-6">|</span>
-                <div className="caption text-black-6">{post.city}</div>
-                <span className="caption px-3 text-black-6">|</span>
-                <div className="caption text-black-6">{post.createDate + ' 分享'}</div>
-              </div>
-            </div>
+    <BaseLayout>
+      <div className="mb-5 flex">
+        <div className="mr-[18px] flex h-[48px] w-[48px] items-center justify-center rounded bg-blue-light">
+          <Icon icon="check" size={40} iconClasses="text-blue-dark" />
+        </div>
+        <div className="flex flex-col justify-between">
+          <h5>
+            {post.companyName} | {post.title}
+          </h5>
+          <div className="flex">
+            <div className="caption text-black-6">{post.employmentType}</div>
+            <span className="caption px-3 text-black-6">|</span>
+            <div className="caption text-black-6">{post.city}</div>
+            <span className="caption px-3 text-black-6">|</span>
+            <div className="caption text-black-6">{post.createDate + ' 分享'}</div>
           </div>
-          <div className="mb-5 flex flex-col border-b border-b-black-1 pb-5">
-            <BaseRow className="mb-5">
-              <BaseRowSection>
-                <BaseFieldContainer>
-                  <BaseField
-                    label={getSalaryTitle()}
-                    value={post.isLocked ? '兌換後顯示' : convertNumberRange(getSalary())}
-                    icon="dollar"
-                    iconClasses="text-blue mr-2"
-                  />
-                </BaseFieldContainer>
-                <BaseFieldContainer>
-                  <BaseField
-                    label="年薪"
-                    value={post.isLocked ? '兌換後顯示' : convertNumberRange(post.yearlySalary)}
-                    icon="dollar"
-                    iconClasses="text-blue mr-2"
-                  />
-                </BaseFieldContainer>
-              </BaseRowSection>
-              <BaseRowSection>
-                <BaseFieldContainer>
-                  <BaseField label="年終" value={post.isLocked ? '??' : convertNumberRange(post.yearEndBonus)} />
-                </BaseFieldContainer>
-                <BaseFieldContainer>
-                  <BaseField label="三節" value={post.isLocked ? '??' : convertNumberRange(post.holidayBonus)} />
-                </BaseFieldContainer>
-                <BaseFieldContainer>
-                  <BaseField label="分紅" value={post.isLocked ? '??' : convertNumberRange(post.profitSharingBonus)} />
-                </BaseFieldContainer>
-                <BaseFieldContainer>
-                  <BaseField label="其他" value={post.isLocked ? '??' : convertNumberRange(post.otherBonus)} />
-                </BaseFieldContainer>
-              </BaseRowSection>
-            </BaseRow>
-            <BaseRow>
-              <BaseRowSection>
-                <BaseFieldContainer>
-                  <BaseField
-                    label="上班心情"
-                    value={post.feeling}
-                    icon={getFeelingIcon()}
-                    iconClasses="text-green mr-2"
-                  />
-                </BaseFieldContainer>
-                <BaseFieldContainer>
-                  <BaseField label="加班頻率" value={post.overtime} icon="time" iconClasses="text-green mr-2" />
-                </BaseFieldContainer>
-              </BaseRowSection>
-              <BaseRowSection>
-                <BaseFieldContainer>
-                  <BaseField label="在職年資" value={post.workYears > 0 ? `${post.workYears}年` : '未滿1年'} />
-                </BaseFieldContainer>
-                <BaseFieldContainer>
-                  <BaseField
-                    label="個人總年資"
-                    value={post.totalWorkYears > 0 ? `${post.totalWorkYears}年` : '未滿1年'}
-                  />
-                </BaseFieldContainer>
-                <BaseFieldContainer>
-                  <BaseField label="日均工時" value={post.avgHoursPerDay + '小時'} />
-                </BaseFieldContainer>
-                <BaseFieldContainer>
-                  <BaseField label="在職狀況" value={post.inService ? '仍在職' : '已離職'} />
-                </BaseFieldContainer>
-              </BaseRowSection>
-            </BaseRow>
-          </div>
-          <BaseField label="工作內容" value={post.jobDescription} className="mb-5" />
-          <BaseField label="其他建議" value={post.suggestion} className="mb-5" />
-          <ViewDetailPost isLocked={post.isLocked} />
         </div>
       </div>
-    </BaseSection>
+      <div className="mb-5 flex flex-col border-b border-b-black-1 pb-5">
+        <BaseRow className="mb-5">
+          <BaseRowSection>
+            <BaseFieldContainer>
+              <BaseField
+                label={getSalaryTitle()}
+                value={post.isLocked ? '兌換後顯示' : convertNumberRange(getSalary())}
+                icon="dollar"
+                iconClasses="text-blue mr-2"
+              />
+            </BaseFieldContainer>
+            <BaseFieldContainer>
+              <BaseField
+                label="年薪"
+                value={post.isLocked ? '兌換後顯示' : convertNumberRange(post.yearlySalary)}
+                icon="dollar"
+                iconClasses="text-blue mr-2"
+              />
+            </BaseFieldContainer>
+          </BaseRowSection>
+          <BaseRowSection>
+            <BaseFieldContainer>
+              <BaseField label="年終" value={post.isLocked ? '??' : convertNumberRange(post.yearEndBonus)} />
+            </BaseFieldContainer>
+            <BaseFieldContainer>
+              <BaseField label="三節" value={post.isLocked ? '??' : convertNumberRange(post.holidayBonus)} />
+            </BaseFieldContainer>
+            <BaseFieldContainer>
+              <BaseField label="分紅" value={post.isLocked ? '??' : convertNumberRange(post.profitSharingBonus)} />
+            </BaseFieldContainer>
+            <BaseFieldContainer>
+              <BaseField label="其他" value={post.isLocked ? '??' : convertNumberRange(post.otherBonus)} />
+            </BaseFieldContainer>
+          </BaseRowSection>
+        </BaseRow>
+        <BaseRow>
+          <BaseRowSection>
+            <BaseFieldContainer>
+              <BaseField label="上班心情" value={post.feeling} icon={getFeelingIcon()} iconClasses="text-green mr-2" />
+            </BaseFieldContainer>
+            <BaseFieldContainer>
+              <BaseField label="加班頻率" value={post.overtime} icon="time" iconClasses="text-green mr-2" />
+            </BaseFieldContainer>
+          </BaseRowSection>
+          <BaseRowSection>
+            <BaseFieldContainer>
+              <BaseField label="在職年資" value={post.workYears > 0 ? `${post.workYears}年` : '未滿1年'} />
+            </BaseFieldContainer>
+            <BaseFieldContainer>
+              <BaseField label="個人總年資" value={post.totalWorkYears > 0 ? `${post.totalWorkYears}年` : '未滿1年'} />
+            </BaseFieldContainer>
+            <BaseFieldContainer>
+              <BaseField label="日均工時" value={post.avgHoursPerDay + '小時'} />
+            </BaseFieldContainer>
+            <BaseFieldContainer>
+              <BaseField label="在職狀況" value={post.inService ? '仍在職' : '已離職'} />
+            </BaseFieldContainer>
+          </BaseRowSection>
+        </BaseRow>
+      </div>
+      <BaseField label="工作內容" value={post.jobDescription} className="mb-5" />
+      <BaseField label="其他建議" value={post.suggestion} className="mb-5" />
+      <ViewDetailPost isLocked={post.isLocked} />
+    </BaseLayout>
   );
 }

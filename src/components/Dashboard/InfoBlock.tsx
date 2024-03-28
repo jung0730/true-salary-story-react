@@ -40,7 +40,7 @@ const InfoBlock = () => {
   ];
   return (
     <section className="bg-gray max-[1920px]:overflow-x-hidden sm:py-10 md:py-10 lg:py-20">
-      <div className="container mx-auto flex flex-col items-center justify-center sm:max-w-[350px] md:max-w-[600px] lg:max-w-7xl">
+      <div className="mx-auto flex flex-col items-center justify-center sm:min-w-[350px] md:min-w-[650px] lg:min-w-[950px]">
         <h2 className="mb-15 sm:hidden md:block lg:block">透過資訊交換 找到更滿意的待遇</h2>
 
         {infoBlocks.map((block, index) => (

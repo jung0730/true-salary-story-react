@@ -4,9 +4,9 @@ import Image from 'next/image';
 const Header = async () => {
   const { registeredUsers, publishedPosts } = await getStatistics();
   return (
-    <header className="h-auto bg-gray max-[1920px]:overflow-x-hidden">
-      <div className="h-full w-full bg-white sm:rounded-b-[60px] lg:rounded-b-[200px]">
-        <div className="container mx-auto flex h-full flex-col items-center justify-center sm:max-w-[350px] md:max-w-[600px] lg:max-w-7xl lg:flex-row">
+    <header className="bg-gray max-[1920px]:overflow-x-hidden">
+      <div className="h-screen w-full bg-white sm:rounded-b-[60px] lg:rounded-b-[200px]">
+        <div className="mx-auto flex h-full flex-col items-center justify-center lg:flex-row">
           <div className="w-full lg:w-1/2">
             <div className="flex flex-col justify-center sm:mt-16 sm:items-center md:mt-32 lg:mb-[277px] lg:mt-64 lg:items-start">
               <div className="sm:hidden md:flex md:flex-col md:items-center lg:block">

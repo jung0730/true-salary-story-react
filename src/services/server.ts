@@ -80,3 +80,12 @@ export const getTopPost = async () => {
   const res = await fetchData('/api/salary/getTopPost', args);
   return res.data;
 };
+
+export const getOrderList = async () => {
+  const args = {
+    next: { revalidate: 3600 },
+  };
+  const res = await fetchData('/api/account/order/list', args);
+  console.log(res, 'res');
+  return res.result;
+};

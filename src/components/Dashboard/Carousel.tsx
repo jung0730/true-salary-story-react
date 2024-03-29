@@ -3,15 +3,10 @@ import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import PostCard from './PostCard';
 import { useRouter } from 'next/navigation';
+import { Post } from '@/types/api';
 
 type CarouselProps = {
-  items: {
-    postId: string;
-    title: string;
-    companyName: string;
-    overtime: string;
-    feeling: string;
-  }[];
+  items: Post[];
   cate: string;
 };
 

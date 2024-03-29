@@ -125,7 +125,7 @@ const NoDataSVG = () => {
           fill="#366bab"
         />
       </svg>
-      <div className="h3 text-center text-xl font-medium text-blue">目前沒有資料</div>
+      <div className="text-center text-xl font-medium text-blue">目前沒有資料</div>
     </>
   );
 };

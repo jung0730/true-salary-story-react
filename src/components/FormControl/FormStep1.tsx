@@ -15,7 +15,7 @@ import FormRadioButtonStyle from './FormRadioButtonStyle';
 import FormSalaryCalculation from './FormSalaryCalculation';
 import { useUniformNumbers } from '@/services/query';
 import { useState } from 'react';
-import type { SubmitPostForStep1 } from '@/types/salary';
+import { SubmitPostForStep1 } from '@/types/salary';
 
 const FormStep1 = () => {
   const { setStep, setFormData } = useFormStore();

@@ -1,13 +1,8 @@
 import Icon from '@/components/Icon';
+import { Post } from '@/types/api';
 
 type PostCardProps = {
-  item: {
-    postId: string;
-    title: string;
-    companyName: string;
-    overtime: string;
-    feeling: string;
-  };
+  item: Post;
   cate: string;
 };
 
@@ -64,13 +59,13 @@ const PostCard = (props: PostCardProps) => {
 
         <div className="flex items-center justify-start">
           <div
-            className={`caption border border-${overtimeClass} text-${overtimeClass} flex items-center justify-center rounded-full px-3 py-1 sm:me-1 md:me-2`}
+            className={`caption border- border${overtimeClass} text-${overtimeClass} flex items-center justify-center rounded-full px-3 py-1 sm:me-1 md:me-2`}
           >
             <span className="ms-1">{overtime}</span>
           </div>
 
           <div
-            className={`caption border border-${feelingClass} text-${feelingClass} flex items-center justify-center rounded-full px-3 py-1 sm:me-1 md:me-2`}
+            className={`caption border- border${feelingClass} text-${feelingClass} flex items-center justify-center rounded-full px-3 py-1 sm:me-1 md:me-2`}
           >
             {getFeelingIcon() && <Icon icon={getFeelingIcon()} iconClasses={`text-${feelingClass}`} size={16} />}
             <span className="ms-1">{feeling}</span>

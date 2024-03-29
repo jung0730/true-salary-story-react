@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { Post } from '@/types/salary';
+import { Post } from '@/types/salary';
 
 type State = {
   post: Post;

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { SubmitPost } from '@/types/salary';
+import { SubmitPost } from '@/types/salary';
 
 type State = {
   step: number;

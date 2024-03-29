@@ -1,7 +1,8 @@
 import { cookies } from 'next/headers';
-import { handleResponse } from '../utils/handleSuccessErrorResponse';
+import { handleResponse } from '@/utils/handleSuccessErrorResponse';
+import { Statistics, TopPost, Order, SalaryInfo } from '@/types/api';
 
-async function fetchData(url: string, args: RequestInit = {}, method = 'get') {
+async function fetchData<T>(url: string, args: RequestInit = {}, method = 'get'): Promise<T> {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
@@ -25,7 +26,7 @@ async function fetchData(url: string, args: RequestInit = {}, method = 'get') {
 }
 
 export const getSalaryInfo = async (id: string) => {
-  const res = await fetchData(`/api/salary/${id}`);
+  const res = await fetchData<SalaryInfo>(`/api/salary/${id}`);
   if (res?.status === 'success') {
     const { data } = res;
     return {
@@ -67,7 +68,7 @@ export const getStatistics = async () => {
   const args = {
     next: { revalidate: 3600 },
   };
-  const res = await fetchData('/api/public/statistics', args);
+  const res = await fetchData<Statistics>('/api/public/statistics', args);
   return res.data;
 };
 
@@ -75,7 +76,7 @@ export const getTopPost = async () => {
   const args = {
     next: { revalidate: 3600 },
   };
-  const res = await fetchData('/api/salary/getTopPost', args);
+  const res = await fetchData<TopPost>('/api/salary/getTopPost', args);
   return res.data;
 };
 
@@ -83,7 +84,6 @@ export const getOrderList = async () => {
   const args = {
     next: { revalidate: 3600 },
   };
-  const res = await fetchData('/api/account/order/list', args);
-  console.log(res, 'res');
+  const res = await fetchData<Order>('/api/account/order/list', args);
   return res.result;
 };

@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import useFormStore from '@/stores/form';
 import FormTextarea from './FormTextarea';
 import { usePostSalary } from '@/services/mutation';
-import type { SubmitPostForStep2 } from '@/types/salary';
+import { SubmitPostForStep2 } from '@/types/salary';
 import { useRouter } from 'next/navigation';
 
 const FormStep2 = () => {

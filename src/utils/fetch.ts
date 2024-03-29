@@ -11,8 +11,6 @@ export function http<T>(request: RequestInfo): Promise<T> {
     });
 }
 
-const BASE_API_URL = 'http://localhost:3000';
-
 export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
   const token = getCookie('token');
 
@@ -24,7 +22,7 @@ export function get<T>(path: string, args: RequestInit = {}): Promise<T> {
       Authorization: token ? `Bearer ${token}` : '',
     },
   };
-  const request = new Request(`${BASE_API_URL}${path}`, requestOptions);
+  const request = new Request(`${process.env.NEXT_PUBLIC_API_URL}${path}`, requestOptions);
   return http<T>(request);
 }
 

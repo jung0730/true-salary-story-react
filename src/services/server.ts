@@ -2,7 +2,6 @@ import { cookies } from 'next/headers';
 import { handleResponse } from '../utils/handleSuccessErrorResponse';
 
 async function fetchData(url: string, args: RequestInit = {}, method = 'get') {
-  const BASE_API_URL = 'http://localhost:3000';
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
@@ -15,8 +14,7 @@ async function fetchData(url: string, args: RequestInit = {}, method = 'get') {
       Authorization: `Bearer ${token?.value}`,
     };
   }
-
-  return fetch(`${BASE_API_URL}${url}`, args)
+  return fetch(`${process.env.API_URL}${url}`, args)
     .then((response) => {
       return handleResponse(response);
     })

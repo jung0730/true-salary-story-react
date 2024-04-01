@@ -1,6 +1,7 @@
 import { getOrderList } from '@/services/server';
 import NoDataSVG from '@/components/Image/NoDataSVG';
 import BaseLayout from '@/components/BaseLayout';
+import clsx from 'clsx';
 
 export default async function Page() {
   const result = await getOrderList();
@@ -29,7 +30,7 @@ export default async function Page() {
     </tr>
   ));
   return (
-    <BaseLayout title="訂單明細">
+    <BaseLayout title="訂單明細" className={clsx({ 'mb-8 mt-28': result.length > 10 })}>
       {result.length > 0 ? (
         <table className="w-full table-auto" aria-describedby="訂單總覽">
           <thead>

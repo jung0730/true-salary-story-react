@@ -39,6 +39,6 @@ export function post<T>(path: string, body?: object, args: RequestInit = {}): Pr
       Authorization: token ? `Bearer ${token}` : '',
     },
   };
-  const request = new Request(`${BASE_API_URL}${path}`, requestOptions);
+  const request = new Request(`${process.env.NEXT_PUBLIC_API_URL}${path}`, requestOptions);
   return http<T>(request);
 }

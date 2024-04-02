@@ -9,7 +9,7 @@ const LoginAction = () => {
       onClick={() => (window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/social/google`)}
     >
       <Image src="/google.svg" alt="" className="mr-2" width={20} height={20} />
-      使用 Google 繼續
+      使用 Google 繼續 {process.env.NEXT_PUBLIC_API_URL}
     </Button>
   );
 };

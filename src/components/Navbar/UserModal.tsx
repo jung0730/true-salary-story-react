@@ -3,7 +3,12 @@ import { useRouter } from 'next/navigation';
 import { usePostLogout } from '@/services/mutation';
 import { useCookie } from '@/hooks/useCookie';
 
-const UserModal = () => {
+type UserModalProps = {
+  onClose: () => void;
+};
+
+const UserModal = (props: UserModalProps) => {
+  const { onClose } = props;
   const LIST = [
     {
       title: '關於我',
@@ -45,9 +50,10 @@ const UserModal = () => {
           window.location.reload();
         },
       });
-      return;
+    } else {
+      router.push(`/${url}`);
     }
-    router.push(`/${url}`);
+    onClose();
   };
   const userList = LIST.map((item) => (
     <li key={item.title}>

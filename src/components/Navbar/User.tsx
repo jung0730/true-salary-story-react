@@ -13,8 +13,8 @@ const User = () => {
         <img className="h-10 w-10 rounded-full" src={user.profilePicture} alt="圖片" />
       </Button>
       {isOpen && (
-        <ModalContainer setIsOpen={setIsOpen} title={'Rebecca'}>
-          <UserModal />
+        <ModalContainer setIsOpen={setIsOpen} title={user.displayName}>
+          <UserModal onClose={() => setIsOpen(!isOpen)} />
         </ModalContainer>
       )}
     </div>

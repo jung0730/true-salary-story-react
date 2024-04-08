@@ -41,15 +41,12 @@ const UserModal = (props: UserModalProps) => {
   ];
   const { removeCookie } = useCookie();
   const router = useRouter();
-  const { mutate } = usePostLogout();
+  const mutation = usePostLogout();
   const clickHandler = (url: string) => {
     if (url === 'logout') {
-      mutate(undefined, {
-        onSuccess: () => {
-          removeCookie('token');
-          window.location.reload();
-        },
-      });
+      mutation.mutate();
+      removeCookie('token');
+      window.location.reload();
     } else {
       router.push(`/${url}`);
     }

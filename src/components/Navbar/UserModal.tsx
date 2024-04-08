@@ -1,5 +1,7 @@
 import Button from '../Button';
 import { useRouter } from 'next/navigation';
+import { usePostLogout } from '@/services/mutation';
+import { useCookie } from '@/hooks/useCookie';
 
 const UserModal = () => {
   const LIST = [
@@ -27,10 +29,25 @@ const UserModal = () => {
       title: '訂單總覽',
       url: 'order',
     },
+    {
+      title: '登出',
+      url: 'logout',
+    },
   ];
+  const { removeCookie } = useCookie();
   const router = useRouter();
+  const { mutate } = usePostLogout();
   const clickHandler = (url: string) => {
-    url && router.push(`/${url}`);
+    if (url === 'logout') {
+      mutate(undefined, {
+        onSuccess: () => {
+          removeCookie('token');
+          window.location.reload();
+        },
+      });
+      return;
+    }
+    router.push(`/${url}`);
   };
   const userList = LIST.map((item) => (
     <li key={item.title}>

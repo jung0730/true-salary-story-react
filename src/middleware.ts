@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 export function middleware(request: NextRequest) {
   const currentUser = request.cookies.get('token')?.value;
   const { pathname } = request.nextUrl;
-  const requiresAuthentication = ['/checkout', '/share', '/plan'].some((path) => pathname.startsWith(path));
+  const requiresAuthentication = ['/checkout', '/share', '/plan', '/order'].some((path) => pathname.startsWith(path));
   const isLoggedIn = !!currentUser;
 
   if (!isLoggedIn && (pathname === '/' || requiresAuthentication)) {

@@ -1,11 +1,15 @@
-import { getCookie } from 'cookies-next';
+import { getCookie, deleteCookie } from 'cookies-next';
 
 export const useCookie = () => {
   const token = getCookie('token');
   const redirectUrl = getCookie('redirectUrl');
+  const removeCookie = (name: string) => {
+    deleteCookie(name);
+  };
   return {
     token,
     redirectUrl,
+    removeCookie,
   };
 };
 

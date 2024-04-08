@@ -64,26 +64,21 @@ export const getSalaryInfo = async (id: string) => {
   }
 };
 
+const args = {
+  next: { revalidate: 3600 },
+};
+
 export const getStatistics = async () => {
-  const args = {
-    next: { revalidate: 3600 },
-  };
   const res = await fetchData<Statistics>('/api/public/statistics', args);
   return res.data;
 };
 
 export const getTopPost = async () => {
-  const args = {
-    next: { revalidate: 3600 },
-  };
   const res = await fetchData<TopPost>('/api/salary/getTopPost', args);
   return res.data;
 };
 
 export const getOrderList = async () => {
-  const args = {
-    next: { revalidate: 3600 },
-  };
   const res = await fetchData<Order>('/api/account/order/list', args);
   return res.result;
 };

@@ -16,6 +16,9 @@ const defaultState: State = {
     displayName: '',
     email: '',
     profilePicture: '',
+    points: {
+      point: 0,
+    },
   },
   isLogin: false,
 };

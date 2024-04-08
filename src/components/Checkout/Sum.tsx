@@ -2,8 +2,10 @@
 import { useSearchParams } from 'next/navigation';
 import Button from '../Button';
 import { usePostOrder, usePostTransaction } from '@/services/mutation';
+import useAuthStore from '@/stores/auth';
 
 const Sum = () => {
+  const { user } = useAuthStore();
   const { mutate } = usePostOrder();
   const { mutate: mutateTransaction } = usePostTransaction();
   const searchParams = useSearchParams();
@@ -38,6 +40,9 @@ const Sum = () => {
     }
   };
   const result = getPriceAndPoint(type, point);
+  const getExpectedPoint = () => {
+    return result.totalPoint + user.points.point;
+  };
   const clickToPay = async () => {
     const params = {
       purchaseType: type,
@@ -56,18 +61,6 @@ const Sum = () => {
         }
       },
     });
-    // call api 800 取得 line pay transactionId
-    // const transactionId = await order.fetchLinePayOrder(param);
-
-    // 接著 call api 801 送出 transactionId
-    // if (transactionId) {
-    //   const paymentUrl = await order.fetchLinePayTransaction(transactionId);
-    //   if (paymentUrl) {
-    //     window.location.href = paymentUrl;
-    //   } else {
-    //     showError('提示', '付款失敗，請重新操作。');
-    //   }
-    // }
   };
   return (
     <div className="my-1.5 w-full flex-col border-black-1">
@@ -76,11 +69,15 @@ const Sum = () => {
           <div className="mb-5 flex-col border-b border-black-1 pb-5">
             <div className="mb-2 flex justify-between">
               <h6 className="text-black-6">現有積分</h6>
-              {/* <h6 className="text-black-6">{{ userPoint }} 積分</h6> */}
+              <h6 className="text-black-6">{user.points.point}積分</h6>
             </div>
             <div className="mb-2 flex justify-between">
               <h6 className="text-black-6">本次購買積分</h6>
               <h6 className="text-black-6">+ {result.totalPoint} 積分</h6>
+            </div>
+            <div className="flex justify-between mb-2">
+              <h5>購買後總積分</h5>
+              <h5 className="text-black-10">{getExpectedPoint()} 積分</h5>
             </div>
           </div>
           <div className="flex justify-between">

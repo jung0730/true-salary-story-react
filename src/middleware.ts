@@ -16,6 +16,12 @@ export function middleware(request: NextRequest) {
     }
     return response;
   }
+
+  if (!isLoggedIn && pathname.startsWith('/salary')) {
+    const response = NextResponse.next();
+    response.cookies.set('redirectUrl', pathname);
+    return response;
+  }
 }
 
 export const config = {

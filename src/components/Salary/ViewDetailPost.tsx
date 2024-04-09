@@ -3,12 +3,18 @@ import Button from '../Button';
 import LoadingAnimation from '../LoadingAnimation';
 import { usePostSalaryPermission } from '@/services/mutation';
 import { useRouter } from 'next/navigation';
+import { useCookie } from '@/hooks/useCookie';
 
 const ViewDetailPost = (props: { isLocked: boolean; postId: string }) => {
   const { isLocked, postId } = props;
   const { mutate, isLoading } = usePostSalaryPermission();
+  const { token } = useCookie();
   const router = useRouter();
   const viewHandler = () => {
+    if (!token) {
+      router.push('/login');
+      return;
+    }
     mutate(postId, {
       onSuccess: (id) => {
         if (id) {

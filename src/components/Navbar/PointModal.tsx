@@ -1,7 +1,12 @@
 import Button from '../Button';
 import { useRouter } from 'next/navigation';
 
-const PointModal = () => {
+type PointModalProps = {
+  onClose: () => void;
+};
+
+const PointModal = (props: PointModalProps) => {
+  const { onClose } = props;
   const router = useRouter();
   const clickHandler = (type: string) => {
     let str = '';
@@ -9,6 +14,7 @@ const PointModal = () => {
       str = '&point=100';
     }
     router.push(`/checkout?type=${type}${str}`);
+    onClose();
   };
   return (
     <div className="flex flex-col pb-2 pt-5">

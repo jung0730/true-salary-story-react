@@ -1,9 +1,8 @@
 import FormNumberInput from './FormNumberInput';
 import NumberInput from '../NumberInput';
 import FormRadioButtonStyle from './FormRadioButtonStyle';
-import Select from '../Select';
+import Select from './Select';
 import { salaryTypesOpions, monthOptions, workingHoursOptions } from '@/utils/options';
-import React from 'react';
 
 const FormSalaryCalculation = (props: any) => {
   const { register, errors, getValues, setValue, resetField } = props;

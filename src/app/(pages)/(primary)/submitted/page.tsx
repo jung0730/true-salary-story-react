@@ -20,14 +20,9 @@ const Page = () => {
               <span className="mt-3 text-black-6">前後 1 年間薪水任你看,無廣告閱讀體驗, 再贈送 2000 積分!</span>
             </div>
           </div>
-          <div className="mt-auto flex">
-            <BaseLink className="mr-4 w-full" href="">
-              NT 699
-            </BaseLink>
-            <BaseLink color="white" className="w-full" href="">
-              了解更多
-            </BaseLink>
-          </div>
+          <BaseLink className="mt-auto w-full" href="/checkout?type=subscription">
+            NT $699
+          </BaseLink>
         </div>
         <div className="mt-5 flex min-h-[240px] w-full flex-col rounded border border-black-3 bg-white p-6 md:mt-0">
           <div className="mb-4 flex">
@@ -40,7 +35,7 @@ const Page = () => {
               </p>
             </div>
           </div>
-          <BaseLink color="white" className="mt-auto w-full" href="">
+          <BaseLink color="white" className="mt-auto w-full" href="/checkout?type=single&point=100">
             NT$ 150
           </BaseLink>
         </div>

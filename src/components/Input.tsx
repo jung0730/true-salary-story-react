@@ -19,14 +19,14 @@ const Input = (props: InputProps) => {
   };
   return (
     <div className="flex items-center">
-      {icon && <Icon icon={icon} iconClasses="ml-4" />}
+      {icon && <Icon icon={icon} iconClasses="ml-4 absolute" />}
       <input
         type="text"
         value={value}
         disabled={isDisabled}
         placeholder={placeholder}
         onChange={handleChange}
-        className={clsx('w-full px-4 py-3', className)}
+        className={clsx('w-full px-4 py-3 ps-12', className)}
       />
     </div>
   );

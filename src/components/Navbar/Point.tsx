@@ -14,7 +14,7 @@ const Point = () => {
       </Button>
       {isOpen && (
         <ModalContainer setIsOpen={setIsOpen} title={'積分'}>
-          <PointModal />
+          <PointModal onClose={() => setIsOpen(!isOpen)} />
         </ModalContainer>
       )}
     </div>

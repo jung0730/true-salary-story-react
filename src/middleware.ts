@@ -4,21 +4,15 @@ import { NextResponse } from 'next/server';
 export function middleware(request: NextRequest) {
   const currentUser = request.cookies.get('token')?.value;
   const { pathname } = request.nextUrl;
-  const requiresAuthentication = ['/checkout', '/share', '/plan', '/order'].some((path) => pathname.startsWith(path));
+  const requiresAuthentication = ['/checkout', '/share', '/plan', '/order', '/salary'].some((path) =>
+    pathname.startsWith(path)
+  );
   const isLoggedIn = !!currentUser;
-
   if (!isLoggedIn && (pathname === '/' || requiresAuthentication)) {
-    const response = pathname === '/' ? NextResponse.next() : NextResponse.redirect(new URL('/login', request.url));
-    if (pathname === '/') {
-      response.cookies.delete('redirectUrl');
-    } else {
-      response.cookies.set('redirectUrl', pathname);
-    }
-    return response;
-  }
-
-  if (!isLoggedIn && pathname.startsWith('/salary')) {
-    const response = NextResponse.next();
+    const response =
+      pathname === '/' || pathname.startsWith('/salary')
+        ? NextResponse.next()
+        : NextResponse.redirect(new URL('/login', request.url));
     response.cookies.set('redirectUrl', pathname);
     return response;
   }

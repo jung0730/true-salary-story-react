@@ -156,7 +156,7 @@ export default async function Page(params: { params: { id: string } }) {
       </div>
       <BaseField label="工作內容" value={post.jobDescription} className="mb-5" />
       <BaseField label="其他建議" value={post.suggestion} className="mb-5" />
-      <ViewDetailPost isLocked={post.isLocked} />
+      <ViewDetailPost postId={post.postId} isLocked={post.isLocked} />
     </BaseLayout>
   );
 }

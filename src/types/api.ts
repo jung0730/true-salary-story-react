@@ -32,6 +32,13 @@ export type Salary = {
   };
 };
 
+export type SalaryPermission = {
+  result: {
+    isLocked: boolean;
+    postId: string;
+  };
+};
+
 export type Statistics = {
   data: {
     registeredUsers: number;

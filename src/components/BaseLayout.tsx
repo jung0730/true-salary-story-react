@@ -12,7 +12,7 @@ const BaseLayout = (props: BaseLayoutProps) => {
     <section className="flex min-h-screen items-center justify-center bg-gray max-[1920px]:overflow-x-hidden">
       <div
         className={clsx(
-          'mx-auto flex flex-col items-center justify-center sm:max-w-[350px] md:max-w-[650px] lg:max-w-[950px]',
+          'mx-auto flex flex-col items-center justify-center sm:min-w-[350px] md:min-w-[650px] lg:min-w-[950px] sm:max-w-[350px] md:max-w-[600px] lg:max-w-[950px]',
           className
         )}
       >

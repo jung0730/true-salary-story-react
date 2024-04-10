@@ -10,9 +10,9 @@ The project focuses on a salary-sharing platform inspired by real-life examples.
 - User profile
 - Display of salary information
 - Submission feature enabling users to post salary-related content
-https://github.com/jung0730/true-salary-story-react/assets/45630483/bf5bfb06-a73b-4a56-8680-4faef98f6582
+  ![name](https://github.com/jung0730/true-salary-story-react/assets/45630483/bf5bfb06-a73b-4a56-8680-4faef98f6582)
 - Order placement with Linepay payment
-https://github.com/jung0730/true-salary-story-react/assets/45630483/1f3b36d2-b308-410b-bb8a-ea2251c0de73
+  ![name](https://github.com/jung0730/true-salary-story-react/assets/45630483/1f3b36d2-b308-410b-bb8a-ea2251c0de73)
 
 The techs I have utilized are:
 

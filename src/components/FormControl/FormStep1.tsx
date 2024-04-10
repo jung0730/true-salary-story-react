@@ -16,6 +16,7 @@ import FormSalaryCalculation from './FormSalaryCalculation';
 import { useUniformNumbers } from '@/services/query';
 import { useState } from 'react';
 import { SubmitPostForStep1 } from '@/types/salary';
+import LoadingAnimation from '../LoadingAnimation';
 
 const FormStep1 = () => {
   const { setStep, setFormData } = useFormStore();
@@ -56,7 +57,7 @@ const FormStep1 = () => {
   const uniformNumbersRegex = /^[0-9]{8}$/;
   const fieldState = getFieldState('taxId');
   let uniformNumbersValue;
-  const { data } = useUniformNumbers(taxId);
+  const { data, isLoading } = useUniformNumbers(taxId);
   if (data?.isExist) {
     setValue('companyName', data.companyName);
   }
@@ -111,94 +112,97 @@ const FormStep1 = () => {
     return isLegal;
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <FormInput
-        label="公司統一編號8碼(ex: 12228473)"
-        placeholder="請輸入公司統一編號"
-        error={errors?.taxId?.message}
-        {...register('taxId', {
-          required: '統一編號為必填欄位',
-          pattern: {
-            value: uniformNumbersRegex,
-            message: '統一編號需為8碼',
-          },
-          validate: (v) => validateTaxId(v) || '統一編號格式不符',
-          onBlur: () => {
-            searchUniformNumbers();
-          },
-        })}
-      />
-      <FormInput
-        label="公司名稱"
-        disabled
-        placeholder="請輸入公司名稱"
-        error={errors?.companyName?.message}
-        {...register('companyName', { required: '公司名稱為為必填欄位' })}
-      />
-      <FormInput
-        label="應徵職務"
-        placeholder="請輸入應徵職務"
-        error={errors?.title?.message}
-        {...register('title', { required: '應徵職務為必填欄位' })}
-      />
-      <FormSelect
-        options={cityOptions}
-        title="工作城市"
-        error={errors?.city?.message}
-        {...register('city', { required: '工作城市為必填欄位' })}
-      />
-      <FormSelect
-        options={yearsOfServiceOptions}
-        title="在職年資"
-        error={errors?.workYears?.message}
-        {...register('workYears', { required: '在職年資為必填欄位' })}
-      />
-      <FormSelect
-        options={yearsOfServiceOptions}
-        title="總年資"
-        error={errors?.totalWorkYears?.message}
-        {...register('totalWorkYears', { required: '總年資為必填欄位' })}
-      />
-      <FormRadioButtonStyle
-        defaultValue={getValues('employmentType')}
-        options={employmentTypesOptions}
-        title="職務類別"
-        error={errors?.employmentType?.message}
-        {...register('employmentType', { required: '職務類別為必填欄位' })}
-      />
-      <FormRadioButtonStyle
-        defaultValue={String(getValues('inService'))}
-        options={isInServiceOptions}
-        title="在職狀況"
-        error={errors?.inService?.message}
-        {...register('inService', { required: '在職狀況為必填欄位' })}
-      />
-      <FormSalaryCalculation
-        resetField={resetField}
-        setValue={setValue}
-        register={register}
-        errors={errors}
-        getValues={getValues}
-      />
-      <FormRadio
-        options={overtimeOptions}
-        title="上班頻率"
-        error={errors?.overtime?.message}
-        {...register('overtime', { required: '上班頻率為必填欄位' })}
-      />
-      <FormRadio
-        options={feelingOptions}
-        title="上班狀況"
-        error={errors?.feeling?.message}
-        {...register('feeling', { required: '上班狀況為必填欄位' })}
-      />
-      <button
-        type="submit"
-        className="mx-auto flex rounded bg-blue fill-white px-5 py-3 text-white transition duration-300 ease-in-out hover:bg-black-10"
-      >
-        下一步
-      </button>
-    </form>
+    <>
+      {isLoading && <LoadingAnimation />}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormInput
+          label="公司統一編號8碼(ex: 12228473)"
+          placeholder="請輸入公司統一編號"
+          error={errors?.taxId?.message}
+          {...register('taxId', {
+            required: '統一編號為必填欄位',
+            pattern: {
+              value: uniformNumbersRegex,
+              message: '統一編號需為8碼',
+            },
+            validate: (v) => validateTaxId(v) || '統一編號格式不符',
+            onBlur: () => {
+              searchUniformNumbers();
+            },
+          })}
+        />
+        <FormInput
+          label="公司名稱"
+          disabled
+          placeholder="請輸入公司名稱"
+          error={errors?.companyName?.message}
+          {...register('companyName', { required: '公司名稱為為必填欄位' })}
+        />
+        <FormInput
+          label="應徵職務"
+          placeholder="請輸入應徵職務"
+          error={errors?.title?.message}
+          {...register('title', { required: '應徵職務為必填欄位' })}
+        />
+        <FormSelect
+          options={cityOptions}
+          title="工作城市"
+          error={errors?.city?.message}
+          {...register('city', { required: '工作城市為必填欄位' })}
+        />
+        <FormSelect
+          options={yearsOfServiceOptions}
+          title="在職年資"
+          error={errors?.workYears?.message}
+          {...register('workYears', { required: '在職年資為必填欄位' })}
+        />
+        <FormSelect
+          options={yearsOfServiceOptions}
+          title="總年資"
+          error={errors?.totalWorkYears?.message}
+          {...register('totalWorkYears', { required: '總年資為必填欄位' })}
+        />
+        <FormRadioButtonStyle
+          defaultValue={getValues('employmentType')}
+          options={employmentTypesOptions}
+          title="職務類別"
+          error={errors?.employmentType?.message}
+          {...register('employmentType', { required: '職務類別為必填欄位' })}
+        />
+        <FormRadioButtonStyle
+          defaultValue={String(getValues('inService'))}
+          options={isInServiceOptions}
+          title="在職狀況"
+          error={errors?.inService?.message}
+          {...register('inService', { required: '在職狀況為必填欄位' })}
+        />
+        <FormSalaryCalculation
+          resetField={resetField}
+          setValue={setValue}
+          register={register}
+          errors={errors}
+          getValues={getValues}
+        />
+        <FormRadio
+          options={overtimeOptions}
+          title="上班頻率"
+          error={errors?.overtime?.message}
+          {...register('overtime', { required: '上班頻率為必填欄位' })}
+        />
+        <FormRadio
+          options={feelingOptions}
+          title="上班狀況"
+          error={errors?.feeling?.message}
+          {...register('feeling', { required: '上班狀況為必填欄位' })}
+        />
+        <button
+          type="submit"
+          className="mx-auto flex rounded bg-blue fill-white px-5 py-3 text-white transition duration-300 ease-in-out hover:bg-black-10"
+        >
+          下一步
+        </button>
+      </form>
+    </>
   );
 };
 

@@ -15,9 +15,12 @@ import FormRadioButtonStyle from './FormRadioButtonStyle';
 import FormSalaryCalculation from './FormSalaryCalculation';
 import { useUniformNumbers } from '@/services/query';
 import { useState } from 'react';
-import { SubmitPostForStep1 } from '@/types/salary';
+import { SubmitPost } from '@/types/salary';
 import LoadingAnimation from '../LoadingAnimation';
 
+type SubmitPostForStep1 = Omit<SubmitPost, 'jobDescription' | 'suggestion'> & {
+  salaryTypes: string;
+};
 const FormStep1 = () => {
   const { setStep, setFormData } = useFormStore();
   const [taxId, setTaxId] = useState(0);
@@ -163,7 +166,7 @@ const FormStep1 = () => {
           {...register('totalWorkYears', { required: '總年資為必填欄位' })}
         />
         <FormRadioButtonStyle
-          defaultValue={getValues('employmentType')}
+          defaultValue={String(getValues('employmentType'))}
           options={employmentTypesOptions}
           title="職務類別"
           error={errors?.employmentType?.message}

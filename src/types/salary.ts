@@ -55,8 +55,3 @@ export type SubmitPost = {
   suggestion: string;
   inService: string | boolean;
 };
-
-export type SubmitPostForStep1 = Omit<SubmitPost, 'jobDescription' | 'suggestion'> & {
-  salaryTypes: string;
-};
-export type SubmitPostForStep2 = Pick<SubmitPost, 'jobDescription' | 'suggestion'>;

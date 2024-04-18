@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import useFormStore from '@/stores/form';
 import FormTextarea from './FormTextarea';
 import { usePostSalary } from '@/services/mutation';
-import { SubmitPostForStep2 } from '@/types/salary';
+import { SubmitPost } from '@/types/salary';
 import { useRouter } from 'next/navigation';
 import LoadingAnimation from '../LoadingAnimation';
 
@@ -14,14 +14,14 @@ const FormStep2 = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SubmitPostForStep2>({
+  } = useForm<Partial<SubmitPost>>({
     mode: 'onBlur',
     defaultValues: {
       jobDescription: '',
       suggestion: '',
     },
   });
-  const onSubmit = async (data: SubmitPostForStep2) => {
+  const onSubmit = async (data: Partial<SubmitPost>) => {
     const mergedData = { ...formData, ...data };
     setFormData(mergedData);
     mutate(mergedData, {
